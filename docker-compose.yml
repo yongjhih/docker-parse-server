@@ -1,0 +1,17 @@
+parse-server:
+  image: yongjhih/parse-server
+  ports:
+    - "1337:1337"
+  environment:
+      DATABASE_URI: $DATABASE_URI
+      APP_ID: $APP_ID
+      MASTER_KEY: $MASTER_KEY
+      FILE_KEY: $FILE_KEY
+  links:
+    - mongo
+  command: npm start
+mongo:
+  image: mongo
+  ports:
+    - "27017:27017"
+  command:  "--smallfiles --logpath=/dev/null"
