@@ -23,6 +23,9 @@ docker-compose run -d -e APP_ID={appId} -e MASTER_KEY={masterKey} -e API_PORT=80
 * CLOUD_URL={git@github.com:yongjhih/simple-parse-cloud.git}
 * CLOUD={/home/andrew/works/parse-server/cloud/main.js} (immutex CLOUD_URL)
 * DB_URL={mongodb://localhost:27017/dev} (immutex DB_PORT)
+* PARSE_SERVER_URL={https://github.com/ParsePlatform/parse-server}
+* PARSE_SERVER_URL={https://github.com/ParsePlatform/parse-server/tree/2.0.0}
+* PARSE_SERVER_URL={https://github.com/ParsePlatform/parse-server/tree/7f5d744}
 
 ## See Also
 
