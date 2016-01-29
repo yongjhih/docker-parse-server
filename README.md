@@ -18,23 +18,26 @@ docker run -d -e APP_ID={appId} -e MASTER_KEY={masterKey} -e FILE_KEY={fileKey} 
 * api: localhost:1337
 * mongodb: localhost:27017
 
-or with docker-compose
+or with docker-compose:
 
 ```sh
 wget https://github.com/yongjhih/docker-parse-server/blob/master/docker-compose.yml
 APP_ID=myAppId MASTER_KEY=myMasterKey docker-compose up
 ```
 
+## Configuration
+
+* APP_ID
+* MASTER_KEY
+* FILE_KEY
+* DATABASE_URI={mongodb://localhost:27017/dev}
+
 ## TODO
 
-* TODO: DB_PORT={27017}
+* TODO: DATABASE_PORT={27017} (immutex DATABASE_URI)
 * TODO: API_PORT={80}
-* TODO: CLOUD_URL={https://github.com/yongjhih/simple-parse-cloud}
-* TODO: CLOUD_PATH={/home/andrew/works/parse-server/cloud/main.js} (immutex CLOUD_URL)
-* TODO: DB_URL={mongodb://localhost:27017/dev} (immutex DB_PORT)
-* TODO: PARSE_SERVER_URL={https://github.com/ParsePlatform/parse-server}
-* TODO: PARSE_SERVER_URL={https://github.com/ParsePlatform/parse-server/tree/2.0.0}
-* TODO: PARSE_SERVER_URL={https://github.com/ParsePlatform/parse-server/tree/7f5d744}
+* TODO: CLOUD_URI={https://github.com/yongjhih/simple-parse-cloud}
+* TODO: CLOUD_PATH={/home/yongjhih/works/parse-server/cloud/main.js} (immutex CLOUD_URI)
 
 ## See Also
 
