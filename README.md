@@ -2,6 +2,8 @@
 
 ![](art/parse-rip-32dp.png)
 
+![](art/chart.png)
+
 Welcome PR.
 
 ## Usage
