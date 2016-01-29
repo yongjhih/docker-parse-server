@@ -15,6 +15,14 @@ docker-compose run -d -e APP_ID={appId} -e MASTER_KEY={masterKey} yongjhih/parse
 docker-compose run -d -e APP_ID={appId} -e MASTER_KEY={masterKey} -e API_PORT=80 -e DB_PORT=27017 yongjhih/parse-server
 ```
 
+* APP_ID
+* MASTER_KEY
+* FIEL_KEY
+* DB_PORT
+* API_PORT
+* CLOUD_GIT_URL
+* DB_URL (immutex DB_PORT)
+
 ## See Also
 
 * https://github.com/ParsePlatform/parse-server
