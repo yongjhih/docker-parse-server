@@ -2,9 +2,11 @@
 
 ![](art/parse-rip-32dp.png)
 
-![](art/chart.png)
-
 Welcome PR.
+
+Here is overview:
+
+![](art/chart.png)
 
 ## Usage
 
