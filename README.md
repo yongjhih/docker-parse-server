@@ -8,7 +8,7 @@ Welcome PR.
 
 ```sh
 docker run -d -p 27017:27017 --name mongo mongo
-docker run -d -e APP_ID={appId} -e MASTER_KEY={masterKey} -e FILE_KEY={fileKey} --link mongo yongjhih/parse-server
+docker run -d -e APP_ID={appId} -e MASTER_KEY={masterKey} -e FILE_KEY={fileKey} -p 1337:1337 --link mongo yongjhih/parse-server
 ```
 
 * api: localhost:1337
