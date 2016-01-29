@@ -15,13 +15,14 @@ docker-compose run -d -e APP_ID={appId} -e MASTER_KEY={masterKey} yongjhih/parse
 docker-compose run -d -e APP_ID={appId} -e MASTER_KEY={masterKey} -e API_PORT=80 -e DB_PORT=27017 yongjhih/parse-server
 ```
 
-* APP_ID
-* MASTER_KEY
-* FIEL_KEY
-* DB_PORT
-* API_PORT
-* CLOUD_GIT_URL
-* DB_URL (immutex DB_PORT)
+* APP_ID={myAppId}
+* MASTER_KEY={mySecretMasterKey}
+* FIEL_KEY={optionalFileKey}
+* DB_PORT={27017}
+* API_PORT={80}
+* CLOUD_URL={git@github.com:yongjhih/simple-parse-cloud.git}
+* CLOUD={/home/andrew/works/parse-server/cloud/main.js} (immutex CLOUD_URL)
+* DB_URL={mongodb://localhost:27017/dev} (immutex DB_PORT)
 
 ## See Also
 
