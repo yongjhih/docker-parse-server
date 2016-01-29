@@ -14,7 +14,7 @@ docker run -d -e APP_ID={appId} -e MASTER_KEY={masterKey} -e FILE_KEY={fileKey} 
 * api: localhost:1337
 * mongodb: localhost:27017
 
-### Usage with docker-compose
+or with docker-compose
 
 ```sh
 wget https://github.com/yongjhih/docker-parse-server/blob/master/docker-compose.yml
