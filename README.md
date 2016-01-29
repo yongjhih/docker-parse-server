@@ -18,7 +18,7 @@ docker run -d -e APP_ID={appId} -e MASTER_KEY={masterKey} -e FILE_KEY={fileKey} 
 
 ```sh
 wget https://github.com/yongjhih/docker-parse-server/blob/master/docker-compose.yml
-docker-compose up
+APP_ID=myAppId MASTER_KEY=myMasterKey docker-compose up
 ```
 
 ## See Also
