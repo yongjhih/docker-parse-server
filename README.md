@@ -1,5 +1,7 @@
 # docker-parse-server
 
+![](art/parse-rip-32dp.png)
+
 Welcome PR.
 
 ## Usage
@@ -24,6 +26,8 @@ docker-compose up
 * https://github.com/ParsePlatform/parse-server
 * http://blog.parse.com/announcements/introducing-parse-server-and-the-database-migration-tool/
 * https://parse.com/docs/server/guide#migrating
+* https://hub.docker.com/r/yongjhih/parse-server/
+* https://medium.com/cowbear-coder/migration-of-parse-server-with-docker-part1-87034cc29978
 
 ## License
 
