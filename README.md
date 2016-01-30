@@ -25,12 +25,25 @@ wget https://github.com/yongjhih/docker-parse-server/blob/master/docker-compose.
 APP_ID=myAppId MASTER_KEY=myMasterKey docker-compose up
 ```
 
+### Usage of already mongodb with DATABASE_URI
+
+```sh
+docker run -d -e DATABASE_URI={mongodb://mongodb.intra:27017/dev} APP_ID={appId} -e MASTER_KEY={masterKey} -e FILE_KEY={fileKey} -p 1337:1337 --link mongo yongjhih/parse-server
+```
+
+or with docker-compose:
+
+```sh
+wget https://github.com/yongjhih/docker-parse-server/blob/master/docker-compose.yml
+DATABASE_URI={mongodb://mongodb.intra:27017/dev} APP_ID=myAppId MASTER_KEY=myMasterKey docker-compose up
+```
+
 ## Configuration
 
 * APP_ID
 * MASTER_KEY
 * FILE_KEY
-* DATABASE_URI={mongodb://localhost:27017/dev}
+* DATABASE_URI={mongodb://mongodb.intra:27017/dev}
 
 ## TODO
 
