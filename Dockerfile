@@ -16,3 +16,4 @@ ADD index.js /index.js
 ADD cloud /cloud
 
 EXPOSE 1337
+CMD [ "npm", "start" ]
