@@ -9,9 +9,8 @@ parse-server:
       FILE_KEY: $FILE_KEY
   links:
     - mongo
-  command: npm start
 mongo:
   image: mongo
   ports:
     - "27017:27017"
-  command:  "--smallfiles --logpath=/dev/null"
+  command: "--smallfiles --logpath=/dev/null"
