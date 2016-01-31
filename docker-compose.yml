@@ -13,12 +13,13 @@ mongo:
   image: mongo
   ports:
     - "27017:27017"
-#  volumes_from:
-#    - mongo-data
+  volumes_from:
+    - mongo-data
 #  command: "--smallfiles --logpath=/dev/null --setParameter failIndexKeyTooLong=false --rest --auth"
   command: "--smallfiles --logpath=/dev/null --setParameter failIndexKeyTooLong=false"
-#mongo-data:
-#  image: mongo
-#  volumes:
-#    - /data/db
-#  command: "/bin/true"
+# ref. http://www.diogogmt.com/running-mongodb-with-docker-and-compose/
+mongo-data:
+  image: mongo
+  volumes:
+    - /data/db
+  command: "--break-mongo"
