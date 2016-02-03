@@ -1,5 +1,7 @@
 # docker-parse-server
 
+[![](https://badge.imagelayers.io/yongjhih/parse-server:latest.svg)](https://imagelayers.io/?images=yongjhih/parse-server:latest)
+
 ![](art/parse-rip-32dp.png)
 
 Welcome PR.
