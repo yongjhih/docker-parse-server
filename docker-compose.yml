@@ -1,14 +1,24 @@
 parse-server:
+  #build: .
   image: yongjhih/parse-server
   ports:
     - "1337:1337"
   environment:
-      DATABASE_URI: $DATABASE_URI
-      APP_ID: $APP_ID
-      MASTER_KEY: $MASTER_KEY
-      FILE_KEY: $FILE_KEY
+    DATABASE_URI: $DATABASE_URI
+    APP_ID: $APP_ID
+    MASTER_KEY: $MASTER_KEY
+    FILE_KEY: $FILE_KEY
+    PARSE_ROOT: $PARSE_ROOT
   links:
     - mongo
+  volumes_from:
+    - parse-cloud-code
+parse-cloud-code:
+  #build: .
+  image: yongjhih/parse-server
+  volumes:
+    - /parse/cloud
+  command: /bin/true
 mongo:
   image: mongo
   ports:
