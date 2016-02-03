@@ -1,17 +1,18 @@
 {
-  "name": "simple-parse-server",
+  "name": "parse-server-example",
   "version": "1.0.0",
-  "description": "A simple Parse API server using the parse-server module",
+  "description": "An example Parse API server using the parse-server module",
   "main": "index.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/yongjhih/docker-parse-server"
   },
-  "license": "Apache 2.0",
+  "license": "MIT",
   "dependencies": {
     "express": "~4.2.x",
+    "kerberos": "~0.0.x",
     "parse": "~1.6.12",
-    "parse-server": "~2.0.4"
+    "parse-server": "~2.0"
   },
   "scripts": {
     "start": "node index.js"

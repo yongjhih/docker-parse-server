@@ -59,7 +59,3 @@ DATABASE_URI={mongodb://mongodb.intra:27017/dev} APP_ID=myAppId MASTER_KEY=myMas
 * https://parse.com/docs/server/guide#migrating
 * https://hub.docker.com/r/yongjhih/parse-server/
 * https://medium.com/cowbear-coder/migration-of-parse-server-with-docker-part1-87034cc29978
-
-## License
-
-Apache 2.0 8tory
