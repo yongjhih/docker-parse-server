@@ -43,14 +43,11 @@ DATABASE_URI={mongodb://mongodb.intra:27017/dev} APP_ID=myAppId MASTER_KEY=myMas
 * APP_ID
 * MASTER_KEY
 * FILE_KEY
-* DATABASE_URI={mongodb://mongodb.intra:27017/dev}
-
-## TODO
-
-* TODO: DATABASE_PORT={27017} (immutex DATABASE_URI)
-* TODO: API_PORT={80}
-* TODO: CLOUD_URI={https://github.com/yongjhih/simple-parse-cloud}
-* TODO: CLOUD_PATH={/home/yongjhih/works/parse-server/cloud/main.js} (immutex CLOUD_URI)
+* Specify database uri: `-e DATABASE_URI=mongodb://mongodb.intra:27017/dev`
+* Specify parse-server port on host: `-p 1338:1337`
+* Specify database port on host: `-p 27018:27017`
+* Specify parse code folder: `-v /home/yongjhih/parse/cloud:/parse/cloud`
+* Specify parse-server prefix: `-e PARSE_ROOT=/parse`
 
 ## See Also
 

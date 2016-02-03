@@ -1,26 +1,30 @@
 FROM node:latest
 
-RUN mkdir parse
+ENV PARSE_HOME /parse
 
-ADD . /parse
-WORKDIR /parse
+RUN mkdir -p $PARSE_HOME
+
+ADD index.js ${PARSE_HOME}/index.js
+ADD app.json ${PARSE_HOME}/app.json
+ADD azuredeploy.json ${PARSE_HOME}/azuredeploy.json
+ADD jsconfig.json ${PARSE_HOME}/jsconfig.json
+ADD package.json ${PARSE_HOME}/package.json
+
+ENV CLOUD_CODE_HOME ${PARSE_HOME}/cloud
+ADD cloud $CLOUD_CODE_HOME
+
+WORKDIR $PARSE_HOME
 RUN npm install
 
 ENV APP_ID setYourAppId
 ENV MASTER_KEY setYourMasterKey
 ENV DATABASE_URI setMongoDBURI
+ENV CLOUD_CODE_MAIN ${CLOUD_CODE_HOME}/main.js
+ENV PARSE_ROOT /parse
 
-# Optional (default : 'parse/cloud/main.js')
-# ENV CLOUD_CODE_MAIN cloudCodePath
+ENV PORT 1337
 
-# Optional (default : '/parse')
-# ENV PARSE_MOUNT mountPath
-
-EXPOSE 1337
-
-# Uncomment if you want to access cloud code outside of your container
-# A main.js file must be present, if not Parse will not start
-
-# VOLUME /parse/cloud               
+EXPOSE $PORT
+VOLUME $CLOUD_CODE_HOME
 
 CMD [ "npm", "start" ]
