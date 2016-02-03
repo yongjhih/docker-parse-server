@@ -11,7 +11,7 @@
   "dependencies": {
     "express": "~4.2.x",
     "parse": "~1.6.12",
-    "parse-server": "~2.0.2"
+    "parse-server": "~2.0.3"
   },
   "scripts": {
     "start": "node index.js"
