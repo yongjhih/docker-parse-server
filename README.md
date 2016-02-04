@@ -104,4 +104,6 @@ parse-cloud-code:
 * http://blog.parse.com/announcements/introducing-parse-server-and-the-database-migration-tool/
 * https://parse.com/docs/server/guide#migrating
 * https://hub.docker.com/r/yongjhih/parse-server/
+* https://github.com/yongjhih/parse-cloud-code
+* https://hub.docker.com/r/yongjhih/parse-cloud-code/
 * https://medium.com/cowbear-coder/migration-of-parse-server-with-docker-part1-87034cc29978
