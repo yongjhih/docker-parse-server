@@ -42,16 +42,55 @@ wget https://github.com/yongjhih/docker-parse-server/blob/master/docker-compose.
 DATABASE_URI={mongodb://mongodb.intra:27017/dev} APP_ID=myAppId MASTER_KEY=myMasterKey docker-compose up
 ```
 
-## Configuration
+## Configuration with docker
 
-* APP_ID
-* MASTER_KEY
+* Specify application ID: `-e APP_ID`
+* Specify master key: `-e MASTER_KEY=`
 * Specify database uri: `-e DATABASE_URI=mongodb://mongodb.intra:27017/dev`
 * Specify parse-server port on host: `-p 1338:1337`
 * Specify database port on host: `-p 27018:27017`
-* Specify parse cloud code folder: `-v /home/yongjhih/parse/cloud:/parse/cloud`
+* Specify parse cloud code host folder: `-v /home/yongjhih/parse/cloud:/parse/cloud`
 * Specify parse cloud code volume container: `--volumes-from parse-cloud-code`
 * Specify parse-server prefix: `-e PARSE_ROOT=/parse`
+
+## Configuration with docker-compose.yml
+
+Environment:
+
+```docker-compose
+# ...
+parse-server:
+  # ...
+  environment:
+    DATABASE_URI: $DATABASE_URI
+    APP_ID: $APP_ID
+    MASTER_KEY: $MASTER_KEY
+    PARSE_ROOT: $PARSE_ROOT
+# ...
+```
+
+Remote parse-cloud-code image:
+
+```docker-compose
+# ...
+parse-cloud-code:
+  # ...
+  image: yongjhih/parse-cloud-code # Specify your parse-cloud-code image
+# ...
+```docker-compose
+
+or host folder:
+
+```docker-compose
+# ...
+parse-cloud-code:
+  # ...
+  image: yongjhih/parse-server
+  volumes:
+    - /home/yongjhih/works/parse/cloud:/parse/cloud
+  # ...
+# ...
+```docker-compose
 
 ## See Also
 
