@@ -13,8 +13,8 @@ parse-server:
   volumes_from:
     - parse-cloud-code
 parse-cloud-code:
-  build: cloud/.
-  #image: yongjhih/parse-cloud-code
+  #build: cloud/.
+  image: yongjhih/parse-cloud-code
   volumes:
     - /parse/cloud
   command: "ls /parse/cloud"
