@@ -44,9 +44,26 @@ DATABASE_URI={mongodb://mongodb.intra:27017/dev} APP_ID=myAppId MASTER_KEY=myMas
 
 ### Usage of already parse-cloud-code
 
+With host folder:
+
 ```sh
 docker run -d -v /home/yongjhih/parse/cloud:/parse/cloud -e DATABASE_URI={mongodb://mongodb.intra:27017/dev} APP_ID={appId} -e MASTER_KEY={masterKey} -p 1337:1337 --link mongo yongjhih/parse-server
 ```
+
+With volume container:
+
+```sh
+docker create -v /parse/cloud --name parse-cloud-code yongjhih/parse-cloud-code echo ls /parse/cloud
+docker run -d --volumes-from parse-cloud-code -e DATABASE_URI={mongodb://mongodb.intra:27017/dev} APP_ID={appId} -e MASTER_KEY={masterKey} -p 1337:1337 --link mongo yongjhih/parse-server
+```
+
+### Integration of parse-cloud-code image on GitHub and DockerHub
+
+1. fork https://github.com/yongjhih/parse-cloud-code
+2. Create an automated build image on DockerHub for forked parse-cloud-code repository
+3. `docker pull {username}/parse-cloud-code`
+4. re/create volume container: `docker create ...`
+5. re/create parse-server container: `docker run -d --volumes-from ...`
 
 ## More configuration with docker
 
