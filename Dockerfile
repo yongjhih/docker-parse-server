@@ -16,9 +16,9 @@ ADD cloud/*.js $CLOUD_CODE_HOME/
 WORKDIR $PARSE_HOME
 RUN npm install
 
-ENV APP_ID setYourAppId
-ENV MASTER_KEY setYourMasterKey
-ENV DATABASE_URI setMongoDBURI
+ENV APP_ID myAppId
+ENV MASTER_KEY myMasterKey
+ENV DATABASE_URI mongodb://localhost:27017/dev
 ENV CLOUD_CODE_MAIN ${CLOUD_CODE_HOME}/main.js
 ENV PARSE_ROOT /parse
 

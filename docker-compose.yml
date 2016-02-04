@@ -7,7 +7,6 @@ parse-server:
     DATABASE_URI: $DATABASE_URI
     APP_ID: $APP_ID
     MASTER_KEY: $MASTER_KEY
-    FILE_KEY: $FILE_KEY
     PARSE_ROOT: $PARSE_ROOT
   links:
     - mongo
