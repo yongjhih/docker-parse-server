@@ -1,5 +1,6 @@
-// Example express application adding the parse-server module to expose Parse
-// compatible API routes.
+#!/usr/bin/env node
+// ref. parse-server/index.js
+// ref. parse-server/bin/parse-server
 
 var express = require('express');
 var ParseServer = require('parse-server').ParseServer;
