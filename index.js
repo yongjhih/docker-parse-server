@@ -4,6 +4,7 @@
 
 var express = require('express');
 var ParseServer = require('parse-server').ParseServer;
+var links = require('docker-links').parseLinks(process.env);
 
 var databaseUri = process.env.DATABASE_URI || process.env.MONGOLAB_URI
 
@@ -24,7 +25,7 @@ if (process.env.PARSE_SERVER_OPTIONS) {
 */
 
 var api = new ParseServer({
-  databaseURI: databaseUri || 'mongodb://localhost:27017/dev',
+  databaseURI: databaseUri || 'mongodb://' + links.mongo.hostname + ':27017/dev',
   cloud: process.env.CLOUD_CODE_MAIN || __dirname + '/cloud/main.js',
 
   appId: process.env.APP_ID || 'myAppId',
