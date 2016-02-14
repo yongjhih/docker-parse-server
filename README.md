@@ -59,11 +59,27 @@ docker run -d --volumes-from parse-cloud-code -e DATABASE_URI={mongodb://mongodb
 
 ### Integration of parse-cloud-code image on GitHub and DockerHub
 
-1. fork https://github.com/yongjhih/parse-cloud-code
+Docker:
+
+1. Fork https://github.com/yongjhih/parse-cloud-code
 2. Create an automated build image on DockerHub for forked parse-cloud-code repository
 3. `docker pull {username}/parse-cloud-code`
-4. re/create volume container: `docker create ...`
-5. re/create parse-server container: `docker run -d --volumes-from ...`
+4. Re/create parse-cloud-code volume container: `docker create -v /parse/code --name parse-cloud-code {username}/parse-cloud-code /bin/true`
+5. Re/create parse-server container with volume: `docker run -d --volumes-from parse-cloud-code APP_ID={appId} -e MASTER_KEY={masterKey} -p 1337:1337 --link mongo yongjhih/parse-server`
+
+Or docker-compose.yml:
+
+```yml
+# ...
+parse-cloud-code:
+  # ...
+  image: {username}/parse-cloud-code # Specify your parse-cloud-code image
+# ...
+```
+
+```sh
+docker-compose up
+```
 
 ## More configuration with docker
 
