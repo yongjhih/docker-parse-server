@@ -41,7 +41,7 @@ or with docker-compose:
 
 ```sh
 wget https://github.com/yongjhih/docker-parse-server/blob/master/docker-compose.yml
-DATABASE_URI={mongodb://mongodb.intra:27017/dev} APP_ID=myAppId MASTER_KEY=myMasterKey docker-compose up
+DATABASE_URI={mongodb://mongodb.intra:27017/dev} APP_ID={myAppId} MASTER_KEY={myMasterKey} docker-compose up
 ```
 
 ### Usage of already parse-cloud-code
