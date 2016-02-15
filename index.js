@@ -9,6 +9,12 @@ var links = require('docker-links').parseLinks(process.env);
 var databaseUri = process.env.DATABASE_URI || process.env.MONGOLAB_URI
 
 if (!databaseUri) {
+  if (links.mongo) {
+    databaseUri = 'mongodb://' + links.mongo.hostname + ':' + links.mongo.port + '/dev';
+  }
+}
+
+if (!databaseUri) {
   console.log('DATABASE_URI not specified, falling back to localhost.');
 }
 
@@ -25,7 +31,7 @@ if (process.env.PARSE_SERVER_OPTIONS) {
 */
 
 var api = new ParseServer({
-  databaseURI: databaseUri || 'mongodb://' + links.mongo.hostname + ':27017/dev',
+  databaseURI: databaseUri || 'mongodb://localhost:27017/dev',
   cloud: process.env.CLOUD_CODE_MAIN || __dirname + '/cloud/main.js',
 
   appId: process.env.APP_ID || 'myAppId',
