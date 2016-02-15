@@ -61,6 +61,8 @@ docker run -d --volumes-from parse-cloud-code -e DATABASE_URI={mongodb://mongodb
 
 ### Usage of specific parse-server version
 
+Specify parse-server:2.0.8:
+
 ```sh
 docker run -d APP_ID={appId} -e MASTER_KEY={masterKey} -p 1337:1337 --link mongo yongjhih/parse-server:2.0.8
 ```
