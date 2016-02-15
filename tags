@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+curl -s -S "https://registry.hub.docker.com/v2/repositories/yongjhih/parse-server/tags/" | jq '.results[]["name"]' | sort
