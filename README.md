@@ -59,6 +59,15 @@ docker create -v /parse/cloud --name parse-cloud-code yongjhih/parse-cloud-code 
 docker run -d --volumes-from parse-cloud-code -e DATABASE_URI={mongodb://mongodb.intra:27017/dev} APP_ID={appId} -e MASTER_KEY={masterKey} -p 1337:1337 --link mongo yongjhih/parse-server
 ```
 
+### Usage of specific parse-server version
+
+```sh
+docker run -d APP_ID={appId} -e MASTER_KEY={masterKey} -p 1337:1337 --link mongo yongjhih/parse-server:2.0.8
+```
+
+ref. https://github.com/ParsePlatform/parse-server/releases
+ref. https://www.npmjs.com/package/parse-server
+
 ### Integration of parse-cloud-code image on GitHub and DockerHub
 
 Docker:
