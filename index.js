@@ -45,7 +45,7 @@ var api = new ParseServer({
 var app = express();
 
 // Serve the Parse API on the /parse URL prefix
-var mountPath = process.env.MOUNT_PATH || '/parse';
+var mountPath = process.env.PARSE_MOUNT || '/parse';
 app.use(mountPath, api);
 
 // Parse Server plays nicely with the rest of your web routes

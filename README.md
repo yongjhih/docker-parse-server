@@ -92,7 +92,7 @@ docker-compose up
 * Specify database port on host: `-p 27018:27017`
 * Specify parse cloud code host folder: `-v /home/yongjhih/parse/cloud:/parse/cloud`
 * Specify parse cloud code volume container: `--volumes-from parse-cloud-code`
-* Specify parse-server prefix: `-e MOUNT_PATH=/parse`
+* Specify parse-server prefix: `-e PARSE_MOUNT=/parse`
 
 ## Configuration with docker-compose.yml
 
@@ -106,7 +106,7 @@ parse-server:
     DATABASE_URI: $DATABASE_URI
     APP_ID: $APP_ID
     MASTER_KEY: $MASTER_KEY
-    MOUNT_PATH: $MOUNT_PATH
+    PARSE_MOUNT: $PARSE_MOUNT
 # ...
 ```
 
