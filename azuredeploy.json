@@ -46,7 +46,7 @@
     },
     "repoURL": {
       "type": "string",
-      "defaultValue": "https://github.com/parseplatform/parse-server-example.git",
+      "defaultValue": "https://github.com/yongjhih/docker-parse-server.git",
       "metadata": {
         "description": "The URL for the GitHub repository that contains the project to deploy."
       }
