@@ -2,13 +2,18 @@ FROM node:latest
 
 ENV PARSE_HOME /parse
 
-#ADD .js ${PARSE_HOME}/
+#ADD . ${PARSE_HOME}
+#ADD *.js ${PARSE_HOME}/
 #ADD *.json ${PARSE_HOME}/
+
 ADD index.js ${PARSE_HOME}/index.js
-ADD app.json ${PARSE_HOME}/app.json
-ADD azuredeploy.json ${PARSE_HOME}/azuredeploy.json
-ADD jsconfig.json ${PARSE_HOME}/jsconfig.json
 ADD package.json ${PARSE_HOME}/package.json
+
+ADD jsconfig.json ${PARSE_HOME}/jsconfig.json
+
+## deployment is unnecessary
+#ADD app.json ${PARSE_HOME}/app.json # heroku
+#ADD azuredeploy.json ${PARSE_HOME}/azuredeploy.json # azure
 
 ENV CLOUD_CODE_HOME ${PARSE_HOME}/cloud
 ADD cloud/*.js $CLOUD_CODE_HOME/
