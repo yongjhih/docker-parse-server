@@ -34,7 +34,7 @@ APP_ID=myAppId MASTER_KEY=myMasterKey docker-compose up
 ### Usage of already mongodb with DATABASE_URI
 
 ```sh
-docker run -d -e DATABASE_URI={mongodb://mongodb.intra:27017/dev} APP_ID={appId} -e MASTER_KEY={masterKey} -p 1337:1337 --link mongo yongjhih/parse-server
+docker run -d -e DATABASE_URI={mongodb://mongodb.intra:27017/dev} -e APP_ID={appId} -e MASTER_KEY={masterKey} -p 1337:1337 yongjhih/parse-server
 ```
 
 or with docker-compose:
