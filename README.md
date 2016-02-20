@@ -3,9 +3,8 @@
 [![Docker Tag](https://img.shields.io/github/tag/yongjhih/docker-parse-server.svg)](https://hub.docker.com/r/yongjhih/parse-server/tags/)
 [![Docker Pulls](https://img.shields.io/docker/pulls/yongjhih/parse-server.svg)](https://hub.docker.com/r/yongjhih/parse-server/)
 [![Docker Stars](https://img.shields.io/docker/stars/yongjhih/parse-server.svg)](https://hub.docker.com/r/yongjhih/parse-server/)
-[![Docker Size](https://img.shields.io/imagelayers/image-size/yongjhih/parse-server/latest.svg)](https://hub.docker.com/r/yongjhih/parse-server/)
-[![Docker Layers](https://img.shields.io/imagelayers/layers/yongjhih/parse-server/latest.svg)](https://hub.docker.com/r/yongjhih/parse-server/)
-[![Docker Layers](https://badge.imagelayers.io/yongjhih/parse-server:latest.svg)](https://imagelayers.io/?images=yongjhih/parse-server:latest)
+[![Docker Size](https://img.shields.io/imagelayers/image-size/yongjhih/parse-server/latest.svg)](https://imagelayers.io/?images=yongjhih/parse-server:latest)
+[![Docker Layers](https://img.shields.io/imagelayers/layers/yongjhih/parse-server/latest.svg)](https://imagelayers.io/?images=yongjhih/parse-server:latest)
 [![Join the chat at https://gitter.im/yongjhih/docker-parse-server](https://badges.gitter.im/yongjhih/docker-parse-server.svg)](https://gitter.im/yongjhih/docker-parse-server?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 ![](art/parse-rip-32dp.png)
