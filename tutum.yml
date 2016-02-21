@@ -1,14 +1,10 @@
 haproxy:
   #image: tutum/haproxy:0.1
   image: dockercloud/haproxy
-  environment:
-    - BACKEND_PORT=1337
   links:
     - parse-server
-    - mongo
   ports:
     - "1337:1337"
-    - "27017:27017"
   restart: always
   roles:
     - global
@@ -45,6 +41,8 @@ parse-cloud-code:
 
 mongo:
   image: mongo
+  ports:
+    - "27017:27017"
   volumes_from:
     - mongo-data
 #  command: "--smallfiles --logpath=/dev/null --setParameter failIndexKeyTooLong=false --rest --auth"
