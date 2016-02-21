@@ -1,16 +1,17 @@
 haproxy:
-  image: 'tutum/haproxy:0.1'
+  #image: tutum/haproxy:0.1
+  image: dockercloud/haproxy
   environment:
     - BACKEND_PORT=1337
   links:
-    - 'parse-server'
-    - 'mongo'
+    - parse-server
+    - mongo
   ports:
-    - "80:1337"
+    - "1337:1337"
     - "27017:27017"
   restart: always
   roles:
-    - 'global'
+    - global
 
 parse-server:
   #build: .
