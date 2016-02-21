@@ -55,4 +55,3 @@ mongo-data:
   volumes:
     - /data/db
   command: "--break-mongo"
-  restart: always
