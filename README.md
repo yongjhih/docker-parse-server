@@ -9,9 +9,10 @@
 [![Gitter Chat](https://img.shields.io/gitter/room/yongjhih/docker-parse-server.svg)](https://gitter.im/yongjhih/docker-parse-server)
 
 [![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
-<a title="Deploy to AWS" href="https://console.aws.amazon.com/elasticbeanstalk/home?region=us-west-2#/newApplication?applicationName=ParseServer&solutionStackName=Node.js&tierName=WebServer&sourceBundleUrl=https://s3.amazonaws.com/elasticbeanstalk-samples-us-east-1/eb-parse-server-sample/parse-server-example.zip" target="_blank"><img src="http://d0.awsstatic.com/product-marketing/Elastic%20Beanstalk/deploy-to-aws.png" height="40"></a>
 [![Deploy to Azure](http://azuredeploy.net/deploybutton.png)](https://azuredeploy.net/)
 [![Deploy to Scalingo](https://cdn.scalingo.com/deploy/button.svg)](https://my.scalingo.com/deploy)
+<a title="Deploy to AWS" href="https://console.aws.amazon.com/elasticbeanstalk/home?region=us-west-2#/newApplication?applicationName=ParseServer&solutionStackName=Node.js&tierName=WebServer&sourceBundleUrl=https://s3.amazonaws.com/elasticbeanstalk-samples-us-east-1/eb-parse-server-sample/parse-server-example.zip" target="_blank"><img src="http://d0.awsstatic.com/product-marketing/Elastic%20Beanstalk/deploy-to-aws.png" height="35"></a>
+
 ![](art/parse-rip-32dp.png)
 
 You should not build your parse-server image instead of reuse this yongjhih/parse-server image, then plugin your parse-cloud-code container and mongodb container.
@@ -60,7 +61,7 @@ or with docker-compose:
 
 ```sh
 $ wget https://github.com/yongjhih/docker-parse-server/blob/master/docker-compose.yml
-$ DATABASE_URI={mongodb://mongodb.intra:27017/dev} APP_ID={myAppId} MASTER_KEY={myMasterKey} docker-compose up parse-server
+$ DATABASE_URI={mongodb://mongodb.intra:27017/dev} APP_ID={myAppId} MASTER_KEY={myMasterKey} docker-compose up
 ```
 
 ### Usage of already parse-cloud-code
@@ -70,10 +71,11 @@ With host folder:
 ```sh
 $ docker run -d \
              -v {/home/yongjhih/parse/cloud}:/parse/cloud        \
+             -e DATABASE_URI={mongodb://mongodb.intra:27017/dev} \
              -e APP_ID={appId}                                   \
              -e MASTER_KEY={masterKey}                           \
              -p 1337:1337                                        \
-             --link mongo                                         \
+             -link mongo                                         \
              yongjhih/parse-server
 ```
 
@@ -86,6 +88,7 @@ $ docker create --name parse-cloud-code \
 
 $ docker run -d \
              --volumes-from parse-cloud-code                     \
+             -e DATABASE_URI={mongodb://mongodb.intra:27017/dev} \
              -e APP_ID={appId}                                   \
              -e MASTER_KEY={masterKey}                           \
              -p 1337:1337                                        \
