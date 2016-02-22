@@ -1,6 +1,6 @@
 haproxy:
-  #image: tutum/haproxy:0.1
-  image: dockercloud/haproxy
+  image: tutum/haproxy
+  #image: dockercloud/haproxy
   links:
     - parse-server
   ports:
