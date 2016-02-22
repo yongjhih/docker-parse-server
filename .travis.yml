@@ -20,7 +20,8 @@ install:
 
 before_script:
   - env | sort
-  - sed -i 's/"parse-server". "[^"]\+"/"parse-server". "~'"$VERSION"'"/' package.json
+  - C=":"
+  - sed -i 's/"parse-server"'$C' "[^"]\+"/"parse-server"'$C' "~'"$VERSION"'"/' package.json
   - image="yongjhih/parse-server:$VERSION"
 
 script:
