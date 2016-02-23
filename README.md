@@ -18,7 +18,7 @@
 
 ![](art/parse-rip-32dp.png)
 
-You should not build your parse-server image instead of reuse this yongjhih/parse-server image, then plugin your parse-cloud-code container and mongodb container.
+You should not build your parse-server image instead of reuse this yongjhih/parse-server image, then plugin your parse-cloud-code container (allow dynamic update) and mongodb container.
 
 Welcome PR.
 
