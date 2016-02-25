@@ -24,7 +24,7 @@ Welcome PR.
 
 Here is overview:
 
-![](art/chart.png)
+![](art/parse-server-diagram.png)
 
 ## Getting Started
 
