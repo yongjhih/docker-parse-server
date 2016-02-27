@@ -50,7 +50,14 @@ RUN apt-get update && \
 ENV SSH_PORT 5022
 EXPOSE $SSH_PORT
 
-ADD ssh-add-key /usr/sbin/ssh-add-key
+ADD ssh-add-key /usr/bin/ssh-add-key
+
+RUN useradd -s /bin/bash git
+RUN echo "git ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
+
+RUN mkdir -p /parse-cloud-code && \
+    chown -R git:git /parse-cloud-code && \
+    chown -R git:git /parse/cloud
 
 ADD docker-entrypoint.sh /
 ENTRYPOINT ["/docker-entrypoint.sh"]

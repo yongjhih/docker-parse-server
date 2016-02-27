@@ -2,10 +2,17 @@
 
 set -e
 
-if [ ! -d /root/.ssh/ ]; then
-    mkdir -p /root/.ssh/
+if [ ! -d ~/.ssh/ ]; then
+    mkdir -p ~/.ssh/
+fi
+
+if [ ! -d /home/git/.ssh/ ]; then
+    mkdir -p /home/git/.ssh/
+    touch /home/git/.ssh/authorized_keys
+    chown git:git /home/git/.ssh/authorized_keys
 fi
 
 while read line; do
-  echo $line >> /root/.ssh/authorized_keys
+  echo "$line" >> ~/.ssh/authorized_keys
+  echo "$line" >> /home/git/.ssh/authorized_keys
 done
