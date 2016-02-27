@@ -54,8 +54,10 @@ $ docker exec -i parse-server ssh-add-key < ~/.ssh/id_rsa.pub
 
 $ git clone ssh://git@localhost:5022/parse-cloud-code
 $ cd parse-cloud-code
-$ echo "Parse.Cloud.define('hello', function(req, res) { res.success('Hi, git'); }); > main.js
+$ echo "Parse.Cloud.define('hello', function(req, res) { res.success('Hi, git'); });" > main.js
+$ git add main.js && git commit -m 'Update main.js'
 $ git push origin master
+
 $ curl -X POST \
   -H "X-Parse-Application-Id: myAppId" \
   -H "Content-Type: application/json" \
@@ -228,11 +230,13 @@ parse-cloud-code:
 ## Add ssh-key for git
 
 ```sh
-$ docker exec -i {dbe7a0ea70d8} ssh-add-key < ~/.ssh/id_rsa.pub
+$ docker exec -i parse-server ssh-add-key < ~/.ssh/id_rsa.pub
 ```
 
+Import keys from github:
+
 ```sh
-$ curl https://github.com/yongjhih.keys | docker exec -i {dbe7a0ea70d8} ssh-add-key
+$ curl https://github.com/yongjhih.keys | docker exec -i parse-server ssh-add-key
 ```
 
 ## Deploy cloud code via git
