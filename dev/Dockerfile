@@ -8,10 +8,15 @@ RUN apt-get update && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
-WORKDIR $PARSE_HOME
-RUN npm install
+#ADD . ${PARSE_HOME}
+#ADD *.js ${PARSE_HOME}/
+#ADD *.json ${PARSE_HOME}/
 
 ENV CLOUD_CODE_HOME ${PARSE_HOME}/cloud
+ADD cloud/*.js $CLOUD_CODE_HOME/
+
+WORKDIR $PARSE_HOME
+RUN npm install
 
 ## ENV
 #ENV APP_ID myAppId
