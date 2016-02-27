@@ -37,7 +37,30 @@ $ docker run -d                        \
              -p 1337:1337              \
              -p 5022:22                \
              --link mongo              \
+             --name parse-server       \
              yongjhih/parse-server
+
+$ curl -X POST \
+  -H "X-Parse-Application-Id: myAppId" \
+  -H "Content-Type: application/json" \
+  -d '{}' \
+  http://localhost:1337/parse/functions/hello
+```
+
+Deploy parse-cloud-code via git:
+
+```sh
+$ docker exec -i parse-server ssh-add-key < ~/.ssh/id_rsa.pub
+
+$ git clone ssh://git@localhost:5022/parse-cloud-code
+$ cd parse-cloud-code
+$ echo "Parse.Cloud.define('hello', function(req, res) { res.success('Hi, git'); }); > main.js
+$ git push origin master
+$ curl -X POST \
+  -H "X-Parse-Application-Id: myAppId" \
+  -H "Content-Type: application/json" \
+  -d '{}' \
+  http://localhost:1337/parse/functions/hello
 ```
 
 * api: localhost:1337
@@ -60,6 +83,7 @@ $ docker run -d \
              -e MASTER_KEY={masterKey}                           \
              -p 1337:1337                                        \
              -p 5022:22                                          \
+             --name parse-server                                 \
              yongjhih/parse-server
 ```
 
@@ -82,7 +106,8 @@ $ docker run -d \
              -e MASTER_KEY={masterKey}                           \
              -p 1337:1337                                        \
              -p 5022:22                                          \
-             -link mongo                                         \
+             --link mongo                                        \
+             --name parse-server                                 \
              yongjhih/parse-server
 ```
 
@@ -101,6 +126,7 @@ $ docker run -d \
              -p 1337:1337                                        \
              -p 5022:22                                          \
              --link mongo                                        \
+             --name parse-server                                 \
              yongjhih/parse-server
 ```
 
@@ -113,8 +139,9 @@ $ docker run -d                        \
              -e APP_ID={appId}         \
              -e MASTER_KEY={masterKey} \
              -p 1337:1337              \
-             -p 5022:22                                          \
+             -p 5022:22                \
              --link mongo              \
+             --name parse-server       \
              yongjhih/parse-server:2.1.2
 ```
 
