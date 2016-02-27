@@ -35,11 +35,13 @@ $ docker run -d                        \
              -e APP_ID={appId}         \
              -e MASTER_KEY={masterKey} \
              -p 1337:1337              \
+             -p 5022:22                \
              --link mongo              \
              yongjhih/parse-server
 ```
 
 * api: localhost:1337
+* git: localhost:5022
 * mongodb: localhost:27017
 
 or with docker-compose:
@@ -57,6 +59,7 @@ $ docker run -d \
              -e APP_ID={appId}                                   \
              -e MASTER_KEY={masterKey}                           \
              -p 1337:1337                                        \
+             -p 5022:22                                          \
              yongjhih/parse-server
 ```
 
@@ -78,6 +81,7 @@ $ docker run -d \
              -e APP_ID={appId}                                   \
              -e MASTER_KEY={masterKey}                           \
              -p 1337:1337                                        \
+             -p 5022:22                                          \
              -link mongo                                         \
              yongjhih/parse-server
 ```
@@ -95,6 +99,7 @@ $ docker run -d \
              -e APP_ID={appId}                                   \
              -e MASTER_KEY={masterKey}                           \
              -p 1337:1337                                        \
+             -p 5022:22                                          \
              --link mongo                                        \
              yongjhih/parse-server
 ```
@@ -108,6 +113,7 @@ $ docker run -d                        \
              -e APP_ID={appId}         \
              -e MASTER_KEY={masterKey} \
              -p 1337:1337              \
+             -p 5022:22                                          \
              --link mongo              \
              yongjhih/parse-server:2.1.2
 ```
@@ -125,7 +131,7 @@ ref. https://www.npmjs.com/package/parse-server
 Without docker-compose:
 
 * Re/create parse-cloud-code volume container: `docker create -v /parse/code --name parse-cloud-code {username}/parse-cloud-code /bin/true`
-* Re/create parse-server container with volume: `docker run -d --volumes-from parse-cloud-code APP_ID={appId} -e MASTER_KEY={masterKey} -p 1337:1337 --link mongo yongjhih/parse-server`
+* Re/create parse-server container with volume: `docker run -d --volumes-from parse-cloud-code APP_ID={appId} -e MASTER_KEY={masterKey} -p 1337:1337 -p 5022:22 --link mongo yongjhih/parse-server`
 
 With docker-compose.yml:
 
@@ -147,6 +153,7 @@ docker-compose up
 * Specify master key: `-e MASTER_KEY={myMasterKey}`
 * Specify database uri: `-e DATABASE_URI={mongodb://mongodb.intra:27017/dev}`
 * Specify parse-server port on host: `-p {1338}:1337`
+* Specify parse-cloud-code git port on host: `-p {5022}:22`
 * Specify database port on host: `-p {27018}:27017`
 * Specify parse cloud code host folder: `-v {/home/yongjhih/parse/cloud}:/parse/cloud`
 * Specify parse cloud code volume container: `--volumes-from {parse-cloud-code}`

@@ -3,6 +3,7 @@ parse-server:
   image: yongjhih/parse-server
   ports:
     - "1337:1337"
+    - "5022:22"
   environment:
     DATABASE_URI: $DATABASE_URI
     APP_ID: $APP_ID

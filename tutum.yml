@@ -5,6 +5,7 @@ haproxy:
     - parse-server
   ports:
     - "1337:1337"
+    - "5022:22"
   restart: always
   roles:
     - global
