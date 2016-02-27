@@ -182,7 +182,7 @@ docker-compose up
 * Specify master key: `-e MASTER_KEY={masterKey}`
 * Specify database uri: `-e DATABASE_URI={mongodb://mongodb.intra:27017/dev}`
 * Specify parse-server port on host: `-p {1338}:1337`
-* Specify parse-cloud-code git port on host: `-p {2022}:22`
+* Specify parse-cloud-code git port on host: `-p {2023}:22`
 * Specify database port on host: `-p {27018}:27017`
 * Specify parse cloud code host folder: `-v {/home/yongjhih/parse/cloud}:/parse/cloud`
 * Specify parse cloud code volume container: `--volumes-from {parse-cloud-code}`
