@@ -41,9 +41,9 @@
      fit-margin-left="0"
      fit-margin-right="0"
      fit-margin-bottom="0"
-     inkscape:zoom="0.67425133"
-     inkscape:cx="-375.482"
-     inkscape:cy="417.20162"
+     inkscape:zoom="0.95353538"
+     inkscape:cx="242.59308"
+     inkscape:cy="364.35628"
      inkscape:window-x="65"
      inkscape:window-y="24"
      inkscape:window-maximized="1"
@@ -442,16 +442,14 @@
            style="fill:#0084d1;stroke:none">parse-server stack</tspan></tspan></tspan></text>
 <text
      xml:space="preserve"
-     style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:705.55554199px;line-height:125%;font-family:Raleway;-inkscape-font-specification:'Raleway, Semi-Bold';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:705.55555818px;line-height:125%;font-family:Raleway;-inkscape-font-specification:'Raleway, Semi-Bold';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;"
      x="10825.144"
      y="16243.508"
      id="text8487"
      sodipodi:linespacing="125%"><tspan
        sodipodi:role="line"
-       id="tspan8489"
-       x="10825.144"
-       y="16243.508"
-       style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:705.55554199px;line-height:125%;font-family:Raleway;-inkscape-font-specification:'Raleway, Semi-Bold';text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#ffffff">:5022</tspan></text>
+       id="tspan8176"
+       style="-inkscape-font-specification:'Raleway, Semi-Bold';font-family:Raleway;font-weight:600;font-style:normal;font-stretch:normal;font-variant:normal;font-size:705.55555818px;text-anchor:start;text-align:start;writing-mode:lr;line-height:125%">:2022</tspan></text>
 <text
      xml:space="preserve"
      style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:705.55554199px;line-height:125%;font-family:Raleway;-inkscape-font-specification:'Raleway, Semi-Bold';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
