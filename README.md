@@ -26,6 +26,13 @@ Here is overview:
 
 ![](art/parse-server-diagram.png)
 
+Features:
+
+* Allow parse-cloud-code volume
+* Support git deploy parse-cloud-code
+* Support latest docker image based on github.com/ParsePlatform/parse-server master branch: yongjhih/parse-server:dev
+* Support docker stack with docker-compose
+
 ## Getting Started
 
 ```sh
