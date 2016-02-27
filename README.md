@@ -191,7 +191,7 @@ parse-cloud-code:
 # ...
 ```
 
-## Add ssh-key
+## Add ssh-key for git
 
 ```sh
 $ docker exec -i {dbe7a0ea70d8} ssh-add-key < ~/.ssh/id_rsa.pub
@@ -201,14 +201,14 @@ $ docker exec -i {dbe7a0ea70d8} ssh-add-key < ~/.ssh/id_rsa.pub
 $ curl https://github.com/yongjhih.keys | docker exec -i {dbe7a0ea70d8} ssh-add-key
 ```
 
-## Deploy cloud code
+## Deploy cloud code via git
 
 <!--
-$ git clone https://parse@localhost/parse-cloud-code
+$ git clone https://git@localhost/parse-cloud-code
 -->
 
 ```sh
-$ git clone ssh://parse@localhost:5022/parse-cloud-code
+$ git clone ssh://git@localhost:5022/parse-cloud-code
 $ git push origin master
 ```
 
