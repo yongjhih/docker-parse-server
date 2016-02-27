@@ -17,7 +17,7 @@
     "parse-server": "~2.0"
   },
   "scripts": {
-    "start": "forever --minUptime 1000 --spinSleepTime 1000 --watch --watchDirectory /parse/cloud index.js",
+    "start": "forever -m 5 --minUptime 1000 --spinSleepTime 1000 --watch --watchDirectory /parse/cloud index.js",
     "stop":  "forever stop app.js"
   },
   "engines": {

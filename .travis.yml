@@ -28,7 +28,7 @@ before_script:
 
 script:
   - docker build -t "$image" .
-  - APP_ID="appId" MASTER_KEY="masterKey" ~/official-images/test/run.sh "$image"
+  - ~/official-images/test/run.sh "$image"
 
 after_script:
   - docker images
