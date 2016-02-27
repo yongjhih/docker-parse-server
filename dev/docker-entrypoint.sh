@@ -27,4 +27,6 @@ chown -R git:git /parse/cloud
 chmod a+x /parse-cloud-code/hooks/post-receive
 popd
 
-npm run build && npm start -- --appId $APP_ID --masterKey $MASTER_KEY --serverURL http://localhost:1337/parse
+npm run build
+
+npm start -- --appId $APP_ID --masterKey $MASTER_KEY --serverURL http://localhost:1337/parse --cloud /parse/cloud/main.js
