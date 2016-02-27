@@ -59,7 +59,12 @@ RUN mkdir -p /parse-cloud-code && \
     chown -R git:git /parse-cloud-code && \
     chown -R git:git /parse/cloud
 
-ADD docker-entrypoint.sh /
-ENTRYPOINT ["/docker-entrypoint.sh"]
+ENV TINI_VERSION v0.9.0
+ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /tini
+ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini.asc /tini.asc
+RUN gpg --keyserver ha.pool.sks-keyservers.net --recv-keys 0527A9B7 && \
+    gpg --verify /tini.asc && \
+    chmod a+x /tini
 
-CMD [ "npm", "start" ]
+ADD docker-entrypoint.sh /
+ENTRYPOINT ["/tini", "--", "/docker-entrypoint.sh"]

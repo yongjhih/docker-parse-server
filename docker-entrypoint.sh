@@ -27,4 +27,4 @@ chown -R git:git /parse/cloud
 chmod a+x /parse-cloud-code/hooks/post-receive
 popd
 
-exec "$@"
+npm start

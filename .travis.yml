@@ -21,6 +21,8 @@ install:
 before_script:
   - env | sort
   - C=":"
+  - APP_ID="appId"
+  - MASTER_KEY="masterKey"
   - sed -i 's/"parse-server"'$C' "[^"]\+"/"parse-server"'$C' "'"$VERSION"'"/' package.json
   - image="yongjhih/parse-server:$VERSION"
 
