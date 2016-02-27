@@ -8,6 +8,6 @@ docker run -it                       \
            -e APP_ID=$appId          \
            -e MASTER_KEY=$masterKey  \
            -p 1338:1337              \
-           -p 5022:22                \
+           -p 2022:22                \
            --name parse-server       \
            "$image"

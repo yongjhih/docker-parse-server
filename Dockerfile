@@ -47,7 +47,7 @@ RUN apt-get update && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
-ENV SSH_PORT 5022
+ENV SSH_PORT 2022
 EXPOSE $SSH_PORT
 
 ADD ssh-add-key /usr/bin/ssh-add-key
