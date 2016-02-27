@@ -27,6 +27,8 @@ chown -R git:git /parse/cloud
 chmod a+x /parse-cloud-code/hooks/post-receive
 popd
 
-npm run build
+# Allow update /parse/cloud via git
+sed -i 's#"start": "./bin/parse-server"#"start": "nodemon --watch /parse/cloud ./bin/parse-server"#' package.json
 
+npm run build
 npm start -- --appId $APP_ID --masterKey $MASTER_KEY --serverURL http://localhost:1337/parse --cloud /parse/cloud/main.js
