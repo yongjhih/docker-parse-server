@@ -41,7 +41,7 @@ $ docker run -d                        \
              yongjhih/parse-server
 
 $ curl -X POST \
-  -H "X-Parse-Application-Id: myAppId" \
+  -H "X-Parse-Application-Id: {appId}" \
   -H "Content-Type: application/json" \
   -d '{}' \
   http://localhost:1337/parse/functions/hello
@@ -66,7 +66,7 @@ $ git add main.js && git commit -m 'Update main.js'
 $ git push origin master
 
 $ curl -X POST \
-  -H "X-Parse-Application-Id: myAppId" \
+  -H "X-Parse-Application-Id: {appId}" \
   -H "Content-Type: application/json" \
   -d '{}' \
   http://localhost:1337/parse/functions/hello
@@ -93,7 +93,7 @@ or with docker-compose:
 
 ```sh
 $ wget https://github.com/yongjhih/docker-parse-server/blob/master/docker-compose.yml
-$ DATABASE_URI={mongodb://mongodb.intra:27017/dev} APP_ID={myAppId} MASTER_KEY={myMasterKey} docker-compose up
+$ DATABASE_URI={mongodb://mongodb.intra:27017/dev} APP_ID={appId} MASTER_KEY={masterKey} docker-compose up
 ```
 
 ### Usage of already parse-cloud-code
@@ -178,8 +178,8 @@ docker-compose up
 
 ## Configuration with docker
 
-* Specify application ID: `-e APP_ID={myAppId}`
-* Specify master key: `-e MASTER_KEY={myMasterKey}`
+* Specify application ID: `-e APP_ID={appId}`
+* Specify master key: `-e MASTER_KEY={masterKey}`
 * Specify database uri: `-e DATABASE_URI={mongodb://mongodb.intra:27017/dev}`
 * Specify parse-server port on host: `-p {1338}:1337`
 * Specify parse-cloud-code git port on host: `-p {5022}:22`
