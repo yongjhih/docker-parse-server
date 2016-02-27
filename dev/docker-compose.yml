@@ -1,0 +1,45 @@
+parse-server:
+  #build: .
+  image: yongjhih/parse-server:dev
+  ports:
+    - "1337:1337"
+    - "2022:22"
+  environment:
+    DATABASE_URI: $DATABASE_URI
+    APP_ID: $APP_ID
+    MASTER_KEY: $MASTER_KEY
+    PARSE_MOUNT: $PARSE_MOUNT
+    COLLECTION_PREFIX: $COLLECTION_PREFIX
+    CLIENT_KEY: $CLIENT_KEY
+    REST_API_KEY: $REST_API_KEY
+    DOTNET_KEY: $DOTNET_KEY
+    JAVASCRIPT_KEY: $JAVASCRIPT_KEY
+    DOTNET_KEY: $DOTNET_KEY
+    FILE_KEY: $FILE_KEY
+    FACEBOOK_APP_IDS: $FACEBOOK_APP_IDS
+  links:
+    - mongo
+  volumes_from:
+    - parse-cloud-code
+parse-cloud-code:
+  #build: cloud/.
+  image: yongjhih/parse-cloud-code
+  volumes:
+    - /parse/cloud
+  command: "ls /parse/cloud"
+mongo:
+  image: mongo
+  ports:
+    - "27017:27017"
+  volumes_from:
+    - mongo-data
+#  command: "--smallfiles --logpath=/dev/null --setParameter failIndexKeyTooLong=false --rest --auth"
+  command: "--smallfiles --logpath=/dev/null --setParameter failIndexKeyTooLong=false"
+# ref. http://www.diogogmt.com/running-mongodb-with-docker-and-compose/
+mongo-data:
+  image: mongo
+  volumes:
+    - /data/db
+  command: "--break-mongo"
+
+# vim:set et ts=2 sw=2:
