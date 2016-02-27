@@ -47,28 +47,12 @@ RUN apt-get update && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
-#RUN mkdir /var/run/sshd
-#RUN echo 'root:screencast' | chpasswd
-#RUN sed -i 's/PermitRootLogin without-password/PermitRootLogin yes/' /etc/ssh/sshd_config
-#
-## SSH login fix. Otherwise user is kicked off after login
-#RUN sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so@g' -i /etc/pam.d/sshd
-
 ENV SSH_PORT 5022
 EXPOSE $SSH_PORT
-
-#ENV NOTVISIBLE "in users profile"
-#RUN echo "export VISIBLE=now" >> /etc/profile
 
 ADD ssh-add-key /usr/sbin/ssh-add-key
 
 ADD docker-entrypoint.sh /
 ENTRYPOINT ["/docker-entrypoint.sh"]
-
-#ENV USER parse
-#ENV UID 1000
-#
-#RUN useradd -d "$PARSE_HOME" -u $UID -m -s /bin/bash $USER
-#USER $USER
 
 CMD [ "npm", "start" ]
