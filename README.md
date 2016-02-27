@@ -47,6 +47,13 @@ $ curl -X POST \
   http://localhost:1337/parse/functions/hello
 ```
 
+or with docker-compose:
+
+```sh
+$ wget https://github.com/yongjhih/docker-parse-server/blob/master/docker-compose.yml
+$ APP_ID=myAppId MASTER_KEY=myMasterKey docker-compose up
+```
+
 Deploy parse-cloud-code via git:
 
 ```sh
@@ -68,13 +75,6 @@ $ curl -X POST \
 * api: localhost:1337
 * git: localhost:5022
 * mongodb: localhost:27017
-
-or with docker-compose:
-
-```sh
-$ wget https://github.com/yongjhih/docker-parse-server/blob/master/docker-compose.yml
-$ APP_ID=myAppId MASTER_KEY=myMasterKey docker-compose up
-```
 
 ### Usage of already mongodb with DATABASE_URI
 
