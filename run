@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+image="$1"
+appId="${2:-appId}"
+masterKey="${3:-mastarKey}"
+
+docker run -it                       \
+           -e APP_ID=$appId          \
+           -e MASTER_KEY=$masterKey  \
+           -p 1338:1337              \
+           -p 5022:22                \
+           "$image"

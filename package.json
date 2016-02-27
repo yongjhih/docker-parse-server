@@ -9,6 +9,7 @@
   },
   "license": "MIT",
   "dependencies": {
+    "forever": "~0.15",
     "docker-links": "^1.0.2",
     "express": "~4.2.x",
     "kerberos": "~0.0.x",
@@ -16,7 +17,8 @@
     "parse-server": "~2.0"
   },
   "scripts": {
-    "start": "node index.js"
+    "start": "forever --minUptime 1000 --spinSleepTime 1000 --watch --watchDirectory /parse/cloud index.js",
+    "stop":  "forever stop app.js"
   },
   "engines": {
     "node": ">=4.1"

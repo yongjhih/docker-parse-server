@@ -191,6 +191,27 @@ parse-cloud-code:
 # ...
 ```
 
+## Add ssh-key
+
+```sh
+$ docker exec -i {dbe7a0ea70d8} ssh-add-key < ~/.ssh/id_rsa.pub
+```
+
+```sh
+$ curl https://github.com/yongjhih.keys | docker exec -i {dbe7a0ea70d8} ssh-add-key
+```
+
+## Deploy cloud code
+
+<!--
+$ git clone https://parse@localhost/parse-cloud-code
+-->
+
+```sh
+$ git clone ssh://parse@localhost:5022/parse-cloud-code
+$ git push origin master
+```
+
 ## Getting Started With Cloud Services
 
 ### Getting Started With Heroku + Mongolab Development
