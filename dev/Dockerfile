@@ -22,7 +22,7 @@ RUN npm install
 #ENV APP_ID myAppId
 #ENV MASTER_KEY myMasterKey
 #ENV DATABASE_URI mongodb://localhost:27017/dev
-#ENV CLOUD_CODE_MAIN ${CLOUD_CODE_HOME}/main.js
+ENV CLOUD_CODE_MAIN ${CLOUD_CODE_HOME}/main.js
 #ENV PARSE_MOUNT /parse
 #ENV COLLECTION_PREFIX
 #ENV CLIENT_KEY
@@ -59,3 +59,4 @@ RUN gpg --keyserver ha.pool.sks-keyservers.net --recv-keys 0527A9B7 && \
 
 ADD docker-entrypoint.sh /
 ENTRYPOINT ["/tini", "--", "/docker-entrypoint.sh"]
+CMD ["npm", "start", "--", "--appId", "$APP_ID", "--masterKey", "$MASTER_KEY", "--serverURL", "http://localhost:1337/parse", "--cloud", "$CLOUD_CODE_MAIN"]
