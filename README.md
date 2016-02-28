@@ -30,8 +30,9 @@ Features:
 
 * Allow parse-cloud-code volume
 * Support git deploy parse-cloud-code
-* Support latest docker image based on github.com/ParsePlatform/parse-server master branch: yongjhih/parse-server:dev
+* Support latest commit of docker image based on github.com/ParsePlatform/parse-server: yongjhih/parse-server:dev
 * Support docker stack with docker-compose
+* Support various parse-server npm versions: yongjhih/parse-server:2.0.8, yongjhih/parse-server:2.1.3
 
 ## Getting Started
 
