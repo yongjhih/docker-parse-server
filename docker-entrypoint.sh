@@ -2,7 +2,7 @@
 
 set -e
 
-/etc/init.d/ssh start
+/etc/init.d/ssh start > /dev/null
 
 if [ ! -d /parse-cloud-code ]; then
   mkdir -p /parse-cloud-code
@@ -12,8 +12,8 @@ if [ ! -d /parse/cloud ]; then
   mkdir -p /parse/cloud
 fi
 
-pushd /parse-cloud-code
-git init --bare
+pushd /parse-cloud-code > /dev/null
+git init --bare > /dev/null
 
 cat << EOF > /parse-cloud-code/hooks/post-receive
 #!/bin/bash
@@ -22,9 +22,9 @@ git --work-tree=/parse/cloud clean -df
 git --work-tree=/parse/cloud checkout -f
 EOF
 
-chown -R git:git /parse-cloud-code
-chown -R git:git /parse/cloud
-chmod a+x /parse-cloud-code/hooks/post-receive
-popd
+chown -R git:git /parse-cloud-code > /dev/null
+chown -R git:git /parse/cloud > /dev/null
+chmod a+x /parse-cloud-code/hooks/post-receive > /dev/null
+popd > /dev/null
 
-npm start
+exec "$@"

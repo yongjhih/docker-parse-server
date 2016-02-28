@@ -68,3 +68,4 @@ RUN gpg --keyserver ha.pool.sks-keyservers.net --recv-keys 0527A9B7 && \
 
 ADD docker-entrypoint.sh /
 ENTRYPOINT ["/tini", "--", "/docker-entrypoint.sh"]
+CMD ["npm", "start"]
