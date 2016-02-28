@@ -28,6 +28,8 @@ before_script:
   - sed -i 's/"parse-server"'$C' "[^"]\+"/"parse-server"'$C' "'"$VERSION"'"/' package.json
   - image="yongjhih/parse-server:$VERSION"
   - dockerdir="${DOCKERDIR:-.}"
+  - echo "ENV APP_ID $APP_ID" >> $dockerdir/Dockerfile
+  - echo "ENV MASTER_KEY $MASTER_KEY" >> $dockerdir/Dockerfile
 
 script:
   - docker build -t "$image" "$dockerdir"
