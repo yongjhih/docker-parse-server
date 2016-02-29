@@ -28,7 +28,7 @@ Here is overview:
 
 Features:
 
-* Allow parse-cloud-code volume
+* Support parse-cloud-code volume
 * Support git deploy parse-cloud-code
 * Support latest commit of docker image based on github.com/ParsePlatform/parse-server: yongjhih/parse-server:dev
 * Support docker stack with docker-compose
