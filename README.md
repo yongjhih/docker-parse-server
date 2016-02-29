@@ -159,6 +159,19 @@ $ docker run -d                        \
 ref. https://github.com/ParsePlatform/parse-server/releases
 ref. https://www.npmjs.com/package/parse-server
 
+### Usage of specific latest commit of [ParsePlatform/parse-server](https://github.com/ParsePlatform/parse-server) of image
+
+```sh
+$ docker run -d                        \
+             -e APP_ID={appId}         \
+             -e MASTER_KEY={masterKey} \
+             -p 1337:1337              \
+             -p 2022:22                \
+             --link mongo              \
+             --name parse-server       \
+             yongjhih/parse-server:dev
+```
+
 ### Integration of parse-cloud-code image on GitHub and DockerHub
 
 1. Fork https://github.com/yongjhih/parse-cloud-code
@@ -256,6 +269,7 @@ $ git clone https://git@localhost/parse-cloud-code
 
 ```sh
 $ git clone ssh://git@localhost:2022/parse-cloud-code
+# ...
 $ git push origin master
 ```
 
