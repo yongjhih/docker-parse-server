@@ -29,10 +29,11 @@ Here is overview:
 Features:
 
 * Support parse-cloud-code volume
-* Support git deploy parse-cloud-code and auto effect on change with nodemon
-* Support latest commit of docker image based on github.com/ParsePlatform/parse-server: yongjhih/parse-server:dev
+* Support git deploy parse-cloud-code and auto effect after pushed
+* Support latest parse-server commit: `yongjhih/parse-server:dev`
+* Support latest parse-server npm version:  `yongjhih/parse-server:latest`
+* Support various parse-server npm versions: `yongjhih/parse-server:2.1.3`
 * Support docker stack with docker-compose
-* Support various parse-server npm versions: yongjhih/parse-server:2.0.8, yongjhih/parse-server:2.1.3
 * Tested docker image
 
 ## Getting Started
