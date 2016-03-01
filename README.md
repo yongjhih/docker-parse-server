@@ -68,6 +68,8 @@ $ APP_ID=myAppId MASTER_KEY=myMasterKey docker-compose up
 
 Deploy parse-cloud-code via git:
 
+[![Screencast - git](art/docker-parse-server-git.gif)](https://youtu.be/9YwWbiRyPUU)
+
 ```sh
 $ docker exec -i parse-server ssh-add-key < ~/.ssh/id_rsa.pub
 
