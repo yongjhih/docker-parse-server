@@ -38,6 +38,8 @@ Features:
 
 ## Getting Started
 
+[![Screencast](art/docker-parse-server.gif)](https://youtu.be/1bYWSPEZL2g)
+
 ```sh
 $ docker run -d -p 27017:27017 --name mongo mongo
 
