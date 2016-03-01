@@ -60,7 +60,7 @@ $ curl -X POST \
 or with docker-compose:
 
 ```sh
-$ wget https://github.com/yongjhih/docker-parse-server/blob/master/docker-compose.yml
+$ wget https://github.com/yongjhih/docker-parse-server/raw/master/docker-compose.yml
 $ APP_ID=myAppId MASTER_KEY=myMasterKey docker-compose up
 ```
 
@@ -102,7 +102,7 @@ $ docker run -d \
 or with docker-compose:
 
 ```sh
-$ wget https://github.com/yongjhih/docker-parse-server/blob/master/docker-compose.yml
+$ wget https://github.com/yongjhih/docker-parse-server/raw/master/docker-compose.yml
 $ DATABASE_URI={mongodb://mongodb.intra:27017/dev} APP_ID={appId} MASTER_KEY={masterKey} docker-compose up
 ```
 
