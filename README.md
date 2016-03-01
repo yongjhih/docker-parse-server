@@ -63,7 +63,7 @@ or with docker-compose:
 
 ```sh
 $ wget https://github.com/yongjhih/docker-parse-server/raw/master/docker-compose.yml
-$ APP_ID=myAppId MASTER_KEY=myMasterKey docker-compose up
+$ APP_ID=myAppId MASTER_KEY=myMasterKey docker-compose up -d
 ```
 
 Deploy parse-cloud-code via git:
