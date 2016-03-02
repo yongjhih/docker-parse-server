@@ -55,10 +55,6 @@ ADD ssh-add-key /usr/bin/ssh-add-key
 RUN useradd -s /bin/bash git
 RUN echo "git ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 
-RUN mkdir -p /parse-cloud-code && \
-    chown -R git:git /parse-cloud-code && \
-    chown -R git:git /parse/cloud
-
 ENV TINI_VERSION v0.9.0
 ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /tini
 ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini.asc /tini.asc
