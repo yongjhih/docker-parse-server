@@ -16,7 +16,7 @@
 [![Deploy to Docker Cloud](https://github.com/yongjhih/docker-parse-server/raw/master/art/deploy-to-docker-cloud.png)](https://cloud.docker.com/stack/deploy/?repo=https://github.com/yongjhih/docker-parse-server)
 [![Deploy to Tutum](https://s.tutum.co/deploy-to-tutum.svg)](https://dashboard.tutum.co/stack/deploy/?repo=https://github.com/yongjhih/docker-parse-server)
 
-![](art/parse-rip-32dp.png)
+![](https://github.com/yongjhih/docker-parse-server/raw/master/art/parse-rip-32dp.png)
 
 You should not build your parse-server image instead of reuse this yongjhih/parse-server image, then plugin your parse-cloud-code container (allow dynamic update) and mongodb container.
 
@@ -24,7 +24,7 @@ Welcome PR.
 
 Here is overview:
 
-![](art/parse-server-diagram.png)
+![](https://github.com/yongjhih/docker-parse-server/raw/master/art/parse-server-diagram.png)
 
 Features:
 
@@ -38,11 +38,11 @@ Features:
 
 Most pulled:
 
-![](art/Screenshot_2016-03-02T11-19-27.429Z.png)
+![](https://github.com/yongjhih/docker-parse-server/raw/master/art/Screenshot_2016-03-02T11-19-27.429Z.png)
 
 ## Getting Started
 
-[![Screencast](art/docker-parse-server.gif)](https://youtu.be/1bYWSPEZL2g)
+[![Screencast](https://github.com/yongjhih/docker-parse-server/raw/master/art/docker-parse-server.gif)](https://youtu.be/1bYWSPEZL2g)
 
 ```sh
 $ docker run -d -p 27017:27017 --name mongo mongo
@@ -72,7 +72,7 @@ $ APP_ID=myAppId MASTER_KEY=myMasterKey docker-compose up -d
 
 Deploy parse-cloud-code via git:
 
-[![Screencast - git](art/docker-parse-server-git.gif)](https://youtu.be/9YwWbiRyPUU)
+[![Screencast - git](https://github.com/yongjhih/docker-parse-server/raw/master/art/docker-parse-server-git.gif)](https://youtu.be/9YwWbiRyPUU)
 
 ```sh
 $ docker exec -i parse-server ssh-add-key < ~/.ssh/id_rsa.pub
