@@ -6,7 +6,7 @@ var express = require('express');
 var ParseServer = require('parse-server').ParseServer;
 var links = require('docker-links').parseLinks(process.env);
 
-var databaseUri = process.env.DATABASE_URI || process.env.MONGOLAB_URI
+var databaseUri = process.env.DATABASE_URI || process.env.MONGOLAB_URI;
 
 if (!databaseUri) {
   if (links.mongo) {
@@ -36,6 +36,7 @@ var api = new ParseServer({
 
   appId: process.env.APP_ID || 'myAppId',
   masterKey: process.env.MASTER_KEY, //Add your master key here. Keep it secret!
+  serverURL: process.env.SERVER_URL || 'http://localhost:1337', // Don't forget to change to https if needed
 
   collectionPrefix: process.env.COLLECTION_PREFIX,
   clientKey: process.env.CLIENT_KEY,
