@@ -6,10 +6,10 @@ ENV PARSE_HOME /parse
 #ADD *.js ${PARSE_HOME}/
 #ADD *.json ${PARSE_HOME}/
 
-ADD index.js ${PARSE_HOME}/index.js
-ADD package.json ${PARSE_HOME}/package.json
+ADD index.js ${PARSE_HOME}/
+ADD package.json ${PARSE_HOME}/
 
-ADD jsconfig.json ${PARSE_HOME}/jsconfig.json
+ADD jsconfig.json ${PARSE_HOME}/
 
 ## deployment is unnecessary
 #ADD app.json ${PARSE_HOME}/app.json # heroku
@@ -50,14 +50,14 @@ RUN apt-get update && \
 ENV SSH_PORT 2022
 EXPOSE $SSH_PORT
 
-ADD ssh-add-key /usr/bin/ssh-add-key
+ADD ssh-add-key /sbin/
 
 RUN useradd -s /bin/bash git
 RUN echo "git ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 
 ENV TINI_VERSION v0.9.0
-ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /tini
-ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini.asc /tini.asc
+ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /
+ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini.asc /
 RUN gpg --keyserver ha.pool.sks-keyservers.net --recv-keys 0527A9B7 && \
     gpg --verify /tini.asc && \
     chmod a+x /tini
