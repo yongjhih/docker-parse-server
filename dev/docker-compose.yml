@@ -17,6 +17,7 @@ parse-server:
     DOTNET_KEY: $DOTNET_KEY
     FILE_KEY: $FILE_KEY
     FACEBOOK_APP_IDS: $FACEBOOK_APP_IDS
+    SERVER_URL: $SERVER_URL
   links:
     - mongo
   volumes_from:
