@@ -50,21 +50,15 @@ RUN apt-get update && \
 ENV SSH_PORT 2022
 EXPOSE $SSH_PORT
 
-ADD ssh-add-key /usr/bin/ssh-add-key
-
-RUN useradd -s /bin/bash git
-RUN echo "git ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
-
-RUN mkdir -p /parse-cloud-code && \
-    chown -R git:git /parse-cloud-code && \
-    chown -R git:git /parse/cloud
+ADD https://github.com/dokku/sshcommand/raw/master/sshcommand /sbin/sshcommand
 
 ENV TINI_VERSION v0.9.0
 ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /tini
 ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini.asc /tini.asc
 RUN gpg --keyserver ha.pool.sks-keyservers.net --recv-keys 0527A9B7 && \
     gpg --verify /tini.asc && \
-    chmod a+x /tini
+    chmod a+x /tini && \
+    chmod a+x /sbin/sshcommand
 
 ADD docker-entrypoint.sh /
 ENTRYPOINT ["/tini", "--", "/docker-entrypoint.sh"]
