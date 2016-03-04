@@ -46,7 +46,8 @@ var api = new ParseServer({
   dotNetKey: process.env.DOTNET_KEY,
   fileKey: process.env.FILE_KEY,
 
-  facebookAppIds: facebookAppIds
+  facebookAppIds: facebookAppIds,
+  maxUploadSize: process.env.MAX_UPLOAD_SIZE
 });
 
 var app = express();
