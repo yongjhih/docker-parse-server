@@ -18,6 +18,7 @@ parse-server:
     FILE_KEY: $FILE_KEY
     FACEBOOK_APP_IDS: $FACEBOOK_APP_IDS
     SERVER_URL: $SERVER_URL
+    MAX_UPLOAD_SIZE: $MAX_UPLOAD_SIZE
   links:
     - mongo
   volumes_from:
