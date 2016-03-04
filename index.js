@@ -24,11 +24,34 @@ if (facebookAppIds) {
     facebookAppIds = facebookAppIds.split(",");
 }
 
-/* TODO from config.json
-if (process.env.PARSE_SERVER_OPTIONS) {
-	options = JSON.parse(process.env.PARSE_SERVER_OPTIONS);
+var gcmId = process.env.GCM_ID;
+var gcmKey = process.env.GCM_KEY;
+var productionPfx = process.env.PRODUCTION_PFX;
+var productionBundleId = process.env.PRODUCTION_BUNDLE_ID;
+var devPfx = process.env.DEV_PFX;
+var devBundleId = process.env.DEV_BUNDLE_ID;
+var pushConfig;
+
+if ((gcmId && gcmKey) || (productionPfx && productionBundleId) || (devBundleId && devPfx)) {
+  pushConfig = {
+    android: {
+      senderId: process.env.GCM_ID || '',
+      apiKey: process.env.GCM_KEY || ''
+    },
+    ios: [
+      {
+        pfx: process.env.DEV_PFX || '',
+        bundleId: process.env.DEV_BUNDLE_ID || '',
+        production: false
+      },
+      {
+        pfx: process.env.PRODUCTION_PFX || '',
+        bundleId: process.env.PRODUCTION_BUNDLE_ID || '',
+        production: true
+      }
+    ]
+  };
 }
-*/
 
 var api = new ParseServer({
   databaseURI: databaseUri || 'mongodb://localhost:27017/dev',
@@ -47,7 +70,20 @@ var api = new ParseServer({
   fileKey: process.env.FILE_KEY,
 
   facebookAppIds: facebookAppIds,
-  maxUploadSize: process.env.MAX_UPLOAD_SIZE
+  maxUploadSize: process.env.MAX_UPLOAD_SIZE,
+  push: pushConfig,
+  verifyUserEmails: process.env.VERIFY_USER_EMAILS,
+  enableAnonymousUsers: process.env.ENABLE_ANON_USERS,
+  allowClientClassCreation: process.env.ALLOW_CLIENT_CLASS_CREATION,
+  //oauth = {},
+  appName: process.env.APP_NAME,
+  publicServerURL: process.env.PUBLIC_SERVER_URL
+  //customPages: process.env.CUSTOM_PAGES || // {
+    //invalidLink: undefined,
+    //verifyEmailSuccess: undefined,
+    //choosePassword: undefined,
+    //passwordResetSuccess: undefined
+  //}
 });
 
 var app = express();
