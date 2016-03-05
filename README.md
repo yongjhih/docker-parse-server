@@ -33,6 +33,8 @@ Features:
 * Support latest parse-server commit: `yongjhih/parse-server:dev`
 * Support docker stack with docker-compose
 * Support parse-cloud-code volume
+* Support parse-dashboard
+* Support mongodb
 * Support git deploy parse-cloud-code and auto effect after pushed
 * Tested docker image
 
@@ -56,11 +58,20 @@ $ docker run -d                        \
              --name parse-server       \
              yongjhih/parse-server
 
+# Test parse-server
 $ curl -X POST \
   -H "X-Parse-Application-Id: {appId}" \
   -H "Content-Type: application/json" \
   -d '{}' \
   http://localhost:1337/parse/functions/hello
+
+$ docker run -d \
+             -e APP_ID={appId}         \
+             -e MASTER_KEY={masterKey} \
+             -p 4040:4040              \
+             --link parse-server       \
+             --name parse-dashboard    \
+             yongjhih:parse-dashboard
 ```
 
 or with docker-compose:
@@ -152,7 +163,7 @@ $ docker run -d \
 
 ### Usage of specific parse-server version
 
-Specify parse-server:2.1.2:
+Specify parse-server:2.1.4:
 
 ```sh
 $ docker run -d                        \
@@ -162,7 +173,7 @@ $ docker run -d                        \
              -p 2022:22                \
              --link mongo              \
              --name parse-server       \
-             yongjhih/parse-server:2.1.2
+             yongjhih/parse-server:2.1.4
 ```
 
 ref. https://github.com/ParsePlatform/parse-server/releases
@@ -441,3 +452,4 @@ You can change the server URL in all of the open-source SDKs, but we're releasin
 * https://github.com/yongjhih/parse-cloud-code
 * https://hub.docker.com/r/yongjhih/parse-cloud-code/
 * https://medium.com/cowbear-coder/migration-of-parse-server-with-docker-part1-87034cc29978
+* https://github.com/yongjhih/docker-parse-dashboard
