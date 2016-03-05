@@ -57,13 +57,6 @@ ADD ssh-add-key /sbin/
 RUN useradd -s /bin/bash git
 RUN echo "git ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 
-ENV TINI_VERSION v0.9.0
-ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /
-ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini.asc /
-RUN gpg --keyserver ha.pool.sks-keyservers.net --recv-keys 0527A9B7 && \
-    gpg --verify /tini.asc && \
-    chmod a+x /tini
-
 ADD docker-entrypoint.sh /
-ENTRYPOINT ["/tini", "--", "/docker-entrypoint.sh"]
+ENTRYPOINT ["/docker-entrypoint.sh"]
 CMD ["npm", "start"]
