@@ -268,7 +268,8 @@ parse-server:
     ALLOW_CLIENT_CLASS_CREATION: $ALLOW_CLIENT_CLASS_CREATION # true
     APP_NAME: $APP_NAME
     PUBLIC_SERVER_URL: $PUBLIC_SERVER_URL
-# ...
+    TRUST_PROXY: $TRUST_PROXY # false
+# ... 
 ```
 
 Remote parse-cloud-code image:

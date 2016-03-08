@@ -11,7 +11,7 @@
   "dependencies": {
     "nodemon": "^1.8.1",
     "docker-links": "^1.0.2",
-    "express": "~4.2.x",
+    "express": "~4.13.x",
     "kerberos": "~0.0.x",
     "parse": "~1.6.12",
     "parse-server": "~2.1.4"
