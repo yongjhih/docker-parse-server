@@ -34,7 +34,8 @@ parse-server:
     ALLOW_CLIENT_CLASS_CREATION: $ALLOW_CLIENT_CLASS_CREATION # true
     APP_NAME: $APP_NAME
     PUBLIC_SERVER_URL: $PUBLIC_SERVER_URL
-  links:
+    TRUST_PROXY: $TRUST_PROXY 
+ links:
     - mongo
   volumes_from:
     - parse-cloud-code

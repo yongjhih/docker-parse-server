@@ -90,6 +90,11 @@ var api = new ParseServer({
 
 var app = express();
 
+if(process.env.TRUST_PROXY == 1) {
+  console.log("trusting proxy");
+  app.enable('trust proxy');
+}
+
 // Serve the Parse API on the /parse URL prefix
 var mountPath = process.env.PARSE_MOUNT || '/parse';
 app.use(mountPath, api);
