@@ -81,6 +81,8 @@ $ wget https://github.com/yongjhih/docker-parse-server/raw/master/docker-compose
 $ APP_ID=myAppId MASTER_KEY=myMasterKey docker-compose up -d
 ```
 
+p.s. `$ wget https://github.com/yongjhih/docker-parse-server/raw/master/docker-compose.yml -O - | APP_ID=myAppId MASTER_KEY=myMasterKey docker-compose up -d -f - # not supported for docker-compose container`
+
 Deploy parse-cloud-code via git:
 
 [![Screencast - git](https://github.com/yongjhih/docker-parse-server/raw/master/art/docker-parse-server-git.gif)](https://youtu.be/9YwWbiRyPUU)
