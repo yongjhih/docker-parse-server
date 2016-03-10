@@ -35,7 +35,7 @@ parse-server:
     APP_NAME: $APP_NAME
     PUBLIC_SERVER_URL: $PUBLIC_SERVER_URL
     TRUST_PROXY: $TRUST_PROXY 
- links:
+  links:
     - mongo
   volumes_from:
     - parse-cloud-code
