@@ -46,7 +46,7 @@ Most pulled:
 
 [![Screencast](https://github.com/yongjhih/docker-parse-server/raw/master/art/docker-parse-server.gif)](https://youtu.be/1bYWSPEZL2g)
 
-![Screenshot](https://github.com/yongjhih/docker-parse-server/raw/master/art/screenshot-parse-dashboard.png)
+![Parse Dashboard Screenshot](https://github.com/yongjhih/docker-parse-server/raw/master/art/screenshot-parse-dashboard.png)
 
 ```sh
 $ docker run -d -p 27017:27017 --name mongo mongo
