@@ -24,7 +24,7 @@ Welcome PR.
 
 Here is overview:
 
-![](https://github.com/yongjhih/docker-parse-server/raw/master/art/parse-server-diagram.png)
+![Parse Server Diagram](https://github.com/yongjhih/docker-parse-server/raw/master/art/parse-server-diagram.png)
 
 Features:
 
@@ -40,13 +40,13 @@ Features:
 
 Most pulled:
 
-![](https://github.com/yongjhih/docker-parse-server/raw/master/art/Screenshot_2016-03-02T11-19-27.429Z.png)
+![parse-server pulls](https://github.com/yongjhih/docker-parse-server/raw/master/art/Screenshot_2016-03-02T11-19-27.429Z.png)
 
 ## Getting Started
 
 [![Screencast](https://github.com/yongjhih/docker-parse-server/raw/master/art/docker-parse-server.gif)](https://youtu.be/1bYWSPEZL2g)
 
-![](https://github.com/yongjhih/docker-parse-server/raw/master/art/screenshot-parse-dashboard.png)
+![Screenshot](https://github.com/yongjhih/docker-parse-server/raw/master/art/screenshot-parse-dashboard.png)
 
 ```sh
 $ docker run -d -p 27017:27017 --name mongo mongo
