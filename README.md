@@ -11,7 +11,7 @@
 
 [![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
 [![Deploy to Azure](http://azuredeploy.net/deploybutton.png)](https://azuredeploy.net/)
-<a title="Deploy to AWS" href="https://console.aws.amazon.com/elasticbeanstalk/home?region=us-west-2#/newApplication?applicationName=ParseServer&solutionStackName=Node.js&tierName=WebServer&sourceBundleUrl=https://s3.amazonaws.com/elasticbeanstalk-samples-us-east-1/eb-parse-server-sample/parse-server-example.zip" target="_blank"><img src="http://d0.awsstatic.com/product-marketing/Elastic%20Beanstalk/deploy-to-aws.png" height="35"></a>
+[![Deploy to AWS](https://d0.awsstatic.com/product-marketing/Elastic%20Beanstalk/deploy-to-aws.png)](https://console.aws.amazon.com/elasticbeanstalk/home?region=us-west-2#/newApplication?applicationName=ParseServer&solutionStackName=Node.js&tierName=WebServer&sourceBundleUrl=https%3A%2F%2Fs3.amazonaws.com%2Felasticbeanstalk-samples-us-east-1%2Feb-parse-server-sample%2Fparse-server-example.zip)
 [![Deploy to Scalingo](https://cdn.scalingo.com/deploy/button.svg)](https://my.scalingo.com/deploy)
 [![Deploy to Docker Cloud](https://github.com/yongjhih/docker-parse-server/raw/master/art/deploy-to-docker-cloud.png)](https://cloud.docker.com/stack/deploy/?repo=https://github.com/yongjhih/docker-parse-server)
 [![Deploy to Tutum](https://s.tutum.co/deploy-to-tutum.svg)](https://dashboard.tutum.co/stack/deploy/?repo=https://github.com/yongjhih/docker-parse-server)
@@ -273,7 +273,7 @@ parse-server:
     APP_NAME: $APP_NAME
     PUBLIC_SERVER_URL: $PUBLIC_SERVER_URL
     TRUST_PROXY: $TRUST_PROXY # false
-# ... 
+# ...
 ```
 
 Remote parse-cloud-code image:
@@ -365,7 +365,7 @@ A detailed tutorial is available here:
 
 ### Getting Started With Google App Engine
 
-1. Clone the repo and change directory to it 
+1. Clone the repo and change directory to it
 1. Create a project in the [Google Cloud Platform Console](https://console.cloud.google.com/).
 1. [Enable billing](https://console.cloud.google.com/project/_/settings) for your project.
 1. Install the [Google Cloud SDK](https://cloud.google.com/sdk/).
@@ -406,7 +406,7 @@ curl -X POST \
   -H "Content-Type: application/json" \
   -d '{"score":1337,"playerName":"Sean Plott","cheatMode":false}' \
   http://localhost:1337/parse/classes/GameScore
-  
+
 curl -X POST \
   -H "X-Parse-Application-Id: myAppId" \
   -H "Content-Type: application/json" \
@@ -439,7 +439,7 @@ Parse.initialize(new Parse.Configuration.Builder(getApplicationContext())
         .clientKey("myClientKey")
         .server("http://myServerUrl/parse/")   // '/' important after 'parse'
         .build());
-        
+
   ParseObject testObject = new ParseObject("TestObject");
   testObject.put("foo", "bar");
   testObject.saveInBackground();
