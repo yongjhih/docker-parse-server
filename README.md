@@ -29,7 +29,7 @@ Here is overview:
 Features:
 
 * Support latest parse-server npm version:  `yongjhih/parse-server:latest`
-* Support various parse-server npm versions: `yongjhih/parse-server:2.1.6`
+* Support various parse-server npm versions: `yongjhih/parse-server:2.2.0`
 * Support latest parse-server commit: `yongjhih/parse-server:dev`
 * Support docker stack with docker-compose
 * Support parse-cloud-code volume
@@ -167,7 +167,7 @@ $ docker run -d \
 
 ### Usage of specific parse-server version
 
-Specify parse-server:2.1.6:
+Specify parse-server:2.2.0:
 
 ```sh
 $ docker run -d                        \
@@ -177,7 +177,7 @@ $ docker run -d                        \
              -p 2022:22                \
              --link mongo              \
              --name parse-server       \
-             yongjhih/parse-server:2.1.6
+             yongjhih/parse-server:2.2.0
 ```
 
 ref. https://github.com/ParsePlatform/parse-server/releases
