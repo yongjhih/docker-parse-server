@@ -196,6 +196,17 @@ $ docker run -d                                \
              yongjhih/parse-server:dev
 ```
 
+### Usage of letsencrypt for parse-dashboard
+
+```sh
+USER1=yongjhih \
+USER1_PASSWORD=yongjhih \
+LETSENCRYPT_EMAIL=yongjhih@example.com \
+LETSENCRYPT_HOST=yongjhih.example.com \
+VIRTUAL_HOST=yongjhih.example.com \
+APP_ID=myAppId MASTER_KEY=myMasterKey docker-compose -f docker-compose-le.yml up
+```
+
 ### Integration of parse-cloud-code image on GitHub and DockerHub
 
 1. Fork https://github.com/yongjhih/parse-cloud-code
