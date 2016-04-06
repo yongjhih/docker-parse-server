@@ -31,3 +31,8 @@ node_modules
 
 # Vim
 *.swp
+
+*.pem
+account_key.json
+*.key
+*.crt
