@@ -199,12 +199,23 @@ $ docker run -d                                \
 ### Usage of letsencrypt for parse-dashboard
 
 ```sh
-USER1=yongjhih \
-USER1_PASSWORD=yongjhih \
-LETSENCRYPT_EMAIL=yongjhih@example.com \
-LETSENCRYPT_HOST=yongjhih.example.com \
-VIRTUAL_HOST=yongjhih.example.com \
-APP_ID=myAppId MASTER_KEY=myMasterKey docker-compose -f docker-compose-le.yml up
+$ git clone https://github.com/yongjhih/docker-parse-server
+$ cd docker-parse-server
+
+$ USER1=yongjhih \
+  USER1_PASSWORD=yongjhih \
+  LETSENCRYPT_EMAIL=yongjhih@example.com \
+  LETSENCRYPT_HOST=yongjhih.example.com \
+  VIRTUAL_HOST=yongjhih.example.com \
+  APP_ID=myAppId MASTER_KEY=myMasterKey docker-compose -f docker-compose-le.yml up
+```
+
+Open your https://yongjhih.example.com/ url and unblock browser protected scripts, that's it.
+
+BTW, you can remove 80 port after volumes/proxy/certs generated:
+
+```sh
+sed -i -- '/- "80:80"/d' docker-compose-le.yml
 ```
 
 ### Integration of parse-cloud-code image on GitHub and DockerHub
