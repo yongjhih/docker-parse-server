@@ -78,5 +78,7 @@ parse-dashboard:
     PARSE_DASHBOARD_ALLOW_INSECURE_HTTP: $PARSE_DASHBOARD_ALLOW_INSECURE_HTTP
   ports:
     - "4040:4040"
+#  volumes:
+#    - "parse-dashboard-config.json:/src/Parse-Dashboard/parse-dashboard-config.json"
 
 # vim:set et ts=2 sw=2:
