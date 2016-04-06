@@ -196,6 +196,16 @@ $ docker run -d                                \
              yongjhih/parse-server:dev
 ```
 
+### Usage of standalone parse dashboard
+
+Up parse-dashboard: https://github.com/yongjhih/docker-parse-dashboard
+
+And, up other containers without parse-dashboard:
+
+```sh
+$ APP_ID=myAppId MASTER_KEY=myMasterKey docker-compose up -d -f docker-compose-without-dashboard.yml
+```
+
 ### Usage of letsencrypt for parse-dashboard
 
 ```sh
