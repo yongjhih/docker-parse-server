@@ -222,7 +222,7 @@ $ USER1=yongjhih \
 
 Open your https://yongjhih.example.com/ url and unblock browser protected scripts, that's it.
 
-BTW, you can remove 80 port after volumes/proxy/certs generated:
+BTW, you can remove unused 80 port after volumes/proxy/certs generated:
 
 ```sh
 sed -i -- '/- "80:80"/d' docker-compose-le.yml
