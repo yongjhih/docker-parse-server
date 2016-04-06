@@ -1,2 +1,11 @@
 #!/usr/bin/env bash
-curl -s -S "https://registry.hub.docker.com/v2/repositories/yongjhih/parse-server/tags/" | jq '.results[]["name"]' | sort
+json=`curl -s -S "https://registry.hub.docker.com/v2/repositories/yongjhih/parse-server/tags/"`
+while [ "$json" ]; do
+    echo "$json" | jq '.results[]["name"]'
+    next=`echo "$json" | jq -r '.next'`
+    if [ "$next" ]; then
+        json=`curl -s -S "$next"`
+    else
+        json=
+    fi
+done | sort 2> /dev/null
