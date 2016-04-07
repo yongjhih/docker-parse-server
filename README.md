@@ -206,7 +206,7 @@ And, up other containers without parse-dashboard:
 $ APP_ID=myAppId MASTER_KEY=myMasterKey docker-compose up -d -f docker-compose-without-dashboard.yml
 ```
 
-### Usage of letsencrypt for parse-dashboard with ssl certificated domain
+### Usage of letsencrypt for parse-dashboard with https certificated domain
 
 ```sh
 $ git clone https://github.com/yongjhih/docker-parse-server
