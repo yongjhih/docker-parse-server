@@ -212,11 +212,11 @@ $ APP_ID=myAppId MASTER_KEY=myMasterKey docker-compose up -d -f docker-compose-w
 $ git clone https://github.com/yongjhih/docker-parse-server
 $ cd docker-parse-server
 
-$ USER1=yongjhih \ # your username for basic auth
-  USER1_PASSWORD=yongjhih \ # your password for basic auth
-  LETSENCRYPT_EMAIL=yongjhih@example.com \ #your email
-  LETSENCRYPT_HOST=yongjhih.example.com \ # your doamin
-  VIRTUAL_HOST=yongjhih.example.com \ # your doamin
+$ USER1=yongjhih \
+  USER1_PASSWORD=yongjhih \
+  LETSENCRYPT_EMAIL=yongjhih@example.com \
+  LETSENCRYPT_HOST=yongjhih.example.com \
+  VIRTUAL_HOST=yongjhih.example.com \
   APP_ID=myAppId MASTER_KEY=myMasterKey docker-compose -f docker-compose-le.yml up
 ```
 
