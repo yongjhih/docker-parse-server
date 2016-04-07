@@ -3,7 +3,7 @@ json=`curl -s -S "https://registry.hub.docker.com/v2/repositories/yongjhih/parse
 while [ "$json" ]; do
     echo "$json" | jq '.results[]["name"]'
     next=`echo "$json" | jq -r '.next'`
-    if [ "$next" ]; then
+    if [[ "$next" && "$next" != "null" ]]; then
         json=`curl -s -S "$next"`
     else
         json=
