@@ -53,7 +53,9 @@ if ((gcmId && gcmKey) || (productionPfx && productionBundleId) || (devBundleId &
   };
 }
 
-var serverURL = process.env.SERVER_URL || 'http://localhost:1337/parse'; // Don't forget to change to https if needed
+// Serve the Parse API on the /parse URL prefix
+var mountPath = process.env.PARSE_MOUNT || '/parse';
+var serverURL = process.env.SERVER_URL || 'http://localhost:1337' + mountPath; // Don't forget to change to https if needed
 
 var api = new ParseServer({
   databaseURI: databaseUri || 'mongodb://localhost:27017/dev',
@@ -95,8 +97,6 @@ if(process.env.TRUST_PROXY == 1) {
   app.enable('trust proxy');
 }
 
-// Serve the Parse API on the /parse URL prefix
-var mountPath = process.env.PARSE_MOUNT || '/parse';
 app.use(mountPath, api);
 
 // Parse Server plays nicely with the rest of your web routes
