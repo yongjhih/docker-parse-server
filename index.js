@@ -21,7 +21,7 @@ if (!databaseUri) {
 var facebookAppIds = process.env.FACEBOOK_APP_IDS;
 
 if (facebookAppIds) {
-    facebookAppIds = facebookAppIds.split(",");
+  facebookAppIds = facebookAppIds.split(",");
 }
 
 var gcmId = process.env.GCM_ID;
@@ -106,5 +106,5 @@ app.get('/', function(req, res) {
 });
 
 app.listen(port, function() {
-    console.log('parse-server-example running on ' + serverURL + ' (:' + port + mountPath + ')');
+  console.log('parse-server-example running on ' + serverURL + ' (:' + port + mountPath + ')');
 });
