@@ -111,6 +111,12 @@ Deploy parse-cloud-code via git:
 [![Screencast - git](https://github.com/yongjhih/docker-parse-server/raw/master/art/docker-parse-server-git.gif)](https://youtu.be/9YwWbiRyPUU)
 
 ```sh
+#This command wil create a SSH keys for you as
+# ~/.ssh/id_rsa.pub and another private key.
+#you can leave the options balnk by pressing enter.
+
+$ssh-keygen -t rsa
+
 $ docker exec -i parse-server ssh-add-key < ~/.ssh/id_rsa.pub
 
 $ git clone ssh://git@localhost:2022/parse-cloud-code
