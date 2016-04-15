@@ -74,6 +74,27 @@ $ docker run -d \
              --link parse-server               \
              --name parse-dashboard            \
              yongjhih/parse-dashboard
+             
+#The above command will asuume you will later create a ssh 
+#and log into the dashboard remotely in production. 
+# However, to see the dashboard instanly using either
+# localhost:4040 or someip:4040(if hosted somewhere remotely)
+#then you need to add extra option to allowInsecureHTTP like
+#It is also required that you create username and password 
+#before accessing the portal else you cant get in
+
+$  docker run -d \
+             -e APP_ID=$(PARSE_APP_ID)\
+             -e MASTER_KEY=$(PARSE_MASTER_KEY)\
+             -e PARSE_DASHBOARD_ALLOW_INSECURE_HTTP=1  \
+             -e USER1=yourUsername  \
+             -e USER1_PASSWORD=yourUsernamesPassword \
+             -e PARSE_SERVER_URL=http://localhost:1337/parse  \
+             -p 4040:4040                      \
+             --link parse-server               \
+             --name parse-dashboard            \
+             yongjhih/parse-dashboard
+
 ```
 
 or with docker-compose:
