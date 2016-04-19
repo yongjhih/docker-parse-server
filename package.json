@@ -1,7 +1,7 @@
 {
-  "name": "parse-server-example",
-  "version": "1.4.0",
-  "description": "An example Parse API server using the parse-server module",
+  "name": "docker-parse-server",
+  "version": "2.2.7",
+  "description": "Parse Server as docker container",
   "main": "index.js",
   "repository": {
     "type": "git",
@@ -14,7 +14,7 @@
     "express": "~4.11.x",
     "kerberos": "~0.0.x",
     "parse": "~1.8.0",
-    "parse-server": "~2.2.6"
+    "parse-server": "~2.2.7"
   },
   "scripts": {
     "start": "nodemon --watch /parse/cloud index.js"

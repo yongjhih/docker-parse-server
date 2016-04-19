@@ -134,5 +134,5 @@ app.get('/', function(req, res) {
 });
 
 app.listen(port, function() {
-  console.log('parse-server-example running on ' + serverURL + ' (:' + port + mountPath + ')');
+  console.log('docker-parse-server running on ' + serverURL + ' (:' + port + mountPath + ')');
 });
