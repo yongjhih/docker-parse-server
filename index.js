@@ -58,6 +58,33 @@ var port = process.env.PORT || 1337;
 var mountPath = process.env.PARSE_MOUNT || '/parse';
 var serverURL = process.env.SERVER_URL || 'http://localhost:' + port + mountPath; // Don't forget to change to https if needed
 
+var S3Adapter = require('parse-server').S3Adapter;
+var GCSAdapter = require('parse-server').GCSAdapter;
+//var FileSystemAdapter = require('parse-server').FileSystemAdapter;
+var filesAdapter;
+
+if (process.env.S3_ACCESS_KEY &&
+        process.env.S3_SECRET_KEY &&
+        process.env.S3_BUCKET) {
+    var directAccess = process.env.S3_DIRECT || false;
+
+    filesAdapter = new S3Adapter(
+            process.env.S3_ACCESS_KEY,
+            process.env.S3_SECRET_KEY,
+            process.env.S3_BUCKET,
+            {directAccess: directAccess});
+} else if (process.env.GCP_PROJECT_ID &&
+        process.env.GCP_KEYFILE_PATH &&
+        process.env.GCS_BUCKET) {
+    var directAccess = process.env.GCS_DIRECT || false;
+
+    filesAdapter = new GCSAdapter(
+            process.env.GCP_PROJECT_ID,
+            process.env.GCP_KEYFILE_PATH,
+            process.env.GCS_BUCKET,
+            {directAccess: directAccess});
+}
+
 var api = new ParseServer({
   databaseURI: databaseUri || 'mongodb://localhost:27017/dev',
   cloud: process.env.CLOUD_CODE_MAIN || __dirname + '/cloud/main.js',
@@ -73,6 +100,7 @@ var api = new ParseServer({
   javascriptKey: process.env.JAVASCRIPT_KEY,
   dotNetKey: process.env.DOTNET_KEY,
   fileKey: process.env.FILE_KEY,
+  filesAdapter: filesAdapter,
 
   facebookAppIds: facebookAppIds,
   maxUploadSize: process.env.MAX_UPLOAD_SIZE,
