@@ -44,19 +44,4 @@ EXPOSE $PORT
 VOLUME $CLOUD_CODE_HOME
 ENV NODE_PATH .
 
-RUN apt-get update && \
-    apt-get install -y --no-install-recommends openssh-server && \
-    apt-get clean && \
-    rm -rf /var/lib/apt/lists/*
-
-ENV SSH_PORT 2022
-EXPOSE $SSH_PORT
-
-ADD ssh-add-key /sbin/
-
-RUN useradd -s /bin/bash git
-RUN echo "git ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
-
-ADD docker-entrypoint.sh /
-ENTRYPOINT ["/docker-entrypoint.sh"]
 CMD ["npm", "start"]

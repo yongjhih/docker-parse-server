@@ -3,8 +3,8 @@ parse-server:
   image: yongjhih/parse-server
   ports:
     - "1337:1337"
-    - "2022:22"
   environment:
+    PORT: 1337
     DATABASE_URI: $DATABASE_URI
     APP_ID: $APP_ID
     MASTER_KEY: $MASTER_KEY
@@ -34,7 +34,7 @@ parse-server:
     ALLOW_CLIENT_CLASS_CREATION: $ALLOW_CLIENT_CLASS_CREATION # true
     APP_NAME: $APP_NAME
     PUBLIC_SERVER_URL: $PUBLIC_SERVER_URL
-    TRUST_PROXY: $TRUST_PROXY
+    TRUST_PROXY:      $TRUST_PROXY
     S3_ACCESS_KEY:    $S3_ACCESS_KEY
     S3_SECRET_KEY:    $S3_SECRET_KEY
     S3_BUCKET:        $S3_BUCKET
@@ -43,19 +43,40 @@ parse-server:
     GCP_KEYFILE_PATH: $GCP_KEYFILE_PATH
     GCS_BUCKET:       $GCS_BUCKET
     GCS_DIRECT:       $GCS_DIRECT
-    VIRTUAL_HOST: $PARSE_SERVER_VIRTUAL_HOST
-    LETSENCRYPT_HOST: $PARSE_SERVER_LETSENCRYPT_HOST
+    VIRTUAL_HOST:      $PARSE_SERVER_VIRTUAL_HOST
+    LETSENCRYPT_HOST:  $PARSE_SERVER_LETSENCRYPT_HOST
     LETSENCRYPT_EMAIL: $PARSE_SERVER_LETSENCRYPT_EMAIL
   links:
     - mongo
   volumes_from:
     - parse-cloud-code
+  volumes:
+    - /parse/cloud
+
 parse-cloud-code:
   #build: cloud/.
   image: yongjhih/parse-cloud-code
   volumes:
     - /parse/cloud
   command: "ls /parse/cloud"
+
+git:
+  image: yongjhih/parse-server:git
+  ports:
+    - "2022:22"
+  environment:
+    PORT: 22
+    #WORKTREE: $GIT_WORKTREE
+    #REPO_PATH: $GIT_REPO_PATH
+  volumes_from:
+    - parse-server
+
+parse-cloud-code:
+  image: yongjhih/parse-cloud-code
+  volumes:
+    - /parse/cloud
+  command: "ls /parse/cloud"
+
 mongo:
   image: mongo
   ports:
@@ -89,9 +110,10 @@ parse-dashboard:
     PARSE_DASHBOARD_ALLOW_INSECURE_HTTP: $PARSE_DASHBOARD_ALLOW_INSECURE_HTTP
     USER1: $USER1
     USER1_PASSWORD: $USER1_PASSWORD
-    VIRTUAL_HOST: $VIRTUAL_HOST
-    LETSENCRYPT_HOST: $LETSENCRYPT_HOST
-    LETSENCRYPT_EMAIL: $LETSENCRYPT_EMAIL
+    VIRTUAL_HOST:      $PARSE_DASHBOARD_VIRTUAL_HOST
+    LETSENCRYPT_HOST:  $PARSE_DASHBOARD_LETSENCRYPT_HOST
+    LETSENCRYPT_EMAIL: $PARSE_DASHBOARD_LETSENCRYPT_EMAIL
+    PORT: 4040
   ports:
     - "4040:4040"
 #  volumes:

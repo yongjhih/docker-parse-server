@@ -121,8 +121,8 @@ var api = new ParseServer({
 
 var app = express();
 
-if(process.env.TRUST_PROXY == 1) {
-  console.log("trusting proxy");
+if (process.env.TRUST_PROXY !== "false") {
+  console.log("trusting proxy: " + process.env.TRUST_PROXY);
   app.enable('trust proxy');
 }
 

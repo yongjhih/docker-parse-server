@@ -55,10 +55,15 @@ $ docker run -d                                \
              -e APP_ID=${PARSE_APP_ID}         \
              -e MASTER_KEY=${PARSE_MASTER_KEY} \
              -p 1337:1337                      \
-             -p 2022:22                        \
              --link mongo                      \
              --name parse-server               \
              yongjhih/parse-server
+
+$ docker run -d                                \
+             -p 2022:22                        \
+             --link parse-server               \
+             --name parse-cloud-code-git       \
+             yongjhih/parse-server:git
 
 # Test parse-server
 $ curl -X POST \
@@ -74,14 +79,14 @@ $ docker run -d \
              --link parse-server               \
              --name parse-dashboard            \
              yongjhih/parse-dashboard
-             
-#The above command will asuume you will later create a ssh 
-#and log into the dashboard remotely in production. 
-# However, to see the dashboard instanly using either
-# localhost:4040 or someip:4040(if hosted somewhere remotely)
-#then you need to add extra option to allowInsecureHTTP like
-#It is also required that you create username and password 
-#before accessing the portal else you cant get in
+
+# The above command will asuume you will later create a ssh 
+# and log into the dashboard remotely in production. 
+#  However, to see the dashboard instanly using either
+#  localhost:4040 or someip:4040(if hosted somewhere remotely)
+# then you need to add extra option to allowInsecureHTTP like
+# It is also required that you create username and password 
+# before accessing the portal else you cant get in
 
 $  docker run -d \
              -e APP_ID=$(PARSE_APP_ID)\
@@ -111,13 +116,13 @@ Deploy parse-cloud-code via git:
 [![Screencast - git](https://github.com/yongjhih/docker-parse-server/raw/master/art/docker-parse-server-git.gif)](https://youtu.be/9YwWbiRyPUU)
 
 ```sh
-#This command wil create a SSH keys for you as
-# ~/.ssh/id_rsa.pub and another private key.
-#you can leave the options balnk by pressing enter.
+# This command wil create a SSH keys for you as
+#  ~/.ssh/id_rsa.pub and another private key.
+# you can leave the options balnk by pressing enter.
 
-$ssh-keygen -t rsa
+$ ssh-keygen -t rsa
 
-$ docker exec -i parse-server ssh-add-key < ~/.ssh/id_rsa.pub
+$ docker exec -i parse-cloud-code-git ssh-add-key < ~/.ssh/id_rsa.pub
 
 $ git clone ssh://git@localhost:2022/parse-cloud-code
 $ cd parse-cloud-code
@@ -144,7 +149,6 @@ $ docker run -d \
              -e APP_ID=${PARSE_APP_ID}                            \
              -e MASTER_KEY=${PARSE_MASTER_KEY}                    \
              -p 1337:1337                                        \
-             -p 2022:22                                          \
              --name parse-server                                 \
              yongjhih/parse-server
 ```
@@ -167,7 +171,6 @@ $ docker run -d \
              -e APP_ID={appId}         \
              -e MASTER_KEY={masterKey} \
              -p 1337:1337              \
-             -p 2022:22                \
              --link mongo              \
              --name parse-server       \
              yongjhih/parse-server
@@ -186,7 +189,6 @@ $ docker run -d \
              -e APP_ID=${PARSE_APP_ID}        \
              -e MASTER_KEY=${PARSE_MASTER_KEY} \
              -p 1337:1337                     \
-             -p 2022:22                       \
              --link mongo                     \
              --name parse-server              \
              yongjhih/parse-server
@@ -201,7 +203,6 @@ $ docker run -d                                \
              -e APP_ID=${PARSE_APP_ID}         \
              -e MASTER_KEY=${PARSE_MASTER_KEY} \
              -p 1337:1337                      \
-             -p 2022:22                        \
              --link mongo                      \
              --name parse-server               \
              yongjhih/parse-server:2.2.7
@@ -217,7 +218,6 @@ $ docker run -d                                \
              -e APP_ID=${PARSE_APP_ID}         \
              -e MASTER_KEY=${PARSE_MASTER_KEY} \
              -p 1337:1337                      \
-             -p 2022:22                        \
              --link mongo                      \
              --name parse-server               \
              yongjhih/parse-server:dev
@@ -233,7 +233,7 @@ And, up other containers without parse-dashboard:
 $ APP_ID=myAppId MASTER_KEY=myMasterKey docker-compose up -d -f docker-compose-without-dashboard.yml
 ```
 
-### Usage of letsencrypt for parse-dashboard with https certificated domain
+### Usage of https certificated domain with letsencrypt
 
 ```sh
 $ git clone https://github.com/yongjhih/docker-parse-server
@@ -241,9 +241,12 @@ $ cd docker-parse-server
 
 $ USER1=yongjhih \
   USER1_PASSWORD=yongjhih \
-  LETSENCRYPT_EMAIL=yongjhih@example.com \
-  LETSENCRYPT_HOST=yongjhih.example.com \
-  VIRTUAL_HOST=yongjhih.example.com \
+  PARSE_DASHBOARD_VIRTUAL_HOST=parse.example.com \
+  PARSE_DASHBOARD_LETSENCRYPT_HOST=parse.example.com \
+  PARSE_DASHBOARD_LETSENCRYPT_EMAIL=yongjhih@example.com \
+  PARSE_SERVER_VIRTUAL_HOST=api.example.com \
+  PARSE_SERVER_LETSENCRYPT_HOST=api.example.com \
+  PARSE_SERVER_LETSENCRYPT_EMAIL=yongjhih@example.com \
   APP_ID=myAppId MASTER_KEY=myMasterKey docker-compose -f docker-compose-le.yml up
 ```
 
@@ -265,7 +268,7 @@ sed -i -- '/- "80:80"/d' docker-compose-le.yml
 Without docker-compose:
 
 * Re/create parse-cloud-code volume container: `docker create -v /parse/code --name parse-cloud-code {username}/parse-cloud-code /bin/true`
-* Re/create parse-server container with volume: `docker run -d --volumes-from parse-cloud-code APP_ID={appId} -e MASTER_KEY={masterKey} -p 1337:1337 -p 2022:22 --link mongo yongjhih/parse-server`
+* Re/create parse-server container with volume: `docker run -d --volumes-from parse-cloud-code APP_ID={appId} -e MASTER_KEY={masterKey} -p 1337:1337 --link mongo yongjhih/parse-server`
 
 With docker-compose.yml:
 
@@ -361,7 +364,7 @@ parse-cloud-code:
 ## Add ssh-key for git
 
 ```sh
-$ docker exec -i parse-server ssh-add-key < ~/.ssh/id_rsa.pub
+$ docker exec -i parse-cloud-cloud-git ssh-add-key < ~/.ssh/id_rsa.pub
 ```
 
 Import keys from github:
