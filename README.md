@@ -75,6 +75,7 @@ $ curl -X POST \
 $ docker run -d \
              -e APP_ID=${PARSE_APP_ID}         \
              -e MASTER_KEY=${PARSE_MASTER_KEY} \
+             -e SERVER_URL=http://localhost:1337/parse \
              -p 4040:4040                      \
              --link parse-server               \
              --name parse-dashboard            \
@@ -91,10 +92,10 @@ $ docker run -d \
 $  docker run -d \
              -e APP_ID=$(PARSE_APP_ID)\
              -e MASTER_KEY=$(PARSE_MASTER_KEY)\
+             -e SERVER_URL=http://localhost:1337/parse \
              -e PARSE_DASHBOARD_ALLOW_INSECURE_HTTP=1  \
              -e USER1=yourUsername  \
              -e USER1_PASSWORD=yourUsernamesPassword \
-             -e PARSE_SERVER_URL=http://localhost:1337/parse  \
              -p 4040:4040                      \
              --link parse-server               \
              --name parse-dashboard            \
@@ -225,9 +226,9 @@ $ docker run -d                                \
 
 ### Usage of standalone parse dashboard
 
-Up parse-dashboard: https://github.com/yongjhih/docker-parse-dashboard
+Start up parse-dashboard: https://github.com/yongjhih/docker-parse-dashboard
 
-And, up other containers without parse-dashboard:
+And, start up other containers without parse-dashboard:
 
 ```sh
 $ APP_ID=myAppId MASTER_KEY=myMasterKey docker-compose up -d -f docker-compose-without-dashboard.yml
@@ -247,10 +248,11 @@ $ USER1=yongjhih \
   PARSE_SERVER_VIRTUAL_HOST=api.example.com \
   PARSE_SERVER_LETSENCRYPT_HOST=api.example.com \
   PARSE_SERVER_LETSENCRYPT_EMAIL=yongjhih@example.com \
+  SERVER_URL=https://api.example.com/parse \
   APP_ID=myAppId MASTER_KEY=myMasterKey docker-compose -f docker-compose-le.yml up
 ```
 
-Open your https://yongjhih.example.com/ url and unblock browser protected scripts, that's it.
+Open your https://parse.example.com/ url and unblock browser protected scripts, that's it.
 
 BTW, you can remove unused 80 port after volumes/proxy/certs generated:
 
