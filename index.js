@@ -119,6 +119,13 @@ var api = new ParseServer({
   //}
 });
 
+//console.log("appId: " + api.appId);
+//console.log("masterKey: " + api.masterKey);
+//console.log("cloud: " + api.cloud);
+//console.log("databaseURI: " + api.databaseURI);
+console.log("appId: " + process.env.APP_ID);
+console.log("masterKey: " + process.env.MASTER_KEY);
+
 var app = express();
 
 if (process.env.TRUST_PROXY !== "false") {

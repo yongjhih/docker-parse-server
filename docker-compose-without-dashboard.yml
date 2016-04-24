@@ -3,7 +3,6 @@ parse-server:
   image: yongjhih/parse-server
   ports:
     - "1337:1337"
-    - "2022:22"
   environment:
     DATABASE_URI: $DATABASE_URI
     APP_ID: $APP_ID
@@ -47,12 +46,27 @@ parse-server:
     - mongo
   volumes_from:
     - parse-cloud-code
+  volumes:
+    - /parse/cloud
+
 parse-cloud-code:
   #build: cloud/.
   image: yongjhih/parse-cloud-code
   volumes:
     - /parse/cloud
   command: "ls /parse/cloud"
+
+git:
+  image: yongjhih/parse-server:git
+  ports:
+    - "2022:22"
+  environment:
+    PORT: 22
+    #WORKTREE: $GIT_WORKTREE
+    #REPO_PATH: $GIT_REPO_PATH
+  volumes_from:
+    - parse-server
+
 mongo:
   image: mongo
   ports:
@@ -62,6 +76,7 @@ mongo:
 #  command: "--smallfiles --logpath=/dev/null --setParameter failIndexKeyTooLong=false --rest --auth"
   command: "--smallfiles --logpath=/dev/null --setParameter failIndexKeyTooLong=false"
 # ref. http://www.diogogmt.com/running-mongodb-with-docker-and-compose/
+
 mongo-data:
   image: mongo
   volumes:
