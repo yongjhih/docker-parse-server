@@ -52,8 +52,8 @@ Most pulled:
 $ docker run -d -p 27017:27017 --name mongo mongo
 
 $ docker run -d                                \
-             -e APP_ID=${PARSE_APP_ID}         \
-             -e MASTER_KEY=${PARSE_MASTER_KEY} \
+             -e APP_ID=${APP_ID}         \
+             -e MASTER_KEY=${MASTER_KEY} \
              -p 1337:1337                      \
              --link mongo                      \
              --name parse-server               \
@@ -73,8 +73,8 @@ $ curl -X POST \
   http://localhost:1337/parse/functions/hello
 
 $ docker run -d \
-             -e APP_ID=${PARSE_APP_ID}         \
-             -e MASTER_KEY=${PARSE_MASTER_KEY} \
+             -e APP_ID=${APP_ID}         \
+             -e MASTER_KEY=${MASTER_KEY} \
              -e SERVER_URL=http://localhost:1337/parse \
              -p 4040:4040                      \
              --link parse-server               \
@@ -90,8 +90,8 @@ $ docker run -d \
 # before accessing the portal else you cant get in
 
 $  docker run -d \
-             -e APP_ID=$(PARSE_APP_ID)\
-             -e MASTER_KEY=$(PARSE_MASTER_KEY)\
+             -e APP_ID=$(APP_ID)\
+             -e MASTER_KEY=$(MASTER_KEY)\
              -e SERVER_URL=http://localhost:1337/parse \
              -e PARSE_DASHBOARD_ALLOW_INSECURE_HTTP=1  \
              -e USER1=yourUsername  \
@@ -132,7 +132,7 @@ $ git add main.js && git commit -m 'Update main.js'
 $ git push origin master
 
 $ curl -X POST \
-  -H "X-Parse-Application-Id: ${PARSE_APP_ID}" \
+  -H "X-Parse-Application-Id: ${APP_ID}" \
   -H "Content-Type: application/json" \
   -d '{}' \
   http://localhost:1337/parse/functions/hello
@@ -146,9 +146,9 @@ $ curl -X POST \
 
 ```sh
 $ docker run -d \
-             -e DATABASE_URI=${PARSE_DATABASE_URI:-mongodb://mongodb.intra:27017/dev} \
-             -e APP_ID=${PARSE_APP_ID}                            \
-             -e MASTER_KEY=${PARSE_MASTER_KEY}                    \
+             -e DATABASE_URI=${DATABASE_URI:-mongodb://mongodb.intra:27017/dev} \
+             -e APP_ID=${APP_ID}                            \
+             -e MASTER_KEY=${MASTER_KEY}                    \
              -p 1337:1337                                        \
              --name parse-server                                 \
              yongjhih/parse-server
@@ -186,9 +186,9 @@ $ docker create --name parse-cloud-code \
 
 $ docker run -d \
              --volumes-from parse-cloud-code \
-             -e DATABASE_URI=${PARSE_DATABASE_URI:-mongodb://mongodb.intra:27017/dev} \
-             -e APP_ID=${PARSE_APP_ID}        \
-             -e MASTER_KEY=${PARSE_MASTER_KEY} \
+             -e DATABASE_URI=${DATABASE_URI:-mongodb://mongodb.intra:27017/dev} \
+             -e APP_ID=${APP_ID}        \
+             -e MASTER_KEY=${MASTER_KEY} \
              -p 1337:1337                     \
              --link mongo                     \
              --name parse-server              \
@@ -201,8 +201,8 @@ Specify parse-server:2.2.7:
 
 ```sh
 $ docker run -d                                \
-             -e APP_ID=${PARSE_APP_ID}         \
-             -e MASTER_KEY=${PARSE_MASTER_KEY} \
+             -e APP_ID=${APP_ID}         \
+             -e MASTER_KEY=${MASTER_KEY} \
              -p 1337:1337                      \
              --link mongo                      \
              --name parse-server               \
@@ -216,8 +216,8 @@ ref. https://www.npmjs.com/package/parse-server
 
 ```sh
 $ docker run -d                                \
-             -e APP_ID=${PARSE_APP_ID}         \
-             -e MASTER_KEY=${PARSE_MASTER_KEY} \
+             -e APP_ID=${APP_ID}         \
+             -e MASTER_KEY=${MASTER_KEY} \
              -p 1337:1337                      \
              --link mongo                      \
              --name parse-server               \
