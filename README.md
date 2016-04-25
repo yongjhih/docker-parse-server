@@ -61,7 +61,7 @@ $ docker run -d                                \
 
 $ docker run -d                                \
              -p 2022:22                        \
-             --link parse-server               \
+             --volumes-from parse-server       \
              --name parse-cloud-code-git       \
              yongjhih/parse-server:git
 
