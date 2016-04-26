@@ -126,6 +126,7 @@ $ ssh-keygen -t rsa
 # If git container name is `parse-cloud-code-git`
 $ docker exec -i parse-cloud-code-git ssh-add-key < ~/.ssh/id_rsa.pub
 
+# port 2022, repo path is `/parse-cloud-code`
 $ git clone ssh://git@localhost:2022/parse-cloud-code
 $ cd parse-cloud-code
 $ echo "Parse.Cloud.define('hello', function(req, res) { res.success('Hi, git'); });" > main.js
