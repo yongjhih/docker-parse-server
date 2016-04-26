@@ -123,6 +123,7 @@ Deploy parse-cloud-code via git:
 
 $ ssh-keygen -t rsa
 
+# If git container name is `parse-cloud-code-git`
 $ docker exec -i parse-cloud-code-git ssh-add-key < ~/.ssh/id_rsa.pub
 
 $ git clone ssh://git@localhost:2022/parse-cloud-code
