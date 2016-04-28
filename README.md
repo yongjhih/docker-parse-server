@@ -233,7 +233,7 @@ Start up parse-dashboard: https://github.com/yongjhih/docker-parse-dashboard
 And, start up other containers without parse-dashboard:
 
 ```sh
-$ APP_ID=myAppId MASTER_KEY=myMasterKey docker-compose up -d -f docker-compose-without-dashboard.yml
+$ APP_ID=myAppId MASTER_KEY=myMasterKey docker-compose -f docker-compose-without-dashboard.yml up -d
 ```
 
 ### Usage of https certificated domain with letsencrypt
