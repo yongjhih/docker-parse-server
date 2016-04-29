@@ -85,6 +85,10 @@ if (process.env.S3_ACCESS_KEY &&
             {directAccess: directAccess});
 }
 
+var verifyUserEmails = process.env.VERIFY_USER_EMAILS === "true" || process.env.VERIFY_USER_EMAILS === "1";
+var enableAnonymousUsers = process.env.ENABLE_ANON_USERS === "true" || process.env.ENABLE_ANON_USERS === "1";
+var allowClientClassCreation = process.env.ALLOW_CLIENT_CLASS_CREATION === "true" || process.env.ALLOW_CLIENT_CLASS_CREATION === "1";
+
 var api = new ParseServer({
   databaseURI: databaseUri || 'mongodb://localhost:27017/dev',
   cloud: process.env.CLOUD_CODE_MAIN || __dirname + '/cloud/main.js',
@@ -105,9 +109,9 @@ var api = new ParseServer({
   facebookAppIds: facebookAppIds,
   maxUploadSize: process.env.MAX_UPLOAD_SIZE,
   push: pushConfig,
-  verifyUserEmails: process.env.VERIFY_USER_EMAILS,
-  enableAnonymousUsers: process.env.ENABLE_ANON_USERS,
-  allowClientClassCreation: process.env.ALLOW_CLIENT_CLASS_CREATION,
+  verifyUserEmails: verifyUserEmails,
+  enableAnonymousUsers: enableAnonymousUsers,
+  allowClientClassCreation: allowClientClassCreation,
   //oauth = {},
   appName: process.env.APP_NAME,
   publicServerURL: process.env.PUBLIC_SERVER_URL
