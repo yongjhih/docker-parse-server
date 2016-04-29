@@ -59,6 +59,8 @@ parse-server:
     - parse-cloud-code
   volumes:
     - /parse/cloud
+    - "./volumes/production-pfx:/production-pfx"
+    - "./volumes/dev-pfx:/dev-pfx"
 
 parse-cloud-code:
   #build: cloud/.

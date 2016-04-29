@@ -26,27 +26,31 @@ if (facebookAppIds) {
 
 var gcmId = process.env.GCM_ID;
 var gcmKey = process.env.GCM_KEY;
-var productionPfx = process.env.PRODUCTION_PFX;
 var productionBundleId = process.env.PRODUCTION_BUNDLE_ID;
-var devPfx = process.env.DEV_PFX;
+var productionPfx = process.env.PRODUCTION_PFX || '/production-pfx';
 var devBundleId = process.env.DEV_BUNDLE_ID;
+var devPfx = process.env.DEV_PFX || '/dev-pfx';
 var pushConfig;
 
-if ((gcmId && gcmKey) || (productionPfx && productionBundleId) || (devBundleId && devPfx)) {
+if ((gcmId && gcmKey) || productionBundleId || devBundleId) {
   pushConfig = {
     android: {
-      senderId: process.env.GCM_ID || '',
-      apiKey: process.env.GCM_KEY || ''
+      senderId: gcmId,
+      apiKey: gcmKey
     },
     ios: [
       {
-        pfx: process.env.DEV_PFX || '',
-        bundleId: process.env.DEV_BUNDLE_ID || '',
+        pfx: devPfx,
+        cert: process.env.DEV_CERT,
+        key: process.env.DEV_KEY,
+        bundleId: devBundleId,
         production: false
       },
       {
-        pfx: process.env.PRODUCTION_PFX || '',
-        bundleId: process.env.PRODUCTION_BUNDLE_ID || '',
+        pfx: productionPfx,
+        cert: process.env.PRODUCTION_CERT,
+        key: process.env.PRODUCTION_KEY,
+        bundleId: productionBundleId,
         production: true
       }
     ]
