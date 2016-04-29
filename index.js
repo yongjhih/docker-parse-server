@@ -70,25 +70,41 @@ if (devPfx || (devCert && devKey)) {
 
 var pushConfig;
 
-if ((gcmId && gcmKey) && (productionPushConfig || devPushConfig)) {
-  pushConfig = {
-    android: {
-      senderId: gcmId,
-      apiKey: gcmKey
-    },
-    ios: iosPushConfigs
-  };
-} else if (productionPushConfig || devPushConfig) {
-  pushConfig = {
-    ios: iosPushConfigs
-  };
-} else if (gcmId && gcmKey) {
-  pushConfig = {
-    android: {
-      senderId: gcmId,
-      apiKey: gcmKey
-    }
-  };
+if (gcmId && gcmKey) {
+  if (productionPushConfig && devPushConfig) {
+    pushConfig = {
+      android: {
+        senderId: gcmId,
+        apiKey: gcmKey
+      },
+      ios: iosPushConfigs
+    };
+  } else if (productionPushConfig || devPushConfig) {
+    pushConfig = {
+      android: {
+        senderId: gcmId,
+        apiKey: gcmKey
+      },
+      ios: productionPushConfig ? productionPushConfig : devPushConfig
+    };
+  } else {
+    pushConfig = {
+      android: {
+        senderId: gcmId,
+        apiKey: gcmKey
+      }
+    };
+  }
+} else {
+  if (productionPushConfig && devPushConfig) {
+    pushConfig = {
+      ios: iosPushConfigs
+    };
+  } else if (productionPushConfig || devPushConfig) {
+    pushConfig = {
+      ios: productionPushConfig ? productionPushConfig : devPushConfig
+    };
+  }
 }
 console.log(pushConfig);
 
