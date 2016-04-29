@@ -32,11 +32,11 @@ var iosPushConfigs = new Array();
 
 var productionBundleId = process.env.PRODUCTION_BUNDLE_ID;
 var productionPfx = process.env.PRODUCTION_PFX || '/production-pfx';
-if (!fs.lstatSync(productionPfx).isFile()) productionPfx = '';
+if (!fs.lstatSync(productionPfx).isFile()) productionPfx = null;
 var productionCert = process.env.PRODUCTION_CERT || '/production-pfx-cert.pem';
-if (!fs.lstatSync(productionCert).isFile()) productionCert = '';
+if (!fs.lstatSync(productionCert).isFile()) productionCert = null;
 var productionKey = process.env.PRODUCTION_KEY || '/production-pfx-key.pem';
-if (!fs.lstatSync(productionKey).isFile()) productionKey = '';
+if (!fs.lstatSync(productionKey).isFile()) productionKey = null;
 var productionPushConfig;
 if (productionPfx || (productionCert && productionKey)) {
   productionPushConfig = {
@@ -51,26 +51,26 @@ if (productionPfx || (productionCert && productionKey)) {
 
 var devBundleId = process.env.DEV_BUNDLE_ID;
 var devPfx = process.env.DEV_PFX || '/dev-pfx';
-if (!fs.lstatSync(devPfx).isFile()) devPfx = '';
+if (!fs.lstatSync(devPfx).isFile()) devPfx = null;
 var devCert = process.env.DEV_CERT || '/dev-pfx-cert.pem';
-if (!fs.lstatSync(devCert).isFile()) devCert = '';
+if (!fs.lstatSync(devCert).isFile()) devCert = null;
 var devKey = process.env.DEV_KEY || '/dev-pfx-key.pem';
-if (!fs.lstatSync(devKey).isFile()) devKey = '';
+if (!fs.lstatSync(devKey).isFile()) devKey = null;
 var devPushConfig;
 if (devPfx || (devCert && devKey)) {
-  devPushconfig = {
+  devPushConfig = {
     pfx: devPfx,
     cert: devCert,
     key: devKey,
     bundleId: devBundleId,
     production: false
   };
-  iosPushConfigs.push(devPushconfig);
+  iosPushConfigs.push(devPushConfig);
 }
 
 var pushConfig;
 
-if ((gcmId && gcmKey) || productionPushConfig || devPushConfig) {
+if ((gcmId && gcmKey) && (productionPushConfig || devPushConfig)) {
   pushConfig = {
     android: {
       senderId: gcmId,
@@ -78,7 +78,19 @@ if ((gcmId && gcmKey) || productionPushConfig || devPushConfig) {
     },
     ios: iosPushConfigs
   };
+} else if (productionPushConfig || devPushConfig) {
+  pushConfig = {
+    ios: iosPushConfigs
+  };
+} else if (gcmId && gcmKey) {
+  pushConfig = {
+    android: {
+      senderId: gcmId,
+      apiKey: gcmKey
+    }
+  };
 }
+console.log(pushConfig);
 
 var port = process.env.PORT || 1337;
 // Serve the Parse API on the /parse URL prefix
