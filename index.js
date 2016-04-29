@@ -5,6 +5,7 @@
 var express = require('express');
 var ParseServer = require('parse-server').ParseServer;
 var links = require('docker-links').parseLinks(process.env);
+var fs = require('fs');
 
 var databaseUri = process.env.DATABASE_URI || process.env.MONGOLAB_URI;
 
@@ -26,38 +27,56 @@ if (facebookAppIds) {
 
 var gcmId = process.env.GCM_ID;
 var gcmKey = process.env.GCM_KEY;
+
+var iosPushConfigs = new Array();
+
 var productionBundleId = process.env.PRODUCTION_BUNDLE_ID;
 var productionPfx = process.env.PRODUCTION_PFX || '/production-pfx';
+if (!fs.lstatSync(productionPfx).isFile()) productionPfx = '';
 var productionCert = process.env.PRODUCTION_CERT || '/production-pfx-cert.pem';
+if (!fs.lstatSync(productionCert).isFile()) productionCert = '';
 var productionKey = process.env.PRODUCTION_KEY || '/production-pfx-key.pem';
+if (!fs.lstatSync(productionKey).isFile()) productionKey = '';
+var productionPushConfig;
+if (productionPfx || (productionCert && productionKey)) {
+  productionPushConfig = {
+    pfx: productionPfx,
+    cert: productionCert,
+    key: productionKey,
+    bundleId: productionBundleId,
+    production: true
+  };
+  iosPushConfigs.push(productionPushConfig);
+}
+
 var devBundleId = process.env.DEV_BUNDLE_ID;
 var devPfx = process.env.DEV_PFX || '/dev-pfx';
+if (!fs.lstatSync(devPfx).isFile()) devPfx = '';
 var devCert = process.env.DEV_CERT || '/dev-pfx-cert.pem';
+if (!fs.lstatSync(devCert).isFile()) devCert = '';
 var devKey = process.env.DEV_KEY || '/dev-pfx-key.pem';
+if (!fs.lstatSync(devKey).isFile()) devKey = '';
+var devPushConfig;
+if (devPfx || (devCert && devKey)) {
+  devPushconfig = {
+    pfx: devPfx,
+    cert: devCert,
+    key: devKey,
+    bundleId: devBundleId,
+    production: false
+  };
+  iosPushConfigs.push(devPushconfig);
+}
+
 var pushConfig;
 
-if ((gcmId && gcmKey) || productionBundleId || devBundleId) {
+if ((gcmId && gcmKey) || productionPushConfig || devPushConfig) {
   pushConfig = {
     android: {
       senderId: gcmId,
       apiKey: gcmKey
     },
-    ios: [
-      {
-        pfx: devPfx,
-        cert: devCert,
-        key: devKey,
-        bundleId: devBundleId,
-        production: false
-      },
-      {
-        pfx: productionPfx,
-        cert: productionCert,
-        key: productionKey,
-        bundleId: productionBundleId,
-        production: true
-      }
-    ]
+    ios: iosPushConfigs
   };
 }
 
