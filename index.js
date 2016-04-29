@@ -28,8 +28,12 @@ var gcmId = process.env.GCM_ID;
 var gcmKey = process.env.GCM_KEY;
 var productionBundleId = process.env.PRODUCTION_BUNDLE_ID;
 var productionPfx = process.env.PRODUCTION_PFX || '/production-pfx';
+var productionCert = process.env.PRODUCTION_CERT || '/production-pfx-cert.pem';
+var productionKey = process.env.PRODUCTION_KEY || '/production-pfx-key.pem';
 var devBundleId = process.env.DEV_BUNDLE_ID;
 var devPfx = process.env.DEV_PFX || '/dev-pfx';
+var devCert = process.env.DEV_CERT || '/dev-pfx-cert.pem';
+var devKey = process.env.DEV_KEY || '/dev-pfx-key.pem';
 var pushConfig;
 
 if ((gcmId && gcmKey) || productionBundleId || devBundleId) {
@@ -41,15 +45,15 @@ if ((gcmId && gcmKey) || productionBundleId || devBundleId) {
     ios: [
       {
         pfx: devPfx,
-        cert: process.env.DEV_CERT,
-        key: process.env.DEV_KEY,
+        cert: devCert,
+        key: devKey,
         bundleId: devBundleId,
         production: false
       },
       {
         pfx: productionPfx,
-        cert: process.env.PRODUCTION_CERT,
-        key: process.env.PRODUCTION_KEY,
+        cert: productionCert,
+        key: productionKey,
         bundleId: productionBundleId,
         production: true
       }
