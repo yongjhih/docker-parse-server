@@ -85,7 +85,25 @@ if (process.env.S3_ACCESS_KEY &&
             {directAccess: directAccess});
 }
 
+var emailModule = process.env.EMAIL_MODULE;
 var verifyUserEmails = process.env.VERIFY_USER_EMAILS === "true" || process.env.VERIFY_USER_EMAILS === "1";
+var emailAdapter;
+if (!emailModule) {
+  verifyUserEmails = false;
+} else {
+  emailAdapter = {
+    module: emailModule,
+    options: {
+      fromAddress: process.env.EMAIL_FROM,
+      domain: process.env.EMAIL_DOMAIN,
+      apiKey: process.env.EMAIL_API_KEY
+    }
+  };
+}
+console.log(verifyUserEmails);
+console.log(emailModule);
+console.log(emailAdapter);
+
 var enableAnonymousUsers = process.env.ENABLE_ANON_USERS === "true" || process.env.ENABLE_ANON_USERS === "1";
 var allowClientClassCreation = process.env.ALLOW_CLIENT_CLASS_CREATION === "true" || process.env.ALLOW_CLIENT_CLASS_CREATION === "1";
 
@@ -110,6 +128,7 @@ var api = new ParseServer({
   maxUploadSize: process.env.MAX_UPLOAD_SIZE,
   push: pushConfig,
   verifyUserEmails: verifyUserEmails,
+  emailAdapter: emailAdapter,
   enableAnonymousUsers: enableAnonymousUsers,
   allowClientClassCreation: allowClientClassCreation,
   //oauth = {},
