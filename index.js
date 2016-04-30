@@ -121,7 +121,7 @@ var filesAdapter;
 if (process.env.S3_ACCESS_KEY &&
         process.env.S3_SECRET_KEY &&
         process.env.S3_BUCKET) {
-    var directAccess = !!(process.env.S3_DIRECT);
+    var directAccess = !!+(process.env.S3_DIRECT);
 
     filesAdapter = new S3Adapter(
             process.env.S3_ACCESS_KEY,
@@ -131,7 +131,7 @@ if (process.env.S3_ACCESS_KEY &&
 } else if (process.env.GCP_PROJECT_ID &&
         process.env.GCP_KEYFILE_PATH &&
         process.env.GCS_BUCKET) {
-    var directAccess = !!(process.env.GCS_DIRECT);
+    var directAccess = !!+(process.env.GCS_DIRECT);
 
     filesAdapter = new GCSAdapter(
             process.env.GCP_PROJECT_ID,
@@ -141,7 +141,7 @@ if (process.env.S3_ACCESS_KEY &&
 }
 
 var emailModule = process.env.EMAIL_MODULE;
-var verifyUserEmails = !!(process.env.VERIFY_USER_EMAILS);
+var verifyUserEmails = !!+(process.env.VERIFY_USER_EMAILS);
 var emailAdapter;
 if (!emailModule) {
   verifyUserEmails = false;
@@ -159,8 +159,8 @@ console.log(verifyUserEmails);
 console.log(emailModule);
 console.log(emailAdapter);
 
-var enableAnonymousUsers = !!(process.env.ENABLE_ANON_USERS);
-var allowClientClassCreation = !!(process.env.ALLOW_CLIENT_CLASS_CREATION);
+var enableAnonymousUsers = !!+(process.env.ENABLE_ANON_USERS);
+var allowClientClassCreation = !!+(process.env.ALLOW_CLIENT_CLASS_CREATION);
 
 var api = new ParseServer({
   databaseURI: databaseUri || 'mongodb://localhost:27017/dev',
@@ -206,7 +206,8 @@ console.log("masterKey: " + process.env.MASTER_KEY);
 
 var app = express();
 
-if (!process.env.TRUST_PROXY || !!process.env.TRUST_PROXY) { // default enable trust
+var trustProxy = !!+(process.env.TRUST_PROXY || '1'); // default enable trust
+if (trustProxy) {
   console.log("trusting proxy: " + process.env.TRUST_PROXY);
   app.enable('trust proxy');
 }
