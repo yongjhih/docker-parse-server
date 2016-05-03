@@ -75,7 +75,7 @@ $ curl -X POST \
 $ docker run -d \
              -e APP_ID=${APP_ID}         \
              -e MASTER_KEY=${MASTER_KEY} \
-             -e SERVER_URL=http://parse-server:1337/parse \
+             -e SERVER_URL=http://localhost:1337/parse \
              -p 4040:4040                      \
              --link parse-server               \
              --name parse-dashboard            \
@@ -92,7 +92,7 @@ $ docker run -d \
 $  docker run -d \
              -e APP_ID=$(APP_ID)\
              -e MASTER_KEY=$(MASTER_KEY)\
-             -e SERVER_URL=http://parse-server:1337/parse \
+             -e SERVER_URL=http://localhost:1337/parse \
              -e PARSE_DASHBOARD_ALLOW_INSECURE_HTTP=1  \
              -e USER1=yourUsername  \
              -e USER1_PASSWORD=yourUsernamesPassword \
@@ -478,6 +478,11 @@ curl -X POST \
   -H "Content-Type: application/json" \
   -d '{}' \
   http://localhost:1337/parse/functions/hello
+
+curl -H "X-Parse-Application-Id: myAppId" \
+     -H "X-Parse-Master-Key: myMasterKey" \
+     -H "Content-Type: application/json" \
+     http://localhost:1337/parse/serverInfo
 ```
 
 Example using it via JavaScript:
