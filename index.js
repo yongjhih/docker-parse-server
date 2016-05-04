@@ -57,7 +57,7 @@ if (!fs.lstatSync(devCert).isFile()) devCert = null;
 var devKey = process.env.DEV_KEY || '/dev-pfx-key.pem';
 if (!fs.lstatSync(devKey).isFile()) devKey = null;
 var devPushConfig;
-if (devPfx || (devCert && devKey)) {
+if (devPfx || (devCert && devKey)) { // exsiting files if not null
   devPushConfig = {
     pfx: devPfx,
     cert: devCert,
