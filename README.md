@@ -262,6 +262,16 @@ BTW, you can remove unused 80 port after volumes/proxy/certs generated:
 sed -i -- '/- "80:80"/d' docker-compose-le.yml
 ```
 
+### Usage of push notification
+
+```
+$ mkdir volumes/certs
+$ cp /path/your/Certificated.p12 volumes/certs/dev-pfx
+$ cp /path/your/cert.pem volumes/certs/dev-pfx-cert.pem
+$ cp /path/your/key.pem volumes/certs/dev-pfx-key.pem
+$ docker-compose up
+```
+
 ### Integration of parse-cloud-code image on GitHub and DockerHub
 
 1. Fork https://github.com/yongjhih/parse-cloud-code
