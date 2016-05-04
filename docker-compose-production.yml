@@ -61,12 +61,7 @@ parse-server:
     - parse-cloud-code
   volumes:
     - /parse/cloud
-    - "./volumes/production-pfx:/production-pfx"
-    - "./volumes/dev-pfx:/dev-pfx"
-    - "./volumes/production-pfx-key.pem:/production-pfx-key.pem"
-    - "./volumes/dev-pfx-key.pem:/dev-pfx-key.pem"
-    - "./volumes/production-pfx-cert.pem:/production-pfx-cert.pem"
-    - "./volumes/dev-pfx-cert.pem:/dev-pfx-cert.pem"
+    - "./volumes/certs:/certs"
 
 parse-cloud-code:
   #build: cloud/.

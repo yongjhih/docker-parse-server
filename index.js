@@ -31,11 +31,11 @@ var gcmKey = process.env.GCM_KEY;
 var iosPushConfigs = new Array();
 
 var productionBundleId = process.env.PRODUCTION_BUNDLE_ID;
-var productionPfx = process.env.PRODUCTION_PFX || '/production-pfx';
+var productionPfx = process.env.PRODUCTION_PFX || '/certs/production-pfx';
 if (!fs.lstatSync(productionPfx).isFile()) productionPfx = null;
-var productionCert = process.env.PRODUCTION_CERT || '/production-pfx-cert.pem';
+var productionCert = process.env.PRODUCTION_CERT || '/certs/production-pfx-cert.pem';
 if (!fs.lstatSync(productionCert).isFile()) productionCert = null;
-var productionKey = process.env.PRODUCTION_KEY || '/production-pfx-key.pem';
+var productionKey = process.env.PRODUCTION_KEY || '/certs/production-pfx-key.pem';
 if (!fs.lstatSync(productionKey).isFile()) productionKey = null;
 var productionPushConfig;
 if (productionPfx || (productionCert && productionKey)) {
@@ -50,11 +50,11 @@ if (productionPfx || (productionCert && productionKey)) {
 }
 
 var devBundleId = process.env.DEV_BUNDLE_ID;
-var devPfx = process.env.DEV_PFX || '/dev-pfx';
+var devPfx = process.env.DEV_PFX || '/certs/dev-pfx';
 if (!fs.lstatSync(devPfx).isFile()) devPfx = null;
-var devCert = process.env.DEV_CERT || '/dev-pfx-cert.pem';
+var devCert = process.env.DEV_CERT || '/certs/dev-pfx-cert.pem';
 if (!fs.lstatSync(devCert).isFile()) devCert = null;
-var devKey = process.env.DEV_KEY || '/dev-pfx-key.pem';
+var devKey = process.env.DEV_KEY || '/certs/dev-pfx-key.pem';
 if (!fs.lstatSync(devKey).isFile()) devKey = null;
 var devPushConfig;
 if (devPfx || (devCert && devKey)) { // exsiting files if not null
