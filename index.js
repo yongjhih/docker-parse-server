@@ -29,14 +29,22 @@ var gcmId = process.env.GCM_ID;
 var gcmKey = process.env.GCM_KEY;
 
 var iosPushConfigs = new Array();
+var isFile = function(f) {
+  var b = false;
+  try {
+     b = fs.statSync(f).isFile();
+  } catch (e) {
+  }
+  return b;
+}
 
 var productionBundleId = process.env.PRODUCTION_BUNDLE_ID;
 var productionPfx = process.env.PRODUCTION_PFX || '/certs/production-pfx';
-if (!fs.lstatSync(productionPfx).isFile()) productionPfx = null;
+productionPfx = isFile(productionPfx) ? productionPfx : null;
 var productionCert = process.env.PRODUCTION_CERT || '/certs/production-pfx-cert.pem';
-if (!fs.lstatSync(productionCert).isFile()) productionCert = null;
+productionCert = isFile(productionCert) ? productionCert : null;
 var productionKey = process.env.PRODUCTION_KEY || '/certs/production-pfx-key.pem';
-if (!fs.lstatSync(productionKey).isFile()) productionKey = null;
+productionKey = isFile(productionKey) ? productionKey : null;
 var productionPushConfig;
 if (productionPfx || (productionCert && productionKey)) {
   productionPushConfig = {
@@ -51,11 +59,11 @@ if (productionPfx || (productionCert && productionKey)) {
 
 var devBundleId = process.env.DEV_BUNDLE_ID;
 var devPfx = process.env.DEV_PFX || '/certs/dev-pfx';
-if (!fs.lstatSync(devPfx).isFile()) devPfx = null;
+devPfx = isFile(devPfx) ? devPfx : null;
 var devCert = process.env.DEV_CERT || '/certs/dev-pfx-cert.pem';
-if (!fs.lstatSync(devCert).isFile()) devCert = null;
+devCert = isFile(devCert) ? devCert : null;
 var devKey = process.env.DEV_KEY || '/certs/dev-pfx-key.pem';
-if (!fs.lstatSync(devKey).isFile()) devKey = null;
+devKey = isFile(devKey) ? devKey : null;
 var devPushConfig;
 if (devPfx || (devCert && devKey)) { // exsiting files if not null
   devPushConfig = {
