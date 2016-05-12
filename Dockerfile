@@ -1,4 +1,4 @@
-FROM node:latest
+FROM node:5
 
 ENV PARSE_HOME /parse
 
