@@ -55,6 +55,8 @@ parse-server:
     GCP_KEYFILE_PATH: $GCP_KEYFILE_PATH
     GCS_BUCKET:       $GCS_BUCKET
     GCS_DIRECT:       $GCS_DIRECT
+    LIVEQUERY_SUPPORT: $LIVEQUERY_SUPPORT
+    LIVEQUERY_CLASSES: $LIVEQUERY_CLASSES 
   links:
     - mongo
   volumes_from:

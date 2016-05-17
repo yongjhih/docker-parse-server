@@ -170,6 +170,22 @@ console.log(emailAdapter);
 var enableAnonymousUsers = !!+(process.env.ENABLE_ANON_USERS);
 var allowClientClassCreation = !!+(process.env.ALLOW_CLIENT_CLASS_CREATION);
 
+var liveQuery = process.env.LIVEQUERY_SUPPORT;
+console.log("LIVEQUERY_SUPPORT: " + liveQuery);
+var liveQueryParam;
+if(liveQuery) {
+  var liveQueryClasses = process.env.LIVEQUERY_CLASSES.split(',').map(function(entry) {
+    return entry.trim();
+  });
+  console.log("LIVEQUERY_CLASSES: " + liveQueryClasses);
+
+  liveQueryParam = {
+    classNames: liveQueryClasses
+  };
+}
+
+
+
 var api = new ParseServer({
   databaseURI: databaseUri || 'mongodb://localhost:27017/dev',
   cloud: process.env.CLOUD_CODE_MAIN || __dirname + '/cloud/main.js',
@@ -196,7 +212,8 @@ var api = new ParseServer({
   allowClientClassCreation: allowClientClassCreation,
   //oauth = {},
   appName: process.env.APP_NAME,
-  publicServerURL: process.env.PUBLIC_SERVER_URL
+  publicServerURL: process.env.PUBLIC_SERVER_URL,
+  liveQuery: liveQueryParam
   //customPages: process.env.CUSTOM_PAGES || // {
     //invalidLink: undefined,
     //verifyEmailSuccess: undefined,
@@ -230,3 +247,8 @@ app.get('/', function(req, res) {
 app.listen(port, function() {
   console.log('docker-parse-server running on ' + serverURL + ' (:' + port + mountPath + ')');
 });
+
+if(liveQuery) {
+  console.log("Starting live query server")
+  var parseLiveQueryServer = ParseServer.createLiveQueryServer(app);
+}

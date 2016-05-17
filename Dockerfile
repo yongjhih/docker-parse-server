@@ -6,7 +6,6 @@ ENV PARSE_HOME /parse
 #ADD *.js ${PARSE_HOME}/
 #ADD *.json ${PARSE_HOME}/
 
-ADD index.js ${PARSE_HOME}/
 ADD package.json ${PARSE_HOME}/
 
 ADD jsconfig.json ${PARSE_HOME}/
@@ -20,6 +19,8 @@ ADD cloud/*.js $CLOUD_CODE_HOME/
 
 WORKDIR $PARSE_HOME
 RUN npm install
+
+ADD index.js ${PARSE_HOME}/
 
 ## ENV
 #ENV APP_ID myAppId
