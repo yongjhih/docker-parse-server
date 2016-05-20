@@ -44,18 +44,23 @@ Most pulled:
 
 ## Contributors & Credits
 
-* didierfranc
-* ArnaudValensi
-* gerhardsletten
-* euklid
-* walkerlee
-* acinader
-* kandelvijaya
-* chainkite
-* mjdev
-* vitaminwater
-* cleever
-* katopz
+[![didierfranc](https://github.com/didierfranc.png?size=40)](https://github.com/didierfranc)
+[![ArnaudValensi](https://github.com/ArnaudValensi.png?size=40)](https://github.com/ArnaudValensi)
+[![gerhardsletten](https://github.com/gerhardsletten.png?size=40)](https://github.com/gerhardsletten)
+[![acinader](https://github.com/acinader.png?size=40)](https://github.com/acinader)
+[![kandelvijaya](https://github.com/kandelvijaya.png?size=40)](https://github.com/kandelvijaya)
+[![mjdev](https://github.com/mjdev.png?size=40)](https://github.com/mjdev)
+[![vitaminwater](https://github.com/vitaminwater.png?size=40)](https://github.com/vitaminwater)
+[euklid](https://github.com/euklid)
+[walkerlee](https://github.com/walkerlee)
+[chainkite](https://github.com/chainkite)
+
+<!--[![euklid](https://github.com/euklid.png?size=40)](https://github.com/euklid)-->
+<!--[![walkerlee](https://github.com/walkerlee.png?size=40)](https://github.com/walkerlee)-->
+<!--[![chainkite](https://github.com/chainkite.png?size=40)](https://github.com/chainkite)-->
+
+[![cleever](https://github.com/cleever.png?size=40)](https://github.com/cleever)
+[![katopz](https://github.com/katopz.png?size=40)](https://github.com/katopz)
 
 ## Getting Started
 
