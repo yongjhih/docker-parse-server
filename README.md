@@ -107,7 +107,9 @@ or with docker-compose:
 
 ```sh
 $ wget https://github.com/yongjhih/docker-parse-server/raw/master/docker-compose.yml
-$ APP_ID=myAppId MASTER_KEY=myMasterKey docker-compose up -d
+$ APP_ID=myAppId MASTER_KEY=myMasterKey SERVER_URL=http://localhost:1337/parse docker-compose up -d
+# to enable http (no https) access on dev machine:
+$ APP_ID=myAppId MASTER_KEY=myMasterKey PARSE_DASHBOARD_ALLOW_INSECURE_HTTP=1 SERVER_URL=http://localhost:1337/parse docker-compose up -d
 ```
 
 p.s. `$ wget https://github.com/yongjhih/docker-parse-server/raw/master/docker-compose.yml -O - | APP_ID=myAppId MASTER_KEY=myMasterKey docker-compose up -d -f - # not supported for docker-compose container`
