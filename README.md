@@ -42,6 +42,21 @@ Most pulled:
 
 ![parse-server pulls](https://github.com/yongjhih/docker-parse-server/raw/master/art/Screenshot_2016-03-02T11-19-27.429Z.png)
 
+## Contributors & Credits
+
+* didierfranc
+* ArnaudValensi
+* gerhardsletten
+* euklid
+* walkerlee
+* acinader
+* kandelvijaya
+* chainkite
+* mjdev
+* vitaminwater
+* cleever
+* katopz
+
 ## Getting Started
 
 [![Screencast](https://github.com/yongjhih/docker-parse-server/raw/master/art/docker-parse-server.gif)](https://youtu.be/1bYWSPEZL2g)
