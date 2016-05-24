@@ -39,7 +39,7 @@ var isFile = function(f) {
 }
 
 var productionBundleId = process.env.PRODUCTION_BUNDLE_ID;
-var productionPfx = process.env.PRODUCTION_PFX || '/certs/production-pfx';
+var productionPfx = process.env.PRODUCTION_PFX || '/certs/production-pfx.p12';
 productionPfx = isFile(productionPfx) ? productionPfx : null;
 var productionCert = process.env.PRODUCTION_CERT || '/certs/production-pfx-cert.pem';
 productionCert = isFile(productionCert) ? productionCert : null;
@@ -58,7 +58,7 @@ if (productionPfx || (productionCert && productionKey)) {
 }
 
 var devBundleId = process.env.DEV_BUNDLE_ID;
-var devPfx = process.env.DEV_PFX || '/certs/dev-pfx';
+var devPfx = process.env.DEV_PFX || '/certs/dev-pfx.p12';
 devPfx = isFile(devPfx) ? devPfx : null;
 var devCert = process.env.DEV_CERT || '/certs/dev-pfx-cert.pem';
 devCert = isFile(devCert) ? devCert : null;

@@ -288,7 +288,7 @@ sed -i -- '/- "80:80"/d' docker-compose-le.yml
 
 ```
 $ mkdir volumes/certs
-$ cp /path/your/Certificated.p12 volumes/certs/dev-pfx
+$ cp /path/your/Certificated.p12 volumes/certs/dev-pfx.p12
 $ cp /path/your/cert.pem volumes/certs/dev-pfx-cert.pem
 $ cp /path/your/key.pem volumes/certs/dev-pfx-key.pem
 $ docker-compose up
