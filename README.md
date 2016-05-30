@@ -96,7 +96,7 @@ $ APP_ID=YOUR_APP_ID MASTER_KEY=YOUR_MASTER_KEY PARSE_DASHBOARD_ALLOW_INSECURE_H
 * We use `PARSE_DASHBOARD_ALLOW_INSECURE_HTTP=1` to allow insecure via development environment.
 > * `$ wget https://github.com/yongjhih/docker-parse-server/raw/master/docker-compose.yml -O - | APP_ID=YOUR_APP_ID MASTER_KEY=YOUR_MASTER_KEY docker-compose up -d -f - # not supported for docker-compose container`
 
-### Deploy to Cloud Services
+### :paperclip: Deploy to Cloud Services
 * [Heroku + Mongolab Development]()
 * [AWS Elastic Beanstalk]()
 * [Microsoft Azure App Service]()
@@ -146,7 +146,7 @@ $ curl -X POST \
 ## :iphone: Client Side Developments
 You can use the REST API, the JavaScript SDK, and any of our open-source SDKs:
 
-### curl example
+### :paperclip: curl example
 ```
 curl -X POST \
   -H "X-Parse-Application-Id: YOUR_APP_ID" \
@@ -165,7 +165,7 @@ curl -H "X-Parse-Application-Id: YOUR_APP_ID" \
      -H "Content-Type: application/json" \
      http://localhost:1337/parse/serverInfo
 ```
-### JavaScript example
+### :paperclip: JavaScript example
 ```
 Parse.initialize('YOUR_APP_ID','unused');
 Parse.serverURL = 'https://whatever.herokuapp.com';
@@ -179,7 +179,7 @@ obj.save().then(function(obj) {
   }, function(err) {console.log(err); });
 }, function(err) { console.log(err); });
 ```
-### Android example
+### :paperclip: Android example
 ```
 //in your application class
 
@@ -194,7 +194,7 @@ Parse.initialize(new Parse.Configuration.Builder(getApplicationContext())
   testObject.saveInBackground();
 
 ```
-### iOS example
+### :paperclip: iOS example
 ```
 class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject:AnyObject]?) -> Bool {
