@@ -32,7 +32,7 @@
 [![Screencast](https://github.com/yongjhih/docker-parse-server/raw/master/art/docker-parse-server.gif)](https://youtu.be/1bYWSPEZL2g)
 
 ## :rocket: Deployments
-### Deploy with Docker
+### :paperclip: Deploy with Docker
 ```sh
 $ docker run -d -p 27017:27017 --name mongo mongo
 
@@ -87,7 +87,7 @@ $  docker run -d \
              yongjhih/parse-dashboard
 
 ```
-### Deploy with Docker Compose
+### :paperclip: Deploy with Docker Compose
 ```sh
 $ wget https://github.com/yongjhih/docker-parse-server/raw/master/docker-compose.yml
 $ APP_ID=YOUR_APP_ID MASTER_KEY=YOUR_MASTER_KEY PARSE_DASHBOARD_ALLOW_INSECURE_HTTP=1 SERVER_URL=http://localhost:1337/parse docker-compose up -d
@@ -116,9 +116,8 @@ $ APP_ID=YOUR_APP_ID MASTER_KEY=YOUR_MASTER_KEY PARSE_DASHBOARD_ALLOW_INSECURE_H
 * [How to config Docker Compose](ADVANCE.md#how-to-config-docker-compose)
 * [How to import ssh-key from github](ADVANCE.md#how-to-import-ssh-key-from-github)
 
-## :fire: Developments 
-### Server Side Developments
-How to push cloud code to server
+## :fire: Server Side Developments
+How to push cloud code to server  
 [![Screencast - git](https://github.com/yongjhih/docker-parse-server/raw/master/art/docker-parse-server-git.gif)](https://youtu.be/9YwWbiRyPUU)
 ```sh
 # This command wil create a SSH keys for you as
@@ -144,7 +143,7 @@ $ curl -X POST \
   http://localhost:1337/parse/functions/hello
 ```
 
-## Client Side Developments
+## :iphone: Client Side Developments
 You can use the REST API, the JavaScript SDK, and any of our open-source SDKs:
 
 ### curl example
