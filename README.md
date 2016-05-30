@@ -6,7 +6,7 @@
 [![Travis CI](https://img.shields.io/travis/yongjhih/docker-parse-server.svg)](https://travis-ci.org/yongjhih/docker-parse-server)
 [![Gitter Chat](https://img.shields.io/gitter/room/yongjhih/docker-parse-server.svg)](https://gitter.im/yongjhih/docker-parse-server)
 
-## :rocket: One click to deploy 
+## :cloud: One-Click Deploy
 [![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
 [![Deploy to Azure](http://azuredeploy.net/deploybutton.png)](https://azuredeploy.net/)
 [![Deploy to AWS](https://d0.awsstatic.com/product-marketing/Elastic%20Beanstalk/deploy-to-aws.png)](https://console.aws.amazon.com/elasticbeanstalk/home?region=us-west-2#/newApplication?applicationName=ParseServer&solutionStackName=Node.js&tierName=WebServer&sourceBundleUrl=https%3A%2F%2Fs3.amazonaws.com%2Felasticbeanstalk-samples-us-east-1%2Feb-parse-server-sample%2Fparse-server-example.zip)
@@ -93,10 +93,10 @@ $ wget https://github.com/yongjhih/docker-parse-server/raw/master/docker-compose
 $ APP_ID=YOUR_APP_ID MASTER_KEY=YOUR_MASTER_KEY PARSE_DASHBOARD_ALLOW_INSECURE_HTTP=1 SERVER_URL=http://localhost:1337/parse docker-compose up -d
 ```
 > ### Note 
-* We usese `PARSE_DASHBOARD_ALLOW_INSECURE_HTTP=1` to allow insecure via development environment.
+* We use `PARSE_DASHBOARD_ALLOW_INSECURE_HTTP=1` to allow insecure via development environment.
 > * `$ wget https://github.com/yongjhih/docker-parse-server/raw/master/docker-compose.yml -O - | APP_ID=YOUR_APP_ID MASTER_KEY=YOUR_MASTER_KEY docker-compose up -d -f - # not supported for docker-compose container`
 
-### Deploy to Cloud Services :cloud:
+### Deploy to Cloud Services
 * [Heroku + Mongolab Development]()
 * [AWS Elastic Beanstalk]()
 * [Microsoft Azure App Service]()
@@ -104,17 +104,17 @@ $ APP_ID=YOUR_APP_ID MASTER_KEY=YOUR_MASTER_KEY PARSE_DASHBOARD_ALLOW_INSECURE_H
 * [Scalingo]()
 
 ## :zap: Advance topics
-* [How to use with existing mongodb with DATABASE_URI](blob/master/ADVANCE.md#how-to-use-with-existing-mongodb-with-database_uri)
-* [How to use with existing parse-cloud-code](https://github.com/katopz/docker-parse-server/blob/master/ADVANCE.md#how-to-use-with-existing-parse-cloud-code)
-* [How to specify parse-server version](https://github.com/katopz/docker-parse-server/blob/master/ADVANCE.md#how-to-specify-parse-server-version)
-* [How to specify latest commit of parse-server](https://github.com/katopz/docker-parse-server/blob/master/ADVANCE.md#how-to-specify-latest-commit-of-parseplatformparse-server-of-image)
-* [How to start parse dashboard as standalone](https://github.com/katopz/docker-parse-server/blob/master/ADVANCE.md#how-to-start-parse-dashboard-as-standalone)
-* [How to setup SSL with letsencrypt](https://github.com/katopz/docker-parse-server/blob/master/ADVANCE.md#how-to-setup-ssl-with-letsencrypt)
-* [How to setup push notification](https://github.com/katopz/docker-parse-server/blob/master/ADVANCE.md#how-to-setup-push-notification)
-* [How to integrate parse-cloud-code image on GitHub and DockerHub](https://github.com/katopz/docker-parse-server/blob/master/ADVANCE.md#how-to-integrate-parse-cloud-code-image-on-github-and-dockerhub)
-* [How to config Docker](https://github.com/katopz/docker-parse-server/blob/master/ADVANCE.md#how-to-config-docker)
-* [How to config Docker Compose](https://github.com/katopz/docker-parse-server/blob/master/ADVANCE.md#how-to-config-docker-compose)
-* [How to import ssh-key from github](https://github.com/katopz/docker-parse-server/blob/master/ADVANCE.md#how-to-import-ssh-key-from-github)
+* [How to use with existing mongodb with DATABASE_URI](ADVANCE.md#how-to-use-with-existing-mongodb-with-database_uri)
+* [How to use with existing parse-cloud-code](ADVANCE.md#how-to-use-with-existing-parse-cloud-code)
+* [How to specify parse-server version](ADVANCE.md#how-to-specify-parse-server-version)
+* [How to specify latest commit of parse-server](ADVANCE.md#how-to-specify-latest-commit-of-parseplatformparse-server-of-image)
+* [How to start parse dashboard as standalone](ADVANCE.md#how-to-start-parse-dashboard-as-standalone)
+* [How to setup SSL with letsencrypt](ADVANCE.md#how-to-setup-ssl-with-letsencrypt)
+* [How to setup push notification](ADVANCE.md#how-to-setup-push-notification)
+* [How to integrate parse-cloud-code image on GitHub and DockerHub](ADVANCE.md#how-to-integrate-parse-cloud-code-image-on-github-and-dockerhub)
+* [How to config Docker](ADVANCE.md#how-to-config-docker)
+* [How to config Docker Compose](ADVANCE.md#how-to-config-docker-compose)
+* [How to import ssh-key from github](ADVANCE.md#how-to-import-ssh-key-from-github)
 
 ## :fire: Developments 
 ### Server Side Developments
