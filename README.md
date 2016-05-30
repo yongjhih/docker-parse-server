@@ -92,7 +92,7 @@ $  docker run -d \
 $ wget https://github.com/yongjhih/docker-parse-server/raw/master/docker-compose.yml
 $ APP_ID=YOUR_APP_ID MASTER_KEY=YOUR_MASTER_KEY PARSE_DASHBOARD_ALLOW_INSECURE_HTTP=1 SERVER_URL=http://localhost:1337/parse docker-compose up -d
 ```
-> ### Note 
+> #### Note 
 * We use `PARSE_DASHBOARD_ALLOW_INSECURE_HTTP=1` to allow insecure via development environment.
 > * `$ wget https://github.com/yongjhih/docker-parse-server/raw/master/docker-compose.yml -O - | APP_ID=YOUR_APP_ID MASTER_KEY=YOUR_MASTER_KEY docker-compose up -d -f - # not supported for docker-compose container`
 
