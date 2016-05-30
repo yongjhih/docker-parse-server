@@ -97,11 +97,11 @@ $ APP_ID=YOUR_APP_ID MASTER_KEY=YOUR_MASTER_KEY PARSE_DASHBOARD_ALLOW_INSECURE_H
 > * `$ wget https://github.com/yongjhih/docker-parse-server/raw/master/docker-compose.yml -O - | APP_ID=YOUR_APP_ID MASTER_KEY=YOUR_MASTER_KEY docker-compose up -d -f - # not supported for docker-compose container`
 
 ### :paperclip: Deploy to Cloud Services
-* [Heroku + Mongolab Development]()
-* [AWS Elastic Beanstalk]()
-* [Microsoft Azure App Service]()
-* [Google App Engine]()
-* [Scalingo]()
+* [Heroku + Mongolab Development](ADVANCE.md#getting-started-with-heroku--mongolab-development)
+* [AWS Elastic Beanstalk](ADVANCE.md#getting-started-with-aws-elastic-beanstalk)
+* [Microsoft Azure App Service](ADVANCE.md#getting-started-with-microsoft-azure-app-service)
+* [Google App Engine](ADVANCE.md#getting-started-with-google-app-engine)
+* [Scalingo](ADVANCE.md#getting-started-with-scalingo)
 
 ## :zap: Advance topics
 * [How to use with existing mongodb with DATABASE_URI](ADVANCE.md#how-to-use-with-existing-mongodb-with-database_uri)
