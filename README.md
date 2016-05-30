@@ -6,7 +6,7 @@
 [![Travis CI](https://img.shields.io/travis/yongjhih/docker-parse-server.svg)](https://travis-ci.org/yongjhih/docker-parse-server)
 [![Gitter Chat](https://img.shields.io/gitter/room/yongjhih/docker-parse-server.svg)](https://gitter.im/yongjhih/docker-parse-server)
 
-# One click to deploy
+# :rocket: One click to deploy 
 [![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
 [![Deploy to Azure](http://azuredeploy.net/deploybutton.png)](https://azuredeploy.net/)
 [![Deploy to AWS](https://d0.awsstatic.com/product-marketing/Elastic%20Beanstalk/deploy-to-aws.png)](https://console.aws.amazon.com/elasticbeanstalk/home?region=us-west-2#/newApplication?applicationName=ParseServer&solutionStackName=Node.js&tierName=WebServer&sourceBundleUrl=https%3A%2F%2Fs3.amazonaws.com%2Felasticbeanstalk-samples-us-east-1%2Feb-parse-server-sample%2Fparse-server-example.zip)
@@ -14,25 +14,25 @@
 [![Deploy to Docker Cloud](https://github.com/yongjhih/docker-parse-server/raw/master/art/deploy-to-docker-cloud.png)](https://cloud.docker.com/stack/deploy/?repo=https://github.com/yongjhih/docker-parse-server)
 [![Deploy to Tutum](https://s.tutum.co/deploy-to-tutum.svg)](https://dashboard.tutum.co/stack/deploy/?repo=https://github.com/yongjhih/docker-parse-server)
 
-# Features
+# :star: Features
 - [x] Parse Server with MongoDB
 - [x] [Parse Cloud Code](https://github.com/yongjhih/parse-cloud-code) via git with auto rebuild
 - [x] Parse Push Notification : iOS, Android
 - [x] Parse Live Query
 - [x] [Parse Dashboard](https://github.com/yongjhih/docker-parse-dashboard)
 - [x] Tested Docker Image
-- [x] Manual deploy
+- [x] Deploy with Docker
 - [x] Deploy with Docker Compose
 - [x] Deploy with one click
 
-# Overview
+# :tv: Overview
 ![Parse Server Diagram](https://github.com/yongjhih/docker-parse-server/raw/master/art/parse-server-diagram.png)
 
-# Sneak Preview
+# :see_no_evil: Sneak Preview
 [![Screencast](https://github.com/yongjhih/docker-parse-server/raw/master/art/docker-parse-server.gif)](https://youtu.be/1bYWSPEZL2g)
 
-# Deployment
-## Deploy Manually
+# :rocket: Deployments
+## Deploy with Docker :whale:
 ```sh
 $ docker run -d -p 27017:27017 --name mongo mongo
 
@@ -87,36 +87,36 @@ $  docker run -d \
              yongjhih/parse-dashboard
 
 ```
-## Deploy with Docker Compose
+## Deploy with Docker Compose :whale:
 ```sh
 $ wget https://github.com/yongjhih/docker-parse-server/raw/master/docker-compose.yml
-$ APP_ID=YOUR_APP_ID MASTER_KEY=YOUR_MASTER_KEY SERVER_URL=http://localhost:1337/parse docker-compose up -d
-# to enable http (no https) access on dev machine:
 $ APP_ID=YOUR_APP_ID MASTER_KEY=YOUR_MASTER_KEY PARSE_DASHBOARD_ALLOW_INSECURE_HTTP=1 SERVER_URL=http://localhost:1337/parse docker-compose up -d
 ```
+> ### Note 
+* We usese `PARSE_DASHBOARD_ALLOW_INSECURE_HTTP=1` to allow insecure via development environment.
+> * `$ wget https://github.com/yongjhih/docker-parse-server/raw/master/docker-compose.yml -O - | APP_ID=YOUR_APP_ID MASTER_KEY=YOUR_MASTER_KEY docker-compose up -d -f - # not supported for docker-compose container`
 
-> p.s. `$ wget https://github.com/yongjhih/docker-parse-server/raw/master/docker-compose.yml -O - | APP_ID=YOUR_APP_ID MASTER_KEY=YOUR_MASTER_KEY docker-compose up -d -f - # not supported for docker-compose container`
+## Advance topics :zap:
+* [How to use with existing mongodb with DATABASE_URI](blob/master/ADVANCE.md#how-to-use-with-existing-mongodb-with-database_uri)
+* [How to use with existing parse-cloud-code](https://github.com/katopz/docker-parse-server/blob/master/ADVANCE.md#how-to-use-with-existing-parse-cloud-code)
+* [How to specify parse-server version](https://github.com/katopz/docker-parse-server/blob/master/ADVANCE.md#how-to-specify-parse-server-version)
+* [How to specify latest commit of parse-server](https://github.com/katopz/docker-parse-server/blob/master/ADVANCE.md#how-to-specify-latest-commit-of-parseplatformparse-server-of-image)
+* [How to start parse dashboard as standalone](https://github.com/katopz/docker-parse-server/blob/master/ADVANCE.md#how-to-start-parse-dashboard-as-standalone)
+* [How to setup SSL with letsencrypt](https://github.com/katopz/docker-parse-server/blob/master/ADVANCE.md#how-to-setup-ssl-with-letsencrypt)
+* [How to setup push notification](https://github.com/katopz/docker-parse-server/blob/master/ADVANCE.md#how-to-setup-push-notification)
+* [How to integrate parse-cloud-code image on GitHub and DockerHub](https://github.com/katopz/docker-parse-server/blob/master/ADVANCE.md#how-to-integrate-parse-cloud-code-image-on-github-and-dockerhub)
+* [How to config Docker](https://github.com/katopz/docker-parse-server/blob/master/ADVANCE.md#how-to-config-docker)
+* [How to config Docker Compose](https://github.com/katopz/docker-parse-server/blob/master/ADVANCE.md#how-to-config-docker-compose)
+* [How to import ssh-key from github](https://github.com/katopz/docker-parse-server/blob/master/ADVANCE.md#how-to-import-ssh-key-from-github)
 
-## Advance topics
-* How to use with existing mongodb with DATABASE_URI
-* How to use with existing parse-cloud-code
-* How to specify parse-server version
-* How to specify latest commit of parse-server
-* How to start parse dashboard as standalone
-* How to set https with letsencrypt
-* How to setup push notification
-* How to integrate parse-cloud-code image on GitHub and DockerHub
-* How to config Docker
-* How to config Docker Compose
+## Deploy to Cloud Services :cloud:
+* [Heroku + Mongolab Development]()
+* [AWS Elastic Beanstalk]()
+* [Microsoft Azure App Service]()
+* [Google App Engine]()
+* [Scalingo]()
 
-## Getting Started With Cloud Services
-* Heroku + Mongolab Development
-* AWS Elastic Beanstalk
-* Microsoft Azure App Service
-* Google App Engine
-* Scalingo
-
-# Development 
+# :fire: Developments 
 ## How to push cloud code to server
 [![Screencast - git](https://github.com/yongjhih/docker-parse-server/raw/master/art/docker-parse-server-git.gif)](https://youtu.be/9YwWbiRyPUU)
 ```sh
@@ -207,7 +207,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 }
 ```
-# See Also
+# :eyes: See Also
 * https://github.com/ParsePlatform/parse-server
 * http://blog.parse.com/announcements/introducing-parse-server-and-the-database-migration-tool/
 * https://parse.com/docs/server/guide#migrating
@@ -227,8 +227,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 [![kandelvijaya](https://github.com/kandelvijaya.png?size=40)](https://github.com/kandelvijaya)
 [![mjdev](https://github.com/mjdev.png?size=40)](https://github.com/mjdev)
 [![vitaminwater](https://github.com/vitaminwater.png?size=40)](https://github.com/vitaminwater)
-[euklid](https://github.com/euklid)
-[walkerlee](https://github.com/walkerlee)
-[chainkite](https://github.com/chainkite)
+[![euklid](https://github.com/euklid.png?size=40)](https://github.com/euklid)
+[![walkerlee](https://github.com/walkerlee.png?size=40)](https://github.com/walkerlee)
+[![chainkite](https://github.com/chainkite.png?size=40)](https://github.com/chainkite)
 [![cleever](https://github.com/cleever.png?size=40)](https://github.com/cleever)
 [![katopz](https://github.com/katopz.png?size=40)](https://github.com/katopz)

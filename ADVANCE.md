@@ -1,4 +1,4 @@
-# How to use with existing mongodb with DATABASE_URI
+## How to use with existing mongodb with DATABASE_URI
 ```sh
 $ docker run -d \
              -e DATABASE_URI=${DATABASE_URI:-mongodb://mongodb.intra:27017/dev} \
@@ -77,7 +77,7 @@ And, start up other containers without parse-dashboard:
 ```sh
 $ APP_ID=YOUR_APP_ID MASTER_KEY=YOUR_MASTER_KEY docker-compose -f docker-compose-without-dashboard.yml up -d
 ```
-### How to setup SSL with letsencrypt
+## How to setup SSL with letsencrypt
 ```sh
 $ git clone https://github.com/yongjhih/docker-parse-server
 $ cd docker-parse-server
@@ -101,7 +101,7 @@ BTW, you can remove unused 80 port after volumes/proxy/certs generated:
 sed -i -- '/- "80:80"/d' docker-compose-le.yml
 ```
 
-### How to setup push notification
+## How to setup push notification
 ```
 $ mkdir volumes/certs
 $ cp /path/your/Certificated.p12 volumes/certs/dev-pfx.p12
@@ -110,7 +110,7 @@ $ cp /path/your/key.pem volumes/certs/dev-pfx-key.pem
 $ docker-compose up
 ```
 
-### How to integrate parse-cloud-code image on GitHub and DockerHub
+## How to integrate parse-cloud-code image on GitHub and DockerHub
 1. Fork https://github.com/yongjhih/parse-cloud-code
 2. Add your cloud code into https://github.com/{username}/parse-cloud-code/tree/master/cloud
 3. Create an automated build image on DockerHub for forked {username}/parse-cloud-code repository
