@@ -6,7 +6,7 @@
 [![Travis CI](https://img.shields.io/travis/yongjhih/docker-parse-server.svg)](https://travis-ci.org/yongjhih/docker-parse-server)
 [![Gitter Chat](https://img.shields.io/gitter/room/yongjhih/docker-parse-server.svg)](https://gitter.im/yongjhih/docker-parse-server)
 
-# :rocket: One click to deploy 
+## :rocket: One click to deploy 
 [![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
 [![Deploy to Azure](http://azuredeploy.net/deploybutton.png)](https://azuredeploy.net/)
 [![Deploy to AWS](https://d0.awsstatic.com/product-marketing/Elastic%20Beanstalk/deploy-to-aws.png)](https://console.aws.amazon.com/elasticbeanstalk/home?region=us-west-2#/newApplication?applicationName=ParseServer&solutionStackName=Node.js&tierName=WebServer&sourceBundleUrl=https%3A%2F%2Fs3.amazonaws.com%2Felasticbeanstalk-samples-us-east-1%2Feb-parse-server-sample%2Fparse-server-example.zip)
@@ -14,7 +14,7 @@
 [![Deploy to Docker Cloud](https://github.com/yongjhih/docker-parse-server/raw/master/art/deploy-to-docker-cloud.png)](https://cloud.docker.com/stack/deploy/?repo=https://github.com/yongjhih/docker-parse-server)
 [![Deploy to Tutum](https://s.tutum.co/deploy-to-tutum.svg)](https://dashboard.tutum.co/stack/deploy/?repo=https://github.com/yongjhih/docker-parse-server)
 
-# :star: Features
+## :star: Features
 - [x] Parse Server with MongoDB
 - [x] [Parse Cloud Code](https://github.com/yongjhih/parse-cloud-code) via git with auto rebuild
 - [x] Parse Push Notification : iOS, Android
@@ -25,14 +25,14 @@
 - [x] Deploy with Docker Compose
 - [x] Deploy with one click
 
-# :tv: Overview
+## :tv: Overview
 ![Parse Server Diagram](https://github.com/yongjhih/docker-parse-server/raw/master/art/parse-server-diagram.png)
 
-# :see_no_evil: Sneak Preview
+## :see_no_evil: Sneak Preview
 [![Screencast](https://github.com/yongjhih/docker-parse-server/raw/master/art/docker-parse-server.gif)](https://youtu.be/1bYWSPEZL2g)
 
-# :rocket: Deployments
-## Deploy with Docker :whale:
+## :rocket: Deployments
+### Deploy with Docker
 ```sh
 $ docker run -d -p 27017:27017 --name mongo mongo
 
@@ -87,7 +87,7 @@ $  docker run -d \
              yongjhih/parse-dashboard
 
 ```
-## Deploy with Docker Compose :whale:
+### Deploy with Docker Compose
 ```sh
 $ wget https://github.com/yongjhih/docker-parse-server/raw/master/docker-compose.yml
 $ APP_ID=YOUR_APP_ID MASTER_KEY=YOUR_MASTER_KEY PARSE_DASHBOARD_ALLOW_INSECURE_HTTP=1 SERVER_URL=http://localhost:1337/parse docker-compose up -d
@@ -96,7 +96,14 @@ $ APP_ID=YOUR_APP_ID MASTER_KEY=YOUR_MASTER_KEY PARSE_DASHBOARD_ALLOW_INSECURE_H
 * We usese `PARSE_DASHBOARD_ALLOW_INSECURE_HTTP=1` to allow insecure via development environment.
 > * `$ wget https://github.com/yongjhih/docker-parse-server/raw/master/docker-compose.yml -O - | APP_ID=YOUR_APP_ID MASTER_KEY=YOUR_MASTER_KEY docker-compose up -d -f - # not supported for docker-compose container`
 
-## Advance topics :zap:
+### Deploy to Cloud Services :cloud:
+* [Heroku + Mongolab Development]()
+* [AWS Elastic Beanstalk]()
+* [Microsoft Azure App Service]()
+* [Google App Engine]()
+* [Scalingo]()
+
+## :zap: Advance topics
 * [How to use with existing mongodb with DATABASE_URI](blob/master/ADVANCE.md#how-to-use-with-existing-mongodb-with-database_uri)
 * [How to use with existing parse-cloud-code](https://github.com/katopz/docker-parse-server/blob/master/ADVANCE.md#how-to-use-with-existing-parse-cloud-code)
 * [How to specify parse-server version](https://github.com/katopz/docker-parse-server/blob/master/ADVANCE.md#how-to-specify-parse-server-version)
@@ -109,15 +116,9 @@ $ APP_ID=YOUR_APP_ID MASTER_KEY=YOUR_MASTER_KEY PARSE_DASHBOARD_ALLOW_INSECURE_H
 * [How to config Docker Compose](https://github.com/katopz/docker-parse-server/blob/master/ADVANCE.md#how-to-config-docker-compose)
 * [How to import ssh-key from github](https://github.com/katopz/docker-parse-server/blob/master/ADVANCE.md#how-to-import-ssh-key-from-github)
 
-## Deploy to Cloud Services :cloud:
-* [Heroku + Mongolab Development]()
-* [AWS Elastic Beanstalk]()
-* [Microsoft Azure App Service]()
-* [Google App Engine]()
-* [Scalingo]()
-
-# :fire: Developments 
-## How to push cloud code to server
+## :fire: Developments 
+### Server Side Developments
+How to push cloud code to server
 [![Screencast - git](https://github.com/yongjhih/docker-parse-server/raw/master/art/docker-parse-server-git.gif)](https://youtu.be/9YwWbiRyPUU)
 ```sh
 # This command wil create a SSH keys for you as
@@ -143,10 +144,10 @@ $ curl -X POST \
   http://localhost:1337/parse/functions/hello
 ```
 
-## Client
+## Client Side Developments
 You can use the REST API, the JavaScript SDK, and any of our open-source SDKs:
 
-## curl example
+### curl example
 ```
 curl -X POST \
   -H "X-Parse-Application-Id: YOUR_APP_ID" \
@@ -165,7 +166,7 @@ curl -H "X-Parse-Application-Id: YOUR_APP_ID" \
      -H "Content-Type: application/json" \
      http://localhost:1337/parse/serverInfo
 ```
-## JavaScript example
+### JavaScript example
 ```
 Parse.initialize('YOUR_APP_ID','unused');
 Parse.serverURL = 'https://whatever.herokuapp.com';
@@ -179,7 +180,7 @@ obj.save().then(function(obj) {
   }, function(err) {console.log(err); });
 }, function(err) { console.log(err); });
 ```
-## Android example
+### Android example
 ```
 //in your application class
 
@@ -194,7 +195,7 @@ Parse.initialize(new Parse.Configuration.Builder(getApplicationContext())
   testObject.saveInBackground();
 
 ```
-## iOS example
+### iOS example
 ```
 class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject:AnyObject]?) -> Bool {
@@ -207,7 +208,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 }
 ```
-# :eyes: See Also
+## :eyes: See Also
 * https://github.com/ParsePlatform/parse-server
 * http://blog.parse.com/announcements/introducing-parse-server-and-the-database-migration-tool/
 * https://parse.com/docs/server/guide#migrating
@@ -219,7 +220,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 * [Docker ❤ Parse](https://medium.com/@katopz/docker-parse-782d27761e24)
 * [DigitalOcean ❤ Parse](https://medium.com/@katopz/digitalocean-parse-e68d8b71e8eb)
 
-# Contributors & Credits
+## :thumbsup: Contributors & Credits
 [![didierfranc](https://github.com/didierfranc.png?size=40)](https://github.com/didierfranc)
 [![ArnaudValensi](https://github.com/ArnaudValensi.png?size=40)](https://github.com/ArnaudValensi)
 [![gerhardsletten](https://github.com/gerhardsletten.png?size=40)](https://github.com/gerhardsletten)
@@ -227,8 +228,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 [![kandelvijaya](https://github.com/kandelvijaya.png?size=40)](https://github.com/kandelvijaya)
 [![mjdev](https://github.com/mjdev.png?size=40)](https://github.com/mjdev)
 [![vitaminwater](https://github.com/vitaminwater.png?size=40)](https://github.com/vitaminwater)
-[![euklid](https://github.com/euklid.png?size=40)](https://github.com/euklid)
-[![walkerlee](https://github.com/walkerlee.png?size=40)](https://github.com/walkerlee)
-[![chainkite](https://github.com/chainkite.png?size=40)](https://github.com/chainkite)
+[<img src="https://github.com/euklid.png?size=40" data-canonical-src="https://github.com/euklid.png?size=40" width="40" height="40"/>](https://github.com/euklid)
+[<img src="https://github.com/walkerlee.png?size=40" data-canonical-src="https://github.com/walkerlee.png?size=40" width="40" height="40"/>](https://github.com/walkerlee)
+[<img src="https://github.com/chainkite.png?size=40" data-canonical-src="https://github.com/chainkite.png?size=40" width="40" height="40"/>](https://github.com/chainkite)
 [![cleever](https://github.com/cleever.png?size=40)](https://github.com/cleever)
 [![katopz](https://github.com/katopz.png?size=40)](https://github.com/katopz)
