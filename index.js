@@ -6,7 +6,7 @@ var express = require('express');
 var ParseServer = require('parse-server').ParseServer;
 var links = require('docker-links').parseLinks(process.env);
 
-var databaseUri = process.env.DATABASE_URI || process.env.MONGOLAB_URI
+var databaseUri = process.env.DATABASE_URI || process.env.MONGODB_URI
 
 if (!databaseUri) {
   if (links.mongo) {
