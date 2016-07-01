@@ -110,6 +110,21 @@ $ cp /path/your/key.pem volumes/certs/dev-pfx-key.pem
 $ docker-compose up
 ```
 
+## How to setup multi IOS p12
+```
+- APNS_BUNDLES_ID=bundleId1,bundleId2
+- APNS_BUNDLES_P12=/certs/cert1.p12,/certs/cert2.p12
+- APNS_BUNDLES_PROD=isProd1,idProd2
+```
+
+Example :
+```
+- APNS_BUNDLES_ID=com.mydomain.app1,com.mydomain.app2
+- APNS_BUNDLES_P12=/certs/cert-app1.p12,/certs/cert-app2.p12
+- APNS_BUNDLES_PROD=false,false
+   
+```
+
 ## How to integrate parse-cloud-code image on GitHub and DockerHub
 1. Fork https://github.com/yongjhih/parse-cloud-code
 2. Add your cloud code into https://github.com/{username}/parse-cloud-code/tree/master/cloud
