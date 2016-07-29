@@ -241,11 +241,16 @@ app.get('/', function(req, res) {
     res.status(200).send('I dream of being a web site.');
 });
 
-app.listen(port, function() {
-    console.log('docker-parse-server running on ' + serverURL + ' (:' + port + mountPath + ')');
-});
+
 
 if(liveQuery) {
-    console.log("Starting live query server")
-    var parseLiveQueryServer = ParseServer.createLiveQueryServer(app);
+  console.log("Starting live query server");
+  var httpServer = require('http').createServer(app);
+  httpServer.listen(port);
+  console.log('plac');
+  var parseLiveQueryServer = ParseServer.createLiveQueryServer(httpServer);
+} else {
+  app.listen(port, function() {
+    console.log('docker-parse-server running on ' + serverURL + ' (:' + port + mountPath + ')');
+  });
 }
