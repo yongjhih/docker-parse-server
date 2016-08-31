@@ -14,7 +14,7 @@
     "express": "~4.11.x",
     "kerberos": "~0.0.x",
     "parse": "~1.8.0",
-    "parse-server": "2.2.16"
+    "parse-server": "2.2.17"
   },
   "scripts": {
     "start": "nodemon --watch /parse/cloud index.js"
