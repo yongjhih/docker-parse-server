@@ -6,6 +6,7 @@ var express = require('express');
 var ParseServer = require('parse-server').ParseServer;
 var links = require('docker-links').parseLinks(process.env);
 var fs = require('fs');
+var AzureStorageAdapter = require('parse-server-azure-storage').AzureStorageAdapter;
 
 var databaseUri = process.env.DATABASE_URI || process.env.MONGODB_URI
 
@@ -143,6 +144,18 @@ if (process.env.S3_ACCESS_KEY &&
         process.env.GCP_KEYFILE_PATH,
         process.env.GCS_BUCKET,
         {directAccess: directAccess});
+} else if (process.env.AZURE_ACCOUNT &&
+    process.env.AZURE_CONTAINER &&
+    process.env.AZURE_ACCESS_KEY) {
+    var directAccess = !!+(process.env.AZURE_DIRECT);
+
+    filesAdapter = new AzureStorageAdapter(
+        process.env.AZURE_ACCOUNT,
+        process.env.AZURE_CONTAINER,
+        {
+            accessKey: process.env.AZURE_ACCESS_KEY,
+            directAccess: directAccess
+        });
 }
 
 var emailModule = process.env.EMAIL_MODULE;
@@ -194,7 +207,6 @@ var api = new ParseServer({
     collectionPrefix: process.env.COLLECTION_PREFIX,
     clientKey: process.env.CLIENT_KEY,
     restAPIKey: process.env.REST_API_KEY,
-    dotNetKey: process.env.DOTNET_KEY,
     javascriptKey: process.env.JAVASCRIPT_KEY,
     dotNetKey: process.env.DOTNET_KEY,
     fileKey: process.env.FILE_KEY,
