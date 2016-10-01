@@ -14,7 +14,7 @@
     "kerberos": "~0.0.x",
     "nodemon": "^1.8.1",
     "parse": "~1.8.0",
-    "parse-server": "2.2.12",
+    "parse-server": "2.2.13",
     "parse-server-azure-storage": "^1.1.0"
   },
   "scripts": {
