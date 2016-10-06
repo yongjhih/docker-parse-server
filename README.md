@@ -225,7 +225,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 [![gerhardsletten](https://github.com/gerhardsletten.png?size=40)](https://github.com/gerhardsletten)
 [![acinader](https://github.com/acinader.png?size=40)](https://github.com/acinader)
 [![kandelvijaya](https://github.com/kandelvijaya.png?size=40)](https://github.com/kandelvijaya)
-[![mjdev](https://github.com/mjdev.png?size=40)](https://github.com/mjdev)
+[<img src="https://github.com/mjdev.png?size=40" data-canonical-src="https://github.com/mjdev.png?size=40" width="40" height="40"/>](https://github.com/mjdev)
 [![vitaminwater](https://github.com/vitaminwater.png?size=40)](https://github.com/vitaminwater)
 [<img src="https://github.com/euklid.png?size=40" data-canonical-src="https://github.com/euklid.png?size=40" width="40" height="40"/>](https://github.com/euklid)
 [<img src="https://github.com/walkerlee.png?size=40" data-canonical-src="https://github.com/walkerlee.png?size=40" width="40" height="40"/>](https://github.com/walkerlee)
