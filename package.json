@@ -1,6 +1,6 @@
 {
   "name": "docker-parse-server",
-  "version": "2.2.19",
+  "version": "2.2.22",
   "description": "Parse Server as docker container",
   "main": "index.js",
   "repository": {
@@ -15,7 +15,8 @@
     "nodemon": "^1.8.1",
     "parse": "~1.8.0",
     "parse-server": "2.2.22",
-    "parse-server-azure-storage": "^1.1.0"
+    "parse-server-azure-storage": "^1.1.0",
+    "mongodb":"2.1.18"
   },
   "scripts": {
     "start": "nodemon --watch /parse/cloud index.js"
