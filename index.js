@@ -194,13 +194,16 @@ if(liveQuery) {
     };
 }
 
-
+var databaseOptions = {};
+if (process.env.DATABASE_TIMEOUT) {
+    databaseOptions = {
+        socketTimeoutMS: +(process.env.DATABASE_TIMEOUT)
+    };
+}
 
 var api = new ParseServer({
     databaseURI: databaseUri || 'mongodb://localhost:27017/dev',
-    databaseOptions: {
-        socketTimeoutMS: +(process.env.DATABASE_TIMEOUT || 60000)
-    },
+    databaseOptions: databaseOptions,
     cloud: process.env.CLOUD_CODE_MAIN || __dirname + '/cloud/main.js',
 
     appId: process.env.APP_ID || 'myAppId',
