@@ -231,6 +231,31 @@ parse-cloud-code:
 $ curl https://github.com/yongjhih.keys | docker exec -i parse-server ssh-add-key
 ```
 
+## MongoDB alternatives
+
+* ParseServer-1.x supports Mongo 3.0.8
+* ParseServer-2.x supports Mongo 3.0.8, 3.2.6
+
+```yml
+image: mongo:3.2.6
+```
+
+### MongoDB + RocksDB
+
+```yml
+image: yongjhih/mongo-rocks:3.0.8
+```
+
+```yml
+image: yongjhih/mongo-rocks:3.2.0
+```
+
+Avoid ubuntu-12.04 core dump:
+
+```yml
+image: yongjhih/mongo-rocks:ubuntu-12.04-3.2.0
+```
+
 # Getting Started With Cloud Services
 ## Getting Started With Heroku + Mongolab Development
 ### With the Heroku Button
