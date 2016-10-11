@@ -242,7 +242,7 @@ image: mongo:3.2.6
 
 ### MongoDB + RocksDB
 
-Parse.com perfers binrary of rocksdb:
+Parse.com perfers Percona binrary of mongo-rocks:
 
 ```yml
 image: yongjhih/mongo-rocks:parse-3.0.8
