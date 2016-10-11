@@ -242,9 +242,13 @@ image: mongo:3.2.6
 
 ### MongoDB + RocksDB
 
+Parse.com perfers binrary of rocksdb:
+
 ```yml
-image: yongjhih/mongo-rocks:3.0.8
+image: yongjhih/mongo-rocks:parse-3.0.8
 ```
+
+MongoDB + RocksDB source build:
 
 ```yml
 image: yongjhih/mongo-rocks:3.2.0
