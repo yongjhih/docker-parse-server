@@ -233,8 +233,8 @@ $ curl https://github.com/yongjhih.keys | docker exec -i parse-server ssh-add-ke
 
 ## MongoDB alternatives
 
-* ParseServer-1.x supports Mongo 3.0.8
-* ParseServer-2.x supports Mongo 3.0.8, 3.2.6
+* ParseServer-1.x verfied Mongo 3.0.8
+* ParseServer-2.x verfied Mongo 3.0.8, 3.2.6
 
 ```yml
 image: mongo:3.2.6
