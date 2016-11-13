@@ -101,7 +101,7 @@ mongo-data:
   command: "--break-mongo"
 
 parse-dashboard:
-  image: yongjhih/parse-dashboard:1.0.10
+  image: yongjhih/parse-dashboard:1.0.18
   links:
     - parse-server
   environment:
