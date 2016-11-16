@@ -272,3 +272,34 @@ if(liveQuery) {
     console.log('docker-parse-server running on ' + serverURL + ' (:' + port + mountPath + ')');
   });
 }
+
+// GraphQL
+var isSupportGraphQL = process.env.GRAPHQL_SUPPORT;
+var schemaURL = process.env.GRAPHQL_SCHEMA || './cloud/graphql/schema.js';
+
+console.log('isSupportGraphQL :', isSupportGraphQL);
+console.log('schemaURL :', schemaURL);
+
+if(isSupportGraphQL){
+    console.log('Starting GraphQL...');
+    
+    var IS_DEVELOPMENT = process.env.NODE_ENV !== 'production';
+
+    function getSchema() {
+        if (IS_DEVELOPMENT) {
+            delete require.cache[require.resolve(schemaURL)];
+        }
+
+        return require(schemaURL);
+    }
+
+    var graphQLHTTP = require('express-graphql');
+    app.use('/graphql', graphQLHTTP(function(request){ return {
+        graphiql: IS_DEVELOPMENT,
+        pretty: IS_DEVELOPMENT,
+        schema: getSchema()
+    }}));
+
+    // TOHAVE : Support custom `./graphql` path and maybe `port`?
+    isSupportGraphQL && console.log('GraphQL running on ' + serverURL.split(port + mountPath).join(port) + '/graphql');
+}

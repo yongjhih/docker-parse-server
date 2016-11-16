@@ -23,6 +23,7 @@
 - [x] Deploy with Docker
 - [x] Deploy with Docker Compose
 - [x] Deploy with one click
+- [x] GraphQL support `GRAPHQL_SUPPORT=true`, `GRAPHQL_SCHEMA=YOUR_SCHEMA_URL` (default to `./cloud/graphql/schema.js`)
 
 ## :tv: Overview
 ![Parse Server Diagram](https://github.com/yongjhih/docker-parse-server/raw/master/art/parse-server-diagram.png)
@@ -206,6 +207,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 }
 ```
+
+### :paperclip: GraphQL
+Run with GraphQL support.
+```shell
+GRAPHQL_SUPPORT=true APP_ID=YOUR_APP_ID MASTER_KEY=YOUR_MASTER_KEY SERVER_URL=http://localhost:1337/parse docker-compose up -d
+```
+> Make sure `./cloud/graphql/schema.js` is pushed to cloud code.  
+> Then navigate to [http://localhost:1337/graphql?query=%7B%0A%20%20hello%0A%7D%0A](http://localhost:1337/graphql?query=%7B%0A%20%20hello%0A%7D%0A)  
+
+![](./art/graphql.png)
+
 ## :eyes: See Also
 * https://github.com/ParsePlatform/parse-server
 * http://blog.parse.com/announcements/introducing-parse-server-and-the-database-migration-tool/
