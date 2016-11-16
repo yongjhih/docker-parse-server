@@ -11,12 +11,14 @@
   "dependencies": {
     "docker-links": "^1.0.2",
     "express": "~4.11.x",
+    "express-graphql": "^0.6.1",
+    "graphql": "^0.8.2",
     "kerberos": "~0.0.x",
+    "mongodb": "2.1.18",
     "nodemon": "^1.8.1",
     "parse": "~1.8.0",
     "parse-server": "2.2.22",
-    "parse-server-azure-storage": "^1.1.0",
-    "mongodb":"2.1.18"
+    "parse-server-azure-storage": "^1.1.0"
   },
   "scripts": {
     "start": "nodemon --watch /parse/cloud index.js"
