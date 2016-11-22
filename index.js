@@ -46,12 +46,14 @@ var productionCert = process.env.PRODUCTION_CERT || '/certs/production-pfx-cert.
 productionCert = isFile(productionCert) ? productionCert : null;
 var productionKey = process.env.PRODUCTION_KEY || '/certs/production-pfx-key.pem';
 productionKey = isFile(productionKey) ? productionKey : null;
+var productionPassphrase = process.env.PRODUCTION_PASSPHRASE || null;
 var productionPushConfig;
 if (productionBundleId && (productionPfx || (productionCert && productionKey))) {
     productionPushConfig = {
         pfx: productionPfx,
         cert: productionCert,
         key: productionKey,
+        passphrase: productionPassphrase,
         bundleId: productionBundleId,
         production: true
     };
@@ -65,12 +67,14 @@ var devCert = process.env.DEV_CERT || '/certs/dev-pfx-cert.pem';
 devCert = isFile(devCert) ? devCert : null;
 var devKey = process.env.DEV_KEY || '/certs/dev-pfx-key.pem';
 devKey = isFile(devKey) ? devKey : null;
+var devPassphrase = process.env.DEV_PASSPHRASE || null;
 var devPushConfig;
 if (devBundleId && (devPfx || (devCert && devKey))) { // exsiting files if not null
     devPushConfig = {
         pfx: devPfx,
         cert: devCert,
         key: devKey,
+        passphrase: devPassphrase,
         bundleId: devBundleId,
         production: false
     };
