@@ -21,7 +21,7 @@ generate-version() {
 
 echo '# maintainer: Andrew Chen <yongjhih@gmail.com> (@yongjhih)'
 
-versions=( 2.0.{0..8} 2.1.{0..6} 2.2.{0..7} master )
+versions=( 2.0.{0..8} 2.1.{0..6} 2.2.{0..22} 2.3.{0..1}  master )
 
 for version in "${versions[@]}"; do
 	generate-version "$version"

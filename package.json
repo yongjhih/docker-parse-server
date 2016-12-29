@@ -1,6 +1,6 @@
 {
   "name": "docker-parse-server",
-  "version": "2.2.22",
+  "version": "2.3.1",
   "description": "Parse Server as docker container",
   "main": "index.js",
   "repository": {
@@ -10,14 +10,14 @@
   "license": "MIT",
   "dependencies": {
     "docker-links": "^1.0.2",
-    "express": "~4.11.x",
+    "express": "~4.14.x",
     "express-graphql": "^0.6.1",
     "graphql": "^0.8.2",
     "kerberos": "~0.0.x",
-    "mongodb": "2.1.18",
-    "nodemon": "^1.8.1",
-    "parse": "~1.8.0",
-    "parse-server": "2.2.22",
+    "mongodb": "2.2.10",
+    "nodemon": "^1.11.0",
+    "parse": "~1.9.2",
+    "parse-server": "2.3.1",
     "parse-server-azure-storage": "^1.1.0"
   },
   "scripts": {
