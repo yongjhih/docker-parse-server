@@ -32,6 +32,10 @@
 [![Screencast](https://github.com/yongjhih/docker-parse-server/raw/master/art/docker-parse-server.gif)](https://youtu.be/1bYWSPEZL2g)
 
 ## :rocket: Deployments
+
+> #### Note
+* If you are upgrading from version below 2.3.0, please see [these recommended steps](https://github.com/ParsePlatform/parse-server/blob/master/2.3.0.md).
+
 ### :paperclip: Deploy with Docker
 ```sh
 $ docker run -d -p 27017:27017 --name mongo mongo
