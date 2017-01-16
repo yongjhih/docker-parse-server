@@ -110,6 +110,7 @@ $ APP_ID=YOUR_APP_ID MASTER_KEY=YOUR_MASTER_KEY PARSE_DASHBOARD_ALLOW_INSECURE_H
 ## :zap: Advance topics
 * [How to use with existing mongodb with DATABASE_URI](ADVANCE.md#how-to-use-with-existing-mongodb-with-database_uri)
 * [How to use with existing parse-cloud-code](ADVANCE.md#how-to-use-with-existing-parse-cloud-code)
+* [How to use with custom authentication](ADVANCE.md#how-to-use-with-custom-authentication)
 * [How to specify parse-server version](ADVANCE.md#how-to-specify-parse-server-version)
 * [How to specify latest commit of parse-server](ADVANCE.md#how-to-specify-latest-commit-of-parseplatformparse-server-of-image)
 * [How to start parse dashboard as standalone](ADVANCE.md#how-to-start-parse-dashboard-as-standalone)

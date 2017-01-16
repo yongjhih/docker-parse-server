@@ -205,6 +205,23 @@ if (process.env.DATABASE_TIMEOUT) {
     };
 }
 
+var auth = {};
+for (var env in process.env) {
+    if (!process.env.hasOwnProperty(env)) {
+        return;
+    }
+
+    var env_parameters = /^AUTH_([^_]*)_(.+)/.exec(env);
+
+    if (env_parameters !== null) {
+        if (typeof auth[env_parameters[1].toLowerCase()] === "undefined") {
+            auth[env_parameters[1].toLowerCase()] = {};
+        }
+
+        auth[env_parameters[1].toLowerCase()][env_parameters[2].toLowerCase()] = process.env[env];
+    }
+}
+
 var api = new ParseServer({
     databaseURI: databaseUri || 'mongodb://localhost:27017/dev',
     databaseOptions: databaseOptions,
@@ -222,6 +239,7 @@ var api = new ParseServer({
     fileKey: process.env.FILE_KEY,
     filesAdapter: filesAdapter,
 
+    auth: auth,
     facebookAppIds: facebookAppIds,
     maxUploadSize: process.env.MAX_UPLOAD_SIZE,
     push: pushConfig,
