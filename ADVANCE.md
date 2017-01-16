@@ -45,6 +45,35 @@ $ docker run -d \
              --name parse-server              \
              yongjhih/parse-server
 ```
+
+## How to use with custom authentication
+###
+
+You can add (multiple) custom authentication provider with the environment variables defined below.
+
+Mandatory module path: `AUTH_MYAUTH_MODULE=PATH_TO_MODULE`
+
+Optional module option: `AUTH_MYAUTH_MY_OPTION=value`
+
+Replace `MYAUTH` by your custom authentication name __without__ any underscore.
+
+Replace `MY_OPTION` by your custom authentication parameter name.
+
+### Example
+```sh
+$ docker run -d                                \
+             -e APP_ID=${APP_ID}         \
+             -e MASTER_KEY=${MASTER_KEY} \
+             -e AUTH_MYAUTH_MODULE=${AUTH_MYAUTH_MODULE} \
+             -e AUTH_MYAUTH_OPTION=${AUTH_MYAUTH_OPTION} \
+             -e AUTH_MYAUTH_ANOTHER_OPTION=${AUTH_MYAUTH_ANOTHER_OPTION} \
+             -e MASTER_KEY=${MASTER_KEY} \
+             -p 1337:1337                      \
+             --link mongo                      \
+             --name parse-server               \
+             yongjhih/parse-server:dev
+```
+
 ## How to specify parse-server version
 Specify parse-server:2.2.10:
 ```sh
