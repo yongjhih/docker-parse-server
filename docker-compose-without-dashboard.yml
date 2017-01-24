@@ -61,6 +61,7 @@ parse-server:
     AZURE_DIRECT:     $AZURE_DIRECT
     GRAPHQL_SUPPORT:  $GRAPHQL_SUPPORT
     GRAPHQL_SCHEMA:   $GRAPHQL_SCHEMA
+    LOG_LEVEL:        $LOG_LEVEL
   links:
     - mongo
   volumes_from:
