@@ -189,6 +189,7 @@ docker-compose up
 * Specify parse cloud code host folder: `-v {/home/yongjhih/parse/cloud}:/parse/cloud`
 * Specify parse cloud code volume container: `--volumes-from {parse-cloud-code}`
 * Specify parse-server prefix: `-e PARSE_MOUNT={/parse}`
+* Specify parse-server log level: `-e LOG_LEVEL={info}`
 
 ## How to config Docker Compose
 
@@ -231,6 +232,7 @@ parse-server:
     APP_NAME: $APP_NAME
     PUBLIC_SERVER_URL: $PUBLIC_SERVER_URL
     TRUST_PROXY: $TRUST_PROXY # false
+    LOG_LEVEL: $LOG_LEVEL # info
 # ...
 ```
 

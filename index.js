@@ -250,7 +250,8 @@ var api = new ParseServer({
     //oauth = {},
     appName: process.env.APP_NAME,
     publicServerURL: process.env.PUBLIC_SERVER_URL,
-    liveQuery: liveQueryParam
+    liveQuery: liveQueryParam,
+    logLevel: process.env.LOG_LEVEL || 'info'
     //customPages: process.env.CUSTOM_PAGES || // {
     //invalidLink: undefined,
     //verifyEmailSuccess: undefined,
