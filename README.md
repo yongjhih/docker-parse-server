@@ -79,16 +79,12 @@ $ docker run -d \
 # before accessing the portal else you cant get in
 
 $  docker run -d \
-             -e APP_ID=$(APP_ID)\
-             -e MASTER_KEY=$(MASTER_KEY)\
-             -e SERVER_URL=http://localhost:1337/parse \
-             -e PARSE_DASHBOARD_ALLOW_INSECURE_HTTP=1  \
-             -e USER1=yourUsername  \
-             -e USER1_PASSWORD=yourUsernamesPassword \
-             -p 4040:4040                      \
-             --link parse-server               \
-             --name parse-dashboard            \
-             yongjhih/parse-dashboard
+        -e PARSE_DASHBOARD_CONFIG='{"apps":[{"appId":"<appid>","serverURL":"<docker-ip>/parse","masterKey":"<masterkey>","appName":"<appname>"}],"users":[{"user":"<username>","pass":"<password>"}]}' \
+        -e PARSE_DASHBOARD_ALLOW_INSECURE_HTTP=1  \
+        -p 4040:4040                      \
+        --link parse-server               \
+        --name parse-dashboard            \
+        yongjhih/parse-dashboard
 
 ```
 ### :paperclip: Deploy with Docker Compose
