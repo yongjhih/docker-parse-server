@@ -79,7 +79,7 @@ $ docker run -d \
 # before accessing the portal else you cant get in
 
 $  docker run -d \
-        -e PARSE_DASHBOARD_CONFIG='{"apps":[{"appId":"<appid>","serverURL":"<docker-ip>/parse","masterKey":"<masterkey>","appName":"<appname>"}],"users":[{"user":"<username>","pass":"<password>"}]}' \
+        -e PARSE_DASHBOARD_CONFIG='{"apps":[{"appId":"<appid>","serverURL":"http://localhost:1337/parse","masterKey":"<masterkey>","appName":"<appname>"}],"users":[{"user":"<username>","pass":"<password>"}]}' \
         -e PARSE_DASHBOARD_ALLOW_INSECURE_HTTP=1  \
         -p 4040:4040                      \
         --link parse-server               \
