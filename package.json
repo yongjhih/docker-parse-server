@@ -18,7 +18,8 @@
     "nodemon": "^1.11.0",
     "parse": "~1.9.2",
     "parse-server": "2.3.1",
-    "parse-server-azure-storage": "^1.1.0"
+    "parse-server-azure-storage": "^1.1.0",
+    "parse-server-mailgun-adapter-template": "^1.1.7"
   },
   "scripts": {
     "start": "nodemon --watch /parse/cloud index.js"

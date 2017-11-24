@@ -168,13 +168,32 @@ var emailAdapter;
 if (!emailModule) {
     verifyUserEmails = false;
 } else {
+    var emailAdapterOptions = {
+        fromAddress: process.env.EMAIL_FROM,
+        domain: process.env.EMAIL_DOMAIN,
+        apiKey: process.env.EMAIL_API_KEY
+    };
+    if (process.env.EMAIL_VERIFICATION_SUBJECT) {
+        emailAdapterOptions.verificationSubject = process.env.EMAIL_VERIFICATION_SUBJECT;
+    }
+    if (process.env.EMAIL_VERIFICATION_BODY) {
+        emailAdapterOptions.verificationBody = process.env.EMAIL_VERIFICATION_BODY;
+    }
+    if (process.env.EMAIL_VERIFICATION_BODY_HTML) {
+        emailAdapterOptions.verificationBodyHTML = fs.readFileSync(process.env.EMAIL_VERIFICATION_BODY_HTML, "utf8") || process.env.EMAIL_VERIFICATION_BODY_HTML;
+    }
+    if (process.env.EMAIL_PASSWORD_RESET_SUBJECT) {
+        emailAdapterOptions.passwordResetSubject = process.env.EMAIL_PASSWORD_RESET_SUBJECT;
+    }
+    if (process.env.EMAIL_PASSWORD_RESET_BODY) {
+        emailAdapterOptions.passwordResetBody = process.env.EMAIL_PASSWORD_RESET_BODY;
+    }
+    if (process.env.EMAIL_PASSWORD_RESET_BODY_HTML) {
+        emailAdapterOptions.passwordResetBodyHTML = fs.readFileSync(process.env.EMAIL_PASSWORD_RESET_BODY_HTML, "utf8") || process.env.EMAIL_PASSWORD_RESET_BODY_HTML;
+    }
     emailAdapter = {
         module: emailModule,
-        options: {
-            fromAddress: process.env.EMAIL_FROM,
-            domain: process.env.EMAIL_DOMAIN,
-            apiKey: process.env.EMAIL_API_KEY
-        }
+        options: emailAdapterOptions
     };
 }
 console.log(verifyUserEmails);
